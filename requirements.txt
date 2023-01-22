@@ -1,3 +1,2 @@
-pandas=1.2.4=py38hd77b12b_0
-Plost==0.2.5
-plost=0.2.5=pypi_0
+pandas=1.2.4
+plost=0.2.5
