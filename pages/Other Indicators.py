@@ -29,8 +29,8 @@ show_list = {'state':'State', 'year':'Year', 'region':'Region', 'incomeLevel':'I
 show_list_1 = {'state':'State', 'year':'Year', indicator:key }
 
 
-st.sidebar.subheader('State')
-state = st.sidebar.selectbox('Select state', set(de.state))
+st.subheader('State')
+state = st.selectbox('Select state', set(de.state))
 
 s_l = list(set(de.state))
 s_l.remove(state)
