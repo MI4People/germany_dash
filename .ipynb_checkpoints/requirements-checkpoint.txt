@@ -1,0 +1,3 @@
+pandas==1.2.4
+plost==0.2.5
+meteostat==1.6.5
