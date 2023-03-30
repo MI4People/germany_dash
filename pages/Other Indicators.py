@@ -17,7 +17,7 @@ liste = {'Total Unemployment %':'unemployment_total', 'Male Unemployment %':'une
 with open('style.css') as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
     
-st.sidebar.header('Dashboard `version 1_1`')
+st.sidebar.header('Dashboard Germany')
 
 
 st.sidebar.subheader('Indicator')
@@ -102,7 +102,7 @@ Created with ❤️
 
 
 # Row A
-st.markdown(f'### {state}')
+st.markdown('### Metrics')
 col1, col2, col3, col4 = st.columns(4)
 
 col1.metric("In Germany", temp_de[temp_de.state == state].index[0],'')
@@ -136,7 +136,25 @@ with c2_x:
 col1, col2 = st.columns((4, 8))
 
 temp = temp_co.copy()
+num = temp[temp.state==state].index[0]
 
+temp = pd.concat([temp.head(2),temp.loc[[temp[temp.state=='Germany'].index[0]]],
+                           temp.loc[[temp[temp.state=='Spain'].index[0]]],
+                           temp.loc[[temp[temp.state=='France'].index[0]]],
+                          temp.loc[[temp[temp.state=='China'].index[0]]],
+                          temp.loc[[temp[temp.state=='United States'].index[0]]],
+                          temp.loc[[temp[temp.state=='United Kingdom'].index[0]]],
+                          temp.loc[[temp[temp.state=='Russian Federation'].index[0]]],
+                           temp.loc[[i for i in range(num-2, num+3)]], 
+              temp.tail(2)])
+temp.drop_duplicates(inplace=True)
+
+if indicator in ['bruttoinland','population_total', 'gdp_per', 'pop_growth', 'gdp_growth']:
+    
+    temp = temp[['state', 'year', 'region','incomeLevel', indicator]].sort_values(indicator,ascending=False)
+
+else:
+    temp = temp[['state', 'year', 'region','incomeLevel', indicator]].sort_values(indicator)
 
 
 col1_x = col1.expander('Order in Germany')
@@ -146,22 +164,7 @@ with col1_x:
     col1_x.table(data=temp_de[['state','year',indicator]].rename(mapper = show_list_1, axis = 1).style.format({key:"{:.3}"}))
     
     
-col2_x = col2.expander('Order in with selected Countries')
+col2_x = col2.expander('Order in World with some selected Countries')
 
 with col2_x:
-    c = st.multiselect('Countries', temp_co.state, default = ['Germany','France','Spain','United Kingdom','Italy','United States','China'])
-  #  num = temp[temp.state==state].index[0]
-
-    temp = pd.concat([temp[temp.state.isin(c)],
-                           temp[temp.state==state]])
-    
-    temp.drop_duplicates(inplace=True)
-
-    if indicator in ['bruttoinland','population_total', 'gdp_per', 'pop_growth', 'gdp_growth']:
-
-        temp = temp[['state', 'year', 'region','incomeLevel', indicator]].sort_values(indicator,ascending=False)
-
-    else:
-        temp = temp[['state', 'year', 'region','incomeLevel', indicator]].sort_values(indicator)
-    
     col2_x.table(temp.rename(mapper = show_list, axis = 1).style.format({key:"{:.3}"}))
