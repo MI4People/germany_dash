@@ -4,8 +4,8 @@ from datetime import datetime
 from meteostat import Point, Daily, Monthly
 import plost
 
-st.set_page_config(layout='wide', initial_sidebar_state='expanded',page_title="Multipage App",
-    page_icon="👋")
+st.set_page_config(layout='wide', initial_sidebar_state='expanded',page_title="dashgermany",
+    page_icon="🇩🇪")
 st.write(
     """
     <style>
