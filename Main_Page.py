@@ -51,9 +51,11 @@ date_objs = pd.date_range(max_date, end)
 
 if key == 'weather':
     try:
+        st.write("deneme")
         location = Point(df_c.iloc[0,1], df_c.iloc[0,2])
-
+        st.write(location)
         data = Daily(location, start, end)
+        st.write(data)
         data = data.fetch()
         data.reset_index(inplace =True)
         data['df_time'] = data.time.apply(lambda x: x.strftime('%m-%d'))
