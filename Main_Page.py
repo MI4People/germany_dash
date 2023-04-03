@@ -24,7 +24,7 @@ with open('style.css') as f:
     
 st.sidebar.header('Dashboard Germany')
 st.subheader('Indicator')
-key = st.selectbox('Indicator', ['weather', 'inflation'], 0) 
+key = st.selectbox('Indicator', ['weather', 'inflation'], 1) 
 
 
 st.sidebar.markdown('''
@@ -51,15 +51,11 @@ date_objs = pd.date_range(max_date, end)
 
 if key == 'weather':
     try:
-        st.write("deneme")
+     
         location = Point(df_c.iloc[0,1], df_c.iloc[0,2])
-        st.write(location)
         st.write(df_c.iloc[0,1],df_c.iloc[0,2])
         data = Daily(location, start, end)
-        
         data = data.fetch()
-        st.write('deneme')
-        st.write(data)
         data.reset_index(inplace =True)
         data['df_time'] = data.time.apply(lambda x: x.strftime('%m-%d'))
         data['x_time'] = data.time.apply(lambda x: x.strftime('%Y/%m/%d'))
