@@ -56,8 +56,10 @@ if key == 'weather':
         st.write(location)
         st.write(df_c.iloc[0,1],df_c.iloc[0,2])
         data = Daily(location, start, end)
-        st.write(data)
+        
         data = data.fetch()
+        st.write('deneme')
+        st.write(data)
         data.reset_index(inplace =True)
         data['df_time'] = data.time.apply(lambda x: x.strftime('%m-%d'))
         data['x_time'] = data.time.apply(lambda x: x.strftime('%Y/%m/%d'))
