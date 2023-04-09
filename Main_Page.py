@@ -53,7 +53,7 @@ if key == 'weather':
     try:
      
         location = Point(df_c.iloc[0,1], df_c.iloc[0,2])
-        st.write(df_c.iloc[0,1],df_c.iloc[0,2])
+       # st.write(df_c.iloc[0,1],df_c.iloc[0,2])
         data = Daily(location, start, end)
         data = data.fetch()
         data.reset_index(inplace =True)
@@ -61,7 +61,7 @@ if key == 'weather':
         data['x_time'] = data.time.apply(lambda x: x.strftime('%Y/%m/%d'))
         data = data[data.df_time ==end.strftime('%m-%d')]
         data.reset_index(inplace =True)
-        st.write(data)
+       # st.write(data)
         data_m = Monthly(location, start, end)
         data_m = data_m.fetch()
         data_m.reset_index(inplace =True)
