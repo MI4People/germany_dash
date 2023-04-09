@@ -157,9 +157,6 @@ with col1_x:
     
 col2_x = col2.expander('Order in World with some selected Countries')
 
-# with col2_x:
-#     col2_x.table(temp.rename(mapper = show_list, axis = 1).style.format({key:"{:.3}"}))
-    
 with col2_x:
         c = st.multiselect('States', temp.state, default = [state, 'Germany','United States','United Kingdom', 'France','Spain','Italy' ,'China','Japan' ])
       #  num = temp[temp.state==state].index[0]
