@@ -39,7 +39,7 @@ st.sidebar.markdown('''
 Created with ❤️ 
 ''')
 
-df = pd.read_csv('de.csv', engine='python',  encoding = "ISO-8859-1")
+df = pd.read_csv('de.csv', engine='python',  encoding = 'utf-8')
 cur = pd.read_csv('data.csv', index_col = 0)
 cur['date'] = cur.date.apply(lambda x: datetime.strptime(x, "%Y-%m-%d"))
 max_date = cur.date.max()
