@@ -58,7 +58,8 @@ date_objs = pd.date_range(max_date, end)
 
 if key == 'weather':
     try:
-        key = st.selectbox('Weather', ['Temperature'], 0) 
+        #key = st.selectbox('Weather', ['Temperature'], 0) 
+        key = 'Temperature'
         value_dic = {'Temperature':'tavg', 'Rain':'prcp'}
         val_key = value_dic[key]
         location = Point(df_c.iloc[0,1], df_c.iloc[0,2])
