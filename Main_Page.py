@@ -39,7 +39,7 @@ st.sidebar.markdown('''
 Created with ❤️ 
 ''')
 
-df = pd.read_csv('de.csv', engine='python',  encoding = 'utf-8')
+df = pd.read_csv('de.csv', engine='python',  encoding = "ISO-8859-1")
 cur = pd.read_csv('data.csv', index_col = 0)
 cur['date'] = cur.date.apply(lambda x: datetime.strptime(x, "%Y-%m-%d"))
 max_date = cur.date.max()
@@ -286,7 +286,7 @@ else:
    # st.write(data_me)
     val = round(data_me.tail(12).inflation.mean() - data_me.head(12).inflation.mean(),2)
     delta_current ='The Inflation in between {}-{} is {} {} compare to {}-{}'.format(data_me.tail(12).time.max(), data_me.tail(12).time.min(), val, "higher" if val >= 0 else "less",data_me.head(12).time.max(), data_me.head(12).time.min())
-    col4.metric("Inf in last 12 Months",  round(data_me.tail(12).inflation.mean(),2),"2023-2014" ,"inverse" if val >= 0 else "normal", delta_current )
+    col4.metric("Inf in last 12 Months",  round(data_me.tail(12).inflation.mean(),2),f'{data_me.tail(12).year.max()}- {data_me.tail(12).year.min()}' ,"inverse" if val >= 0 else "normal", delta_current )
     c1, c2 = st.columns([3, 1])
     with c1:
         st.markdown(f'### {key.title()} for {state} ')
