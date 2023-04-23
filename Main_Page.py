@@ -61,9 +61,7 @@ if key == 'weather':
         key = st.selectbox('Weather', ['Temperature'], 0) 
         value_dic = {'Temperature':'tavg', 'Rain':'prcp'}
         val_key = value_dic[key]
-        location = Point(df_c.iloc[0,1], df_c.iloc[0,2])
-        st.write(df_c)
-        st.write(df_c.iloc[0,1],df_c.iloc[0,2])
+        location = Point(df_c.iloc[0,1], df_c.iloc[0,2]))
         data = Daily(location, start, end)
         data = data.fetch()
         data.reset_index(inplace =True)
