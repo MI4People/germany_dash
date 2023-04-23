@@ -39,7 +39,7 @@ st.sidebar.markdown('''
 Created with ❤️ 
 ''')
 
-df = pd.read_csv('de.csv', engine='python',  encoding = "ISO-8859-1")
+df = pd.read_csv('de.csv', engine='python',  encoding = "ISO-8859-1", index_col=0)
 cur = pd.read_csv('data.csv', index_col = 0)
 cur['date'] = cur.date.apply(lambda x: datetime.strptime(x, "%Y-%m-%d"))
 max_date = cur.date.max()
@@ -62,7 +62,8 @@ if key == 'weather':
         value_dic = {'Temperature':'tavg', 'Rain':'prcp'}
         val_key = value_dic[key]
         location = Point(df_c.iloc[0,1], df_c.iloc[0,2])
-       # st.write(df_c.iloc[0,1],df_c.iloc[0,2])
+        st.write(df_c)
+        st.write(df_c.iloc[0,1],df_c.iloc[0,2])
         data = Daily(location, start, end)
         data = data.fetch()
         data.reset_index(inplace =True)
