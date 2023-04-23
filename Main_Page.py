@@ -1,8 +1,15 @@
 import streamlit as st
 import pandas as pd 
 from datetime import datetime
+from sklearn.linear_model import LinearRegression
+import plotly.graph_objects as go
+import numpy as np
 from meteostat import Point, Daily, Monthly
 import plost
+
+
+
+
 
 
 st.set_page_config(layout='wide', initial_sidebar_state='expanded',page_title="dashgermany",
@@ -51,7 +58,9 @@ date_objs = pd.date_range(max_date, end)
 
 if key == 'weather':
     try:
-     
+        key = st.selectbox('Weather', ['Temperature'], 0) 
+        value_dic = {'Temperature':'tavg', 'Rain':'prcp'}
+        val_key = value_dic[key]
         location = Point(df_c.iloc[0,1], df_c.iloc[0,2])
        # st.write(df_c.iloc[0,1],df_c.iloc[0,2])
         data = Daily(location, start, end)
@@ -68,25 +77,46 @@ if key == 'weather':
         data_m['df_time'] = data_m.time.apply(lambda x: x.strftime('%m'))
         data_m['x_time'] = data_m.time.apply(lambda x: x.strftime('%Y/%m'))
         data_m['Year'] = data_m.time.apply(lambda x: x.strftime('%Y'))
-
         
+        df_g = data_m[data_m.df_time ==end.strftime('%m')].reset_index(drop=True)
+        
+        Y=np.log(df_g[val_key])
+        X=df_g.Year
+        # log regression
+
+        df_log=pd.DataFrame({'X':df_g.Year,
+                             'Y': np.log(df_g[val_key])})
+        df_log.set_index('X', inplace = True)
+        
+       
+        reg = LinearRegression().fit(np.vstack(df_log.index), df_log['Y'])
+     
+        df_log['bestfit'] = reg.predict(np.vstack(df_log.index))
+        
+        df_new=pd.DataFrame({'X':df_g.Year,
+                             'Y':np.exp(df_g[val_key]),
+                             'trend':np.exp(df_log['bestfit'].reset_index(drop=True))})
+    
+        
+        df_new.set_index('X', inplace=True)
+      
         col1, col2, col3, col4 = st.columns(4)
-        val = round(data.tavg.max() - data.tavg.values[-1],2)
-        delta_current ='The maximum temparture was measure in {}, and it was {} C {} compare to today'.format(data[data.tavg == data.tavg.max()]['time'].dt.year.values[0],val, "higher" if val >= 0 else "less")
-        col1.metric("T Max", data.tavg.max(), str(data[data.tavg == data.tavg.max()]['time'].dt.year.values[0]), 'inverse', delta_current)
+        val = round(data[val_key].max() - data[val_key].values[-1],2)
+        delta_current ='The maximum {} was measure in {}, and it was {} C {} compare to today'.format(key, data[data[val_key] == data[val_key].max()]['time'].dt.year.values[0],val, "higher" if val >= 0 else "less")
+        col1.metric("T Max", data[val_key].max(), str(data[data[val_key] == data[val_key].max()]['time'].dt.year.values[0]), 'inverse', delta_current)
 
-        val = round(data.tavg.min() - data.tavg.values[-1],2)
-        delta_current ='The minumum temparture was measure in {}, and it was {} C {} compare to today'.format(data[data.tavg == data.tavg.min()]['time'].dt.year.values[0],val, "higher" if val >= 0 else "less")
-        col2.metric("T Min", data.tavg.min(), str(data[data.tavg == data.tavg.min()]['time'].dt.year.values[0]),'normal', delta_current)
+        val = round(data[val_key].min() - data[val_key].values[-1],2)
+        delta_current ='The minumum temparture was measure in {}, and it was {} C {} compare to today'.format(data[data[val_key] == data[val_key].min()]['time'].dt.year.values[0],val, "higher" if val >= 0 else "less")
+        col2.metric("T Min", data[val_key].min(), str(data[data[val_key] == data[val_key].min()]['time'].dt.year.values[0]),'normal', delta_current)
 
-        val = round(data.tavg.values[-1] - data.tavg.values[-2],2)
+        val = round(data[val_key].values[-1] - data[val_key].values[-2],2)
         delta_current ='The current temprature is {} C {} compare to last year'.format(val, "higher" if val >= 0 else "less")
-        col3.metric("T Current",  data[data.time ==data.time.max()]['tavg'].values[0], data.time.max().strftime('%Y'), "inverse" if val >= 0 else "normal", delta_current)
+        col3.metric("T Current",  data[data.time ==data.time.max()][val_key].values[0], data.time.max().strftime('%Y'), "inverse" if val >= 0 else "normal", delta_current)
 
         data_me = data.iloc[-20:,:]
-        val = round(data_me.tail(10).tavg.mean() - data_me.head(10).tavg.mean(),2)
-        delta_current ='The temprature in between 2023 and 2014 is {} C {} compare to 2013 and 2004'.format(val, "higher" if val >= 0 else "less")
-        col4.metric("T in Last Ten Years",  round(data_me.tail(10).tavg.mean(),2),"2023-2014" ,"inverse" if val >= 0 else "normal", delta_current )
+        val = round(df_new.trend.values[-1] - df_new.trend.values[0],2)
+        delta_current ='The Trend temperature for April pro year is {} based on values {}'.format(val, f"{data_m['Year'].min()}-{data_m['Year'].max()}" )
+        col4.metric("Trend over Years",  val,f"{data_m['Year'].min()}-{data_m['Year'].max()}" ,"inverse" if val >= 0 else "normal", delta_current )
         
         c1, c2 = st.columns([3, 1])
         with c1:
@@ -95,34 +125,93 @@ if key == 'weather':
             data=data,
             title = f'Average Temp for {end.strftime("%B %d")} over Years',
             bar = 'time',
-            value = 'tavg',
+            value = val_key,
              height=400,
              use_container_width=True 
 
             )
 
         c2_x = c2.expander('Values')
-        temp = data[['x_time', 'tavg']].tail(12).sort_values('x_time',ascending=False ).reset_index(drop = True)
+        temp = data[['x_time', val_key]].tail(12).sort_values('x_time',ascending=False ).reset_index(drop = True)
         temp.index +=1
         with c2_x:
             c2_x.table(temp.style.format({"tavg":"{:.3}"}))
         
         col1, col2 = st.columns([3, 1])
-        col1_x = col1.expander('Weather')
+        
+        
+        
+        # plotly figure setup
+        fig=go.Figure()
+        fig.add_trace(go.Bar( name = 'Average Temperature',x=df_new.index, y=df_g[val_key],))
+        fig.add_trace(go.Scatter(name='line of best fit', x=df_new.index, y=df_new['trend'], mode='lines'))
+
+        # plotly figure layout
+#        fig.update_layout(xaxis_title = 'Year', yaxis_title = val_key, showlegend=False)
+        fig.update_layout(xaxis_title = 'Year', yaxis_title = val_key,legend=dict(
+            orientation="h",
+            yanchor="bottom",
+            y=1.02,
+            xanchor="right",
+            x=1
+            
+        ))
+        
+        col1_x = col1.expander(f'Weather for {end.strftime("%B")} ')
         with col1_x:
             
-            plost.bar_chart(
-            data=data_m[data_m.df_time ==end.strftime('%m')],
-            title = f'Average Temp for {end.strftime("%B")} over Years',
-            bar = 'Year',
-            value = 'tavg',
-             height=400,
-             use_container_width=True 
+            st.plotly_chart(fig, 
+             use_container_width=True )
 
-            )
         col2_x = col2.expander('values')
-        temp = data_m[data_m.df_time ==end.strftime('%m')][['x_time', 'tavg']].tail(12).sort_values('x_time',ascending=False ).reset_index(drop = True)
+        temp = data_m[data_m.df_time ==end.strftime('%m')][['x_time', val_key]].tail(12).sort_values('x_time',ascending=False ).reset_index(drop = True)
+        temp.index +=1 
+        with col2_x:
+            col2_x.table(temp.style.format({"tavg":"{:.3}"}))
+            
+
+        col1, col2 = st.columns([3, 1])
+        col1_x = col1.expander('Weather for Years')
+        df_g = data_m[data_m.Year != end.strftime('%Y')].groupby('Year').mean()[val_key].reset_index()
         
+        Y=np.log(df_g[val_key])
+        X=df_g.Year
+        # log regression
+
+        df_log=pd.DataFrame({'X':df_g.Year,
+                             'Y': np.log(df_g[val_key])})
+        df_log.set_index('X', inplace = True)
+       # st.write(sklearn.__version__)
+        reg = LinearRegression().fit(np.vstack(df_log.index), df_log['Y'])
+        df_log['bestfit'] = reg.predict(np.vstack(df_log.index))
+        df_new=pd.DataFrame({'X':df_g.Year,
+                             'Y':np.exp(df_g[val_key]),
+                             'trend':np.exp(df_log['bestfit'].reset_index(drop=True))})
+        
+        df_new.set_index('X', inplace=True)
+        
+        # plotly figure setup
+        fig=go.Figure()
+        fig.add_trace(go.Bar( name = 'Average Temperature' ,x=df_new.index, y=df_g[val_key]))
+        fig.add_trace(go.Scatter(name='line of best fit', x=df_new.index, y=df_new['trend'], mode='lines'))
+
+        # plotly figure layout
+        fig.update_layout(xaxis_title = 'Year', yaxis_title = val_key,legend=dict(
+            orientation="h",
+            yanchor="bottom",
+            y=1.02,
+            xanchor="right",
+            x=1
+            
+        ))
+        with col1_x:
+            st.plotly_chart(fig,  
+             use_container_width=True )
+            
+
+        col2_x = col2.expander('values')
+        temp = data_m[data_m.Year != end.strftime('%Y')].groupby('Year').mean()[val_key].tail(12).reset_index().sort_values('Year',ascending=False ).reset_index(drop=True)
+        temp.index +=1
         with col2_x:
             col2_x.table(temp.style.format({"tavg":"{:.3}"}))
     except:
@@ -196,7 +285,7 @@ else:
     data_me = df[(df.state == state)&(df.time <= end.strftime('%Y/%m'))].iloc[-24:,:]
    # st.write(data_me)
     val = round(data_me.tail(12).inflation.mean() - data_me.head(12).inflation.mean(),2)
-    delta_current ='The temprature in between {}-{} is {} {} compare to {}-{}'.format(data_me.tail(12).time.max(), data_me.tail(12).time.min(), val, "higher" if val >= 0 else "less",data_me.head(12).time.max(), data_me.head(12).time.min())
+    delta_current ='The Inflation in between {}-{} is {} {} compare to {}-{}'.format(data_me.tail(12).time.max(), data_me.tail(12).time.min(), val, "higher" if val >= 0 else "less",data_me.head(12).time.max(), data_me.head(12).time.min())
     col4.metric("Inf in last 12 Months",  round(data_me.tail(12).inflation.mean(),2),"2023-2014" ,"inverse" if val >= 0 else "normal", delta_current )
     c1, c2 = st.columns([3, 1])
     with c1:
