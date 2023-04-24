@@ -114,9 +114,10 @@ if key == 'weather':
         col3.metric("T Current",  data[data.time ==data.time.max()][val_key].values[0], data.time.max().strftime('%Y'), "inverse" if val >= 0 else "normal", delta_current)
 
         data_me = data.iloc[-20:,:]
-        val = round(df_new.trend.values[-1] - df_new.trend.values[0],2)
-        delta_current ='The Trend temperature for April pro year is {} based on values {}'.format(val, f"{data_m['Year'].min()}-{data_m['Year'].max()}" )
-        col4.metric("Trend over Years",  val,f"{data_m['Year'].min()}-{data_m['Year'].max()}" ,"inverse" if val >= 0 else "normal", delta_current )
+        val = round(df_new.trend.values[-1] - df_new.trend.values[-2],2)
+        val_all = round(df_new.trend.values[-1] - df_new.trend.values[0],2)
+        delta_current ='The Trend temperature for April pro year is {} based on values {}, and it is {} {} in {} compare to {}'.format(val, f"{data_m['Year'].min()}-{int(data_m['Year'].max()) -1}", val_all,"higher" if val >= 0 else "less" , int(data_m['Year'].max()) -1, data_m['Year'].min() )
+        col4.metric("Trend over Years",  val_all,f"{data_m['Year'].min()}-{int(data_m['Year'].max())-1}" ,"inverse" if val >= 0 else "normal", delta_current )
         
         c1, c2 = st.columns([3, 1])
         with c1:
