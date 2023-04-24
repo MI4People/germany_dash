@@ -144,7 +144,7 @@ if key == 'weather':
         # plotly figure setup
         fig=go.Figure()
         fig.add_trace(go.Bar( name = 'Average Temperature',x=df_new.index, y=df_g[val_key],))
-        fig.add_trace(go.Scatter(name='line of best fit', x=df_new.index, y=df_new['trend'], mode='lines'))
+        fig.add_trace(go.Scatter(name='Trend over Years', x=df_new.index, y=df_new['trend'], mode='lines', marker_color='red'))
 
         # plotly figure layout
 #        fig.update_layout(xaxis_title = 'Year', yaxis_title = val_key, showlegend=False)
@@ -193,7 +193,7 @@ if key == 'weather':
         # plotly figure setup
         fig=go.Figure()
         fig.add_trace(go.Bar( name = 'Average Temperature' ,x=df_new.index, y=df_g[val_key]))
-        fig.add_trace(go.Scatter(name='line of best fit', x=df_new.index, y=df_new['trend'], mode='lines', marker_color='red'))
+        fig.add_trace(go.Scatter(name='Trend over Years', x=df_new.index, y=df_new['trend'], mode='lines', marker_color='red'))
 
         # plotly figure layout
         fig.update_layout(xaxis_title = 'Year', yaxis_title = val_key,legend=dict(
