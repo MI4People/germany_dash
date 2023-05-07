@@ -6,7 +6,7 @@ import plotly.graph_objects as go
 import numpy as np
 from meteostat import Point, Daily, Monthly
 import plost
-
+import json
 
 
 
@@ -27,11 +27,14 @@ st.write(
 
 with open('style.css') as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+    
+with open('exp00.json', 'r', encoding='utf-8') as f:
+    exp = json.load(f)
 
     
 st.sidebar.header('Dashboard Germany')
 st.subheader('Indicator')
-key = st.selectbox('Indicator', ['weather', 'inflation'], 1) 
+key = st.selectbox('Indicator', ['Weather', 'Inflation'], 0) 
 
 
 st.sidebar.markdown('''
@@ -56,7 +59,7 @@ end = datetime.today()
 end = datetime(end.year, end.month, end.day)
 date_objs = pd.date_range(max_date, end)
 
-if key == 'weather':
+if key.lower() == 'weather':
     try:
         #key = st.selectbox('Weather', ['Temperature'], 0) 
         key = 'Temperature'
@@ -80,12 +83,11 @@ if key == 'weather':
         
         df_g = data_m[data_m.df_time ==end.strftime('%m')].reset_index(drop=True)
         
-        Y=np.log(df_g[val_key])
-        X=df_g.Year
+        
         # log regression
 
         df_log=pd.DataFrame({'X':df_g.Year,
-                             'Y': np.log(df_g[val_key])})
+                             'Y': df_g[val_key]})
         df_log.set_index('X', inplace = True)
         
        
@@ -94,8 +96,8 @@ if key == 'weather':
         df_log['bestfit'] = reg.predict(np.vstack(df_log.index))
         
         df_new=pd.DataFrame({'X':df_g.Year,
-                             'Y':np.exp(df_g[val_key]),
-                             'trend':np.exp(df_log['bestfit'].reset_index(drop=True))})
+                             'Y':df_g[val_key],
+                             'trend':df_log['bestfit'].reset_index(drop=True)})
     
         
         df_new.set_index('X', inplace=True)
@@ -116,12 +118,12 @@ if key == 'weather':
         data_me = data.iloc[-20:,:]
         val = round(df_new.trend.values[-1] - df_new.trend.values[-2],2)
         val_all = round(df_new.trend.values[-1] - df_new.trend.values[0],2)
-        delta_current ='The Trend temperature for April pro year is {} based on values {}, and it is {} {} in {} compare to {}'.format(val, f"{data_m['Year'].min()}-{int(data_m['Year'].max()) -1}", val_all,"higher" if val >= 0 else "less" , int(data_m['Year'].max()) -1, data_m['Year'].min() )
+        delta_current ='The Trend temperature for {} pro year is {} based on values {}, and it is {} {} in {} compare to {}'.format(end.strftime("%B"), val, f"{data_m['Year'].min()}-{int(data_m['Year'].max()) -1}", val_all,"higher" if val >= 0 else "less" , int(data_m['Year'].max()) -1, data_m['Year'].min() )
         col4.metric("Trend over Years",  val_all,f"{data_m['Year'].min()}-{int(data_m['Year'].max())-1}" ,"inverse" if val >= 0 else "normal", delta_current )
         
         c1, c2 = st.columns([3, 1])
         with c1:
-            st.markdown(f'### {"weather".title()} ')
+            st.markdown(f'### {"Temperature".title()} ')
             plost.bar_chart(
             data=data,
             title = f'Average Temp for {end.strftime("%B %d")} over Years',
@@ -131,6 +133,15 @@ if key == 'weather':
              use_container_width=True 
 
             )
+            st_exp_en = st.expander('explanation in English')
+            with st_exp_en:    
+                    st.write( exp[key]['English']['meaning']) 
+            st_exp_de = st.expander('explanation in German')
+
+            with st_exp_de:             
+                    st.write(exp[key]['Deutsch']['meaning']) 
+            
+         
 
         c2_x = c2.expander('Values')
         temp = data[['x_time', val_key]].tail(12).sort_values('x_time',ascending=False ).reset_index(drop = True)
@@ -158,7 +169,7 @@ if key == 'weather':
             
         ))
         
-        col1_x = col1.expander(f'Weather for {end.strftime("%B")} ')
+        col1_x = col1.expander(f'Temperature for {end.strftime("%B")} ')
         with col1_x:
             
             st.plotly_chart(fig, 
@@ -172,22 +183,114 @@ if key == 'weather':
             
 
         col1, col2 = st.columns([3, 1])
-        col1_x = col1.expander('Weather for Years')
+        col1_x = col1.expander('Temperature for Years')
         df_g = data_m[data_m.Year != end.strftime('%Y')].groupby('Year').mean()[val_key].reset_index()
         
-        Y=np.log(df_g[val_key])
-        X=df_g.Year
         # log regression
 
         df_log=pd.DataFrame({'X':df_g.Year,
-                             'Y': np.log(df_g[val_key])})
+                             'Y': df_g[val_key]})
         df_log.set_index('X', inplace = True)
+       
+        reg = LinearRegression().fit(np.vstack(df_log.index), df_log['Y'])
+        df_log['bestfit'] = reg.predict(np.vstack(df_log.index))
+        df_new=pd.DataFrame({'X':df_g.Year,
+                             'Y':df_g[val_key],
+                             'trend':df_log['bestfit'].reset_index(drop=True)})
+        
+        df_new.set_index('X', inplace=True)
+        
+        # plotly figure setup
+        fig=go.Figure()
+        fig.add_trace(go.Bar( name = 'Average Temperature' ,x=df_new.index, y=df_g[val_key]))
+        fig.add_trace(go.Scatter(name='Trend over Years', x=df_new.index, y=df_new['trend'], mode='lines', marker_color='red'))
+
+        # plotly figure layout
+        fig.update_layout(xaxis_title = 'Year', yaxis_title = val_key,legend=dict(
+            orientation="h",
+            yanchor="bottom",
+            y=1.02,
+            xanchor="right",
+            x=1
+            
+        ))
+        with col1_x:
+            st.plotly_chart(fig,  
+             use_container_width=True )
+            
+
+        col2_x = col2.expander('values')
+        temp = data_m[data_m.Year != end.strftime('%Y')].groupby('Year').mean()[val_key].tail(12).reset_index().sort_values('Year',ascending=False ).reset_index(drop=True)
+        temp.index +=1
+        with col2_x:
+            col2_x.table(temp.style.format({"tavg":"{:.3}"}))
+            
+            
+        ###Rain
+        key = 'Rain'
+        val_key = value_dic[key]
+        
+        ###Rain for months
+        col1, col2 = st.columns([3, 1])
+        col1_x = col1.expander(f'Precipitation for {end.strftime("%B")} ')
+        df_g = data_m[data_m.df_time ==end.strftime('%m')].reset_index(drop=True)
+        
+        
+        df_log=pd.DataFrame({'X':df_g.Year,
+                             'Y': df_g[val_key]})
+        
+        df_log.set_index('X', inplace = True)
+       
        # st.write(sklearn.__version__)
         reg = LinearRegression().fit(np.vstack(df_log.index), df_log['Y'])
         df_log['bestfit'] = reg.predict(np.vstack(df_log.index))
         df_new=pd.DataFrame({'X':df_g.Year,
-                             'Y':np.exp(df_g[val_key]),
-                             'trend':np.exp(df_log['bestfit'].reset_index(drop=True))})
+                             'Y':df_g[val_key],
+                             'trend':df_log['bestfit'].reset_index(drop=True)})
+        
+        df_new.set_index('X', inplace=True)
+        
+        # plotly figure setup
+        fig=go.Figure()
+        fig.add_trace(go.Bar( name = 'Average Temperature' ,x=df_new.index, y=df_g[val_key]))
+        fig.add_trace(go.Scatter(name='Trend over Years', x=df_new.index, y=df_new['trend'], mode='lines', marker_color='red'))
+
+        # plotly figure layout
+        fig.update_layout(xaxis_title = 'Year', yaxis_title = val_key,legend=dict(
+            orientation="h",
+            yanchor="bottom",
+            y=1.02,
+            xanchor="right",
+            x=1
+            
+        ))
+        with col1_x:
+            st.plotly_chart(fig,  
+             use_container_width=True )
+            
+
+        col2_x = col2.expander('values')
+        temp = data_m[data_m.Year != end.strftime('%Y')].groupby('Year').mean()[val_key].tail(12).reset_index().sort_values('Year',ascending=False ).reset_index(drop=True)
+        temp.index +=1
+        with col2_x:
+            col2_x.table(temp.style.format({"tavg":"{:.3}"}))
+        
+        ### Rain for years
+        col1, col2 = st.columns([3, 1])
+        col1_x = col1.expander('Precipitation for Years')
+        df_g = data_m[data_m.Year != end.strftime('%Y')].groupby('Year').mean()[val_key].reset_index()
+        
+        df_log=pd.DataFrame({'X':df_g.Year,
+                             'Y': df_g[val_key]})
+        
+        df_log.set_index('X', inplace = True)
+       
+       # st.write(sklearn.__version__)
+        reg = LinearRegression().fit(np.vstack(df_log.index), df_log['Y'])
+        df_log['bestfit'] = reg.predict(np.vstack(df_log.index))
+        df_new=pd.DataFrame({'X':df_g.Year,
+                             'Y':df_g[val_key],
+                             'trend':df_log['bestfit'].reset_index(drop=True)})
         
         df_new.set_index('X', inplace=True)
         
@@ -300,6 +403,14 @@ else:
              use_container_width=True 
 
            )
+        
+        st_exp_en = st.expander('explanation in English')
+        with st_exp_en:    
+                st.write( exp[key]['English']['meaning']) 
+        st_exp_de = st.expander('explanation in German')
+
+        with st_exp_de:             
+                st.write(exp[key]['Deutsch']['meaning']) 
         
     c2_x = c2.expander('Values')
     temp = df[(df.state == state)].dropna()[['state', 'time', 'inflation']].sort_values(by='time', ascending=False).reset_index(drop = True).head(13)

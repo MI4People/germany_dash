@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import plost
+import json
 
 st.set_page_config(layout='wide', initial_sidebar_state='expanded',page_title="dashgermany",
     page_icon="🇩🇪")
@@ -9,9 +10,12 @@ de = pd.read_csv('bun_year_dsh.csv', index_col=0)
 de.year = de.year.astype(str)
 co = pd.read_csv('total_dsh.csv', index_col=0)
 
+with open('exp.json', 'r', encoding='utf-8') as f:
+    exp = json.load(f)
 
 
-liste = {'Total Unemployment %':'unemployment_total', 'Male Unemployment %':'unemployment_man','Female Unemployment %':'unemployment_women','Inflation':'inflation', 'Gross Domestic Product':'bruttoinland','Population':'population_total',  'GDP Per Capita':'gdp_per','GDP Growth': 'gdp_growth','Population Growth':'pop_growth', 'Change in CO2 (compare to last Year)':'co_1', 'Change in CO2 (compare to before 10 Year)':'co_10'}
+
+liste = {'Inflation':'inflation','Total Unemployment %':'unemployment_total', 'Male Unemployment %':'unemployment_man','Female Unemployment %':'unemployment_women', 'Gross Domestic Product':'bruttoinland','Population':'population_total',  'GDP Per Capita':'gdp_per','GDP Growth': 'gdp_growth','Population Growth':'pop_growth', 'Change in CO2 (compare to last Year)':'co_1', 'Change in CO2 (compare to before 10 Year)':'co_10'}
 
 
 
@@ -103,7 +107,7 @@ Created with ❤️
 
 
 # Row A
-st.markdown('### Metrics')
+st.markdown(f'### {state}')
 col1, col2, col3, col4 = st.columns(4)
 
 col1.metric("In Germany", temp_de[temp_de.state == state].index[0],'')
@@ -124,6 +128,19 @@ with c1:
      use_container_width=True 
         
    )
+    st_exp_en = st.expander('explanation in English')
+    with st_exp_en:
+        c = st.selectbox(f'Brief Explanation for {key} in English', exp[indicator]['English'].keys())
+        st.write( exp[indicator]['English'][c]) 
+            
+    st_exp_de = st.expander('explanation in German')
+    with st_exp_de:             
+        c = st.selectbox(f'Brief Explanation for {key} in German',  exp[indicator]['Deutsch'].keys())
+        st.write(exp[indicator]['Deutsch'][c]) 
+    
+            
+        
+        
 c2_x = c2.expander('Values')
 temp = de[(de.state == state)&(de.year > '2012')][['state','year',indicator]].dropna().rename(mapper = show_list_1, axis = 1).reset_index(drop = True)
 temp.index +=1
@@ -157,9 +174,6 @@ with col1_x:
     
 col2_x = col2.expander('Order in World with some selected Countries')
 
-# with col2_x:
-#     col2_x.table(temp.rename(mapper = show_list, axis = 1).style.format({key:"{:.3}"}))
-    
 with col2_x:
         c = st.multiselect('States', temp.state, default = [state, 'Germany','United States','United Kingdom', 'France','Spain','Italy' ,'China','Japan' ])
       #  num = temp[temp.state==state].index[0]
