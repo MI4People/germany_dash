@@ -176,7 +176,7 @@ with c2_x:
 
 
 col1, col2 = st.columns((4, 8))
-temp_co.drop('ranking', 1, inplace =True)
+temp_co = temp_co.drop('ranking', 1)
 
 temp = temp_co.copy()
 
