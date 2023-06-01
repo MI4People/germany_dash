@@ -1,178 +1,226 @@
 {
-  "inflation": {
-    "English": {
-      "meaning": "The Inflation Rate measures the rate at which the prices of goods and services are increasing over time. It shows how much more expensive things are getting.",
-      "calculation": "Calculate by comparing the average prices of a basket of common goods and services this year to the prices of the same basket in the previous year, and express it as a percentage.",
-      "example": "For example, if the price of the basket of goods and services was $100 last year and it is $110 this year, the inflation rate would be (110 - 100) / 100 * 100% = 10%.",
-      "impact": "An increase in the inflation rate means prices are rising, so your money can buy less than before. A decrease in the inflation rate means prices are rising more slowly, so your money can buy a little more.",
-      "reasons": "Changes in the inflation rate can happen because of things like higher production costs, increased demand, changes in taxes, or changes in the value of money."
-    },
-    "Deutsch": {
-      "meaning": "Die Inflationsrate misst die Geschwindigkeit, mit der die Preise von Gütern und Dienstleistungen im Laufe der Zeit steigen. Sie zeigt, wie viel teurer Dinge werden.",
-      "calculation": "Berechnen Sie, indem Sie die durchschnittlichen Preise eines Warenkorbs mit häufig gekauften Gütern und Dienstleistungen dieses Jahres mit den Preisen des gleichen Warenkorbs im Vorjahr vergleichen und als Prozentsatz ausdrücken.",
-      "example": "Zum Beispiel, wenn der Preis des Warenkorbs im letzten Jahr 100 Euro betrug und er in diesem Jahr 110 Euro beträgt, wäre die Inflationsrate (110 - 100) / 100 * 100% = 10%.",
-      "impact": "Eine Erhöhung der Inflationsrate bedeutet, dass die Preise steigen, und Ihr Geld kann weniger kaufen als zuvor. Eine Abnahme der Inflationsrate bedeutet, dass die Preise langsamer steigen, und Ihr Geld kann etwas mehr kaufen.",
-      "reasons": "Änderungen der Inflationsrate können auf höhere Produktionskosten, erhöhte Nachfrage, Änderungen in Steuern oder Veränderungen im Wert des Geldes zurückzuführen sein."
-    }
-  },
-  "unemployment_total": {
-    "English": {
-      "meaning": "The Unemployment Rate measures the percentage of people who are actively looking for a job but do not have one. It shows how many people are unable to find work.",
-      "calculation": "Calculate by dividing the number of unemployed individuals by the total number of people in the labor force and multiply by 100 to express as a percentage.",
-      "example": "For example, if there are 10 million people in the labor force and 1 million of them are unemployed, the unemployment rate would be (1,000,000 / 10,000,000) * 100% = 10%.",
-      "impact": "An increase in the unemployment rate means more people are struggling to find jobs, leading to financial hardships and reduced spending. A decrease in the unemployment rate indicates more job opportunities and improved economic conditions.",
-      "reasons": "Changes in the unemployment rate can happen due to factors such as economic slowdowns, technological changes, shifts in industries, and government policies."
-    },
-    "Deutsch": {
-      "meaning": "Die Arbeitslosenquote misst den Prozentsatz der Personen, die aktiv nach einer Arbeit suchen, aber keine haben. Sie zeigt, wie viele Menschen keine Arbeit finden können.",
-      "calculation": "Berechnen Sie, indem Sie die Anzahl der arbeitslosen Personen durch die Gesamtzahl der Personen in der Erwerbsbevölkerung teilen und mit 100 multiplizieren, um es als Prozentsatz auszudrücken.",
-      "example": "Zum Beispiel, wenn es 10 Millionen Menschen in der Erwerbsbevölkerung gibt und 1 Million von ihnen arbeitslos sind, wäre die Arbeitslosenquote (1.000.000 / 10.000.000) * 100% = 10%.",
-      "impact": "Eine Erhöhung der Arbeitslosenquote bedeutet, dass mehr Menschen Schwierigkeiten haben, Arbeit zu finden, was zu finanziellen Problemen und geringeren Ausgaben führt. Eine Abnahme der Arbeitslosenquote zeigt mehr Beschäftigungsmöglichkeiten und verbesserte wirtschaftliche Bedingungen an.",
-      "reasons": "Änderungen der Arbeitslosenquote können auf Faktoren wie wirtschaftliche Verlangsamungen, technologische Veränderungen, Verschiebungen in Branchen und Regierungspolitik zurückzuführen sein."
-    }
-  },
-  "unemployment_man": {
-    "English": {
-      "meaning": "The Male Unemployment Rate measures the percentage of men who are actively looking for a job but do not have one. It indicates the number of jobless men in the economy.",
-      "calculation": "Calculate by dividing the number of unemployed men by the total number of men in the labor force and multiply by 100 to express as a percentage.",
-      "example": "For example, if there are 5 million men in the labor force and 500,000 of them are unemployed, the male unemployment rate would be (500,000 / 5,000,000) * 100% = 10%.",
-      "impact": "An increase in the male unemployment rate can lead to financial instability, decreased personal income, and increased competition for jobs, causing stress and reduced well-being among unemployed males. Conversely, a decrease in the male unemployment rate can result in improved job security, higher personal income, and enhanced well-being for employed males, positively impacting their families and society.",
-      "reasons": "Changes in the male unemployment rate can occur due to factors such as economic fluctuations, shifts in industries, changes in job demand, and government policies."
-    },
-    "Deutsch": {
-      "meaning": "Die Arbeitslosenquote der Männer misst den Prozentsatz der Männer, die aktiv nach einer Arbeit suchen, aber keine haben. Sie gibt die Anzahl der arbeitslosen Männer in der Wirtschaft an.",
-      "calculation": "Berechnen Sie, indem Sie die Anzahl der arbeitslosen Männer durch die Gesamtzahl der Männer in der Erwerbsbevölkerung teilen und mit 100 multiplizieren, um es als Prozentsatz auszudrücken.",
-      "example": "Zum Beispiel, wenn es 5 Millionen Männer in der Erwerbsbevölkerung gibt und 500.000 von ihnen arbeitslos sind, wäre die Arbeitslosenquote der Männer (500.000 / 5.000.000) * 100% = 10%.",
-      "impact": "Eine Erhöhung der Arbeitslosenquote der Männer kann zu finanzieller Instabilität, geringerem persönlichen Einkommen und erhöhtem Wettbewerb um Arbeitsplätze führen, was bei arbeitslosen Männern Stress und eine reduzierte Lebensqualität verursachen kann. Umgekehrt kann eine Abnahme der Arbeitslosenquote der Männer zu verbesserter Arbeitsplatzsicherheit, höherem persönlichen Einkommen und gesteigerter Lebensqualität bei beschäftigten Männern führen, was sich positiv auf ihre Familien und die Gesellschaft auswirkt.",
-      "reasons": "Änderungen der Arbeitslosenquote der Männer können auf Faktoren wie wirtschaftliche Schwankungen, Verschiebungen in Branchen, Veränderungen der Arbeitsnachfrage und Regierungspolitik zurückzuführen sein."
-    }
-  },
-  "unemployment_women": {
-    "English": {
-      "meaning": "The Female Unemployment Rate measures the percentage of women who are actively looking for a job but do not have one. It indicates the number of jobless women in the economy.",
-      "calculation": "Calculate by dividing the number of unemployed women by the total number of women in the labor force and multiply by 100 to express as a percentage.",
-      "example": "For example, if there are 4 million women in the labor force and 400,000 of them are unemployed, the female unemployment rate would be (400,000 / 4,000,000) * 100% = 10%.",
-      "impact": "An increase in the female unemployment rate can have a disproportionate impact on women, leading to financial struggles, reduced income, and limited career opportunities. It can contribute to gender inequalities, hinder economic empowerment, and affect overall societal well-being. Conversely, a decrease in the female unemployment rate signifies improved job prospects for women, promoting financial stability, gender equality, and inclusive growth.",
-      "reasons": "Changes in the female unemployment rate can occur due to factors such as economic fluctuations, shifts in industries, changes in job demand, and government policies."
-    },
-    "Deutsch": {
-      "meaning": "Die Arbeitslosenquote der Frauen misst den Prozentsatz der Frauen, die aktiv nach einer Arbeit suchen, aber keine haben. Sie gibt die Anzahl der arbeitslosen Frauen in der Wirtschaft an.",
-      "calculation": "Berechnen Sie, indem Sie die Anzahl der arbeitslosen Frauen durch die Gesamtzahl der Frauen in der Erwerbsbevölkerung teilen und mit 100 multiplizieren, um es als Prozentsatz auszudrücken.",
-      "example": "Zum Beispiel, wenn es 4 Millionen Frauen in der Erwerbsbevölkerung gibt und 400.000 von ihnen arbeitslos sind, wäre die Arbeitslosenquote der Frauen (400.000 / 4.000.000) * 100% = 10%.",
-      "impact": "Eine Erhöhung der Arbeitslosenquote der Frauen kann eine unverhältnismäßige Auswirkung auf Frauen haben und zu finanziellen Schwierigkeiten, geringerem Einkommen und begrenzten Karrieremöglichkeiten führen. Sie kann zu geschlechtsspezifischen Ungleichheiten beitragen, die wirtschaftliche Ermächtigung behindern und sich auf das allgemeine Wohlbefinden der Gesellschaft auswirken. Umgekehrt deutet eine Abnahme der Arbeitslosenquote der Frauen auf verbesserte Beschäftigungsaussichten für Frauen hin und fördert finanzielle Stabilität, Geschlechtergleichstellung und inklusives Wachstum.",
-      "reasons": "Änderungen der Arbeitslosenquote der Frauen können auf Faktoren wie wirtschaftliche Schwankungen, Verschiebungen in Branchen, Veränderungen der Arbeitsnachfrage und Regierungspolitik zurückzuführen sein."
-    }
-  },
-  "bruttoinland": {
-    "English": {
-      "meaning": "Gross Domestic Product (GDP) is the total value of all goods and services produced within a country's borders in a specific time period. It represents the size and growth of the economy.",
-      "calculation": "Calculate by summing up the value of consumption, investment, government spending, and net exports (exports minus imports).",
-      "example": "For example, if the value of consumption is $500 billion, investment is $200 billion, government spending is $300 billion, and net exports are $50 billion, the GDP would be $500 billion + $200 billion + $300 billion + $50 billion = $1,050 billion.",
-      "impact": "An increase in GDP indicates economic growth, which can lead to higher employment levels, increased wages, improved living standards, and expanded business opportunities. However, GDP alone does not reflect the distribution of wealth and may not capture important aspects such as income inequality and environmental sustainability.",
-      "reasons": "Changes in GDP can be influenced by factors such as consumer spending, business investments, government policies, global trade, and technological advancements."
-    },
-    "Deutsch": {
-      "meaning": "Das Bruttoinlandsprodukt (BIP) ist der Gesamtwert aller Waren und Dienstleistungen, die innerhalb der Grenzen eines Landes in einem bestimmten Zeitraum produziert werden. Es repräsentiert die Größe und das Wachstum der Wirtschaft.",
-      "calculation": "Berechnen Sie, indem Sie den Wert von Konsum, Investitionen, staatlichen Ausgaben und Nettoexporten (Exporte minus Importe) summieren.",
-      "example": "Zum Beispiel, wenn der Wert des Konsums $500 Milliarden beträgt, die Investitionen $200 Milliarden, die staatlichen Ausgaben $300 Milliarden und die Nettoexporte $50 Milliarden betragen, beträgt das BIP $500 Milliarden + $200 Milliarden + $300 Milliarden + $50 Milliarden = $1.050 Milliarden.",
-      "impact": "Ein Anstieg des BIP deutet auf wirtschaftliches Wachstum hin, was zu höheren Beschäftigungsniveaus, steigenden Löhnen, verbesserten Lebensstandards und erweiterten Geschäftsmöglichkeiten führen kann. Das BIP allein spiegelt jedoch nicht die Verteilung des Wohlstands wider und erfasst möglicherweise wichtige Aspekte wie Einkommensungleichheit und Umweltschutz nicht ausreichend.",
-      "reasons": "Änderungen des BIP können durch Faktoren wie Konsumausgaben, Unternehmensinvestitionen, staatliche Politiken, globalen Handel und technologische Fortschritte beeinflusst werden."
-    }
-  },
-  "gdp_per": {
-    "English": {
-      "meaning": "Gross Domestic Product (GDP) per capita is a measure that divides the total GDP of a country by its population. It provides an average estimation of the economic output per person in the country.",
-      "calculation": "Calculate by dividing the GDP of a country by its population size.",
-      "example": "For example, if a country's GDP is $1 trillion and its population is 50 million, the GDP per capita would be $1 trillion / 50 million = $20,000.",
-      "impact": "GDP per capita is an important indicator of the standard of living and economic well-being of the population. A higher GDP per capita generally indicates a higher level of prosperity, access to goods and services, and quality of life. However, it may not capture income distribution and disparities in wealth among individuals.",
-      "reasons": "Changes in GDP per capita can be influenced by factors such as economic growth, population changes, income distribution, and government policies."
-    },
-    "Deutsch": {
-      "meaning": "Das Bruttoinlandsprodukt (BIP) pro Kopf ist ein Maßstab, der das GesamtbIP eines Landes durch seine Bevölkerung teilt. Es gibt eine durchschnittliche Schätzung der wirtschaftlichen Leistung pro Person im Land.",
-      "calculation": "Berechnen Sie, indem Sie das BIP eines Landes durch die Bevölkerungsgröße teilen.",
-      "example": "Zum Beispiel, wenn das BIP eines Landes $1 Billion beträgt und seine Bevölkerung 50 Millionen beträgt, würde das BIP pro Kopf $1 Billion / 50 Millionen = $20.000 betragen.",
-      "impact": "Das BIP pro Kopf ist ein wichtiger Indikator für den Lebensstandard und das wirtschaftliche Wohlergehen der Bevölkerung. Ein höheres BIP pro Kopf deutet in der Regel auf einen höheren Wohlstand, Zugang zu Gütern und Dienstleistungen sowie eine bessere Lebensqualität hin. Es erfasst jedoch möglicherweise nicht die Einkommensverteilung und Ungleichheiten im Vermögen zwischen Individuen.",
-      "reasons": "Änderungen des BIP pro Kopf können durch Faktoren wie wirtschaftliches Wachstum, Bevölkerungsveränderungen, Einkommensverteilung und Regierungspolitiken beeinflusst werden."
-    }
-  },
-  "gdp_growth": {
-    "English": {
-      "meaning": "Gross Domestic Product (GDP) growth measures the rate at which the total value of goods and services produced within a country's borders is changing over time. It indicates the economic expansion or contraction of a nation.",
-      "calculation": "Calculate by comparing the GDP of two periods (usually annual or quarterly) and expressing the change as a percentage.",
-      "example": "For example, if the GDP of a country was $1 trillion in the previous year and it increased to $1.2 trillion in the current year, the GDP growth rate would be (($1.2 trillion - $1 trillion) / $1 trillion) * 100% = 20%.",
-      "impact": "GDP growth is a key indicator of economic health and prosperity. Positive GDP growth indicates an expanding economy, which often leads to job creation, increased incomes, improved living standards, and business opportunities. Conversely, negative GDP growth or economic contraction can result in job losses, reduced incomes, and economic challenges.",
-      "reasons": "GDP growth can be influenced by various factors such as consumer spending, business investments, government policies, global economic conditions, technological advancements, and political stability."
-    },
-    "Deutsch": {
-      "meaning": "Das Wachstum des Bruttoinlandsprodukts (BIP) misst die Rate, mit der sich der Gesamtwert der Waren und Dienstleistungen, die innerhalb der Grenzen eines Landes produziert werden, im Laufe der Zeit verändert. Es gibt die wirtschaftliche Expansion oder Kontraktion einer Nation an.",
-      "calculation": "Berechnen Sie, indem Sie das BIP von zwei Perioden (in der Regel jährlich oder vierteljährlich) vergleichen und die Veränderung als Prozentsatz ausdrücken.",
-      "example": "Zum Beispiel, wenn das BIP eines Landes im letzten Jahr $1 Billion betrug und im aktuellen Jahr auf $1,2 Billionen gestiegen ist, wäre die Wachstumsrate des BIP (($1,2 Billionen - $1 Billion) / $1 Billion) * 100% = 20%.",
-      "impact": "Das BIP-Wachstum ist ein wichtiger Indikator für die wirtschaftliche Gesundheit und den Wohlstand. Ein positives BIP-Wachstum zeigt eine expandierende Wirtschaft an, was häufig zu Arbeitsplatzschaffung, höheren Einkommen, verbesserten Lebensstandards und Geschäftsmöglichkeiten führt. Umgekehrt kann ein negatives BIP-Wachstum oder eine wirtschaftliche Schrumpfung zu Arbeitsplatzverlusten, geringeren Einkommen und wirtschaftlichen Herausforderungen führen.",
-      "reasons": "Das BIP-Wachstum kann von verschiedenen Faktoren wie Konsumausgaben, Unternehmensinvestitionen, staatlichen Politiken, globalen wirtschaftlichen Bedingungen, technologischen Fortschritten und politischer Stabilität beeinflusst werden."
-    }
-  },
-  "population_total": {
-    "English": {
-      "meaning": "Population refers to the total number of people living in a specific geographic area, such as a country or a region. It represents the size and composition of the human inhabitants in that area.",
-      "calculation": "Population is typically measured through a census, which is a systematic collection of demographic data, including information on age, gender, and other relevant characteristics.",
-      "example": "For example, if a country has a population of 50 million, it means there are 50 million individuals residing in that country, including both citizens and non-citizens.",
-      "impact": "Population size has important implications for various aspects of society, including resource allocation, infrastructure planning, healthcare, education, and social services. Changes in population can influence factors such as labor supply, consumer demand, and cultural diversity.",
-      "reasons": "Population can change over time due to factors such as births, deaths, migration, and government policies."
-    },
-    "Deutsch": {
-      "meaning": "Bevölkerung bezieht sich auf die Gesamtzahl der Menschen, die in einem bestimmten geografischen Gebiet, wie einem Land oder einer Region, leben. Es repräsentiert die Größe und Zusammensetzung der menschlichen Bewohner in diesem Bereich.",
-      "calculation": "Die Bevölkerung wird in der Regel durch eine Volkszählung gemessen, bei der systematisch demografische Daten erhoben werden, einschließlich Informationen über Alter, Geschlecht und andere relevante Merkmale.",
-      "example": "Zum Beispiel, wenn ein Land eine Bevölkerung von 50 Millionen hat, bedeutet dies, dass 50 Millionen Menschen in diesem Land leben, einschließlich sowohl Staatsbürger als auch Nicht-Staatsbürger.",
-      "impact": "Die Größe der Bevölkerung hat wichtige Auswirkungen auf verschiedene Aspekte der Gesellschaft, einschließlich der Ressourcenallokation, der Infrastrukturentwicklung, der Gesundheitsversorgung, der Bildung und der sozialen Dienste. Veränderungen in der Bevölkerung können Faktoren wie Arbeitskräfteangebot, Nachfrage der Verbraucher und kulturelle Vielfalt beeinflussen.",
-      "reasons": "Die Bevölkerung kann sich im Laufe der Zeit aufgrund von Faktoren wie Geburten, Todesfällen, Migration und Regierungspolitiken verändern."
-    }
-  },
-  "pop_growth": {
-    "English": {
-      "meaning": "Population growth refers to the rate at which the population of a specific geographic area, such as a country or a region, is changing over time. It measures the increase or decrease in the number of individuals residing in that area.",
-      "calculation": "Population growth is calculated by comparing the population of two periods and expressing the change as a percentage. The formula is ((Current Population - Previous Population) / Previous Population) * 100%.",
-      "example": "For example, if a country had a population of 100 million last year and it increased to 110 million this year, the population growth rate would be ((110 million - 100 million) / 100 million) * 100% = 10%.",
-      "impact": "Population growth has significant implications for various aspects of society, including resource availability, urbanization, infrastructure development, environmental sustainability, and social services. High population growth can strain resources and infrastructure, while low population growth can lead to aging populations and workforce challenges.",
-      "reasons": "Population growth can be influenced by factors such as birth rates, death rates, migration, government policies, and socio-economic factors."
-    },
-    "Deutsch": {
-      "meaning": "Bevölkerungswachstum bezieht sich auf die Rate, mit der sich die Bevölkerung eines bestimmten geografischen Gebiets, wie eines Landes oder einer Region, im Laufe der Zeit verändert. Es misst den Zuwachs oder Rückgang der Anzahl der Menschen, die in diesem Bereich leben.",
-      "calculation": "Das Bevölkerungswachstum wird berechnet, indem die Bevölkerung von zwei Perioden verglichen und die Veränderung als Prozentsatz ausgedrückt wird. Die Formel lautet ((Aktuelle Bevölkerung - Vorherige Bevölkerung) / Vorherige Bevölkerung) * 100%.",
-      "example": "Zum Beispiel, wenn ein Land im letzten Jahr eine Bevölkerung von 100 Millionen hatte und sie in diesem Jahr auf 110 Millionen angestiegen ist, wäre die Wachstumsrate der Bevölkerung ((110 Millionen - 100 Millionen) / 100 Millionen) * 100% = 10%.",
-      "impact": "Das Bevölkerungswachstum hat erhebliche Auswirkungen auf verschiedene Aspekte der Gesellschaft, einschließlich der Verfügbarkeit von Ressourcen, Urbanisierung, Infrastrukturentwicklung, Umweltschutz und sozialer Dienste. Ein hohes Bevölkerungswachstum kann Ressourcen und Infrastruktur belasten, während ein geringes Bevölkerungswachstum zu einer alternden Bevölkerung und Herausforderungen auf dem Arbeitsmarkt führen kann.",
-      "reasons": "Das Bevölkerungswachstum kann von Faktoren wie Geburtenrate, Sterberate, Migration, staatlichen Politiken und sozioökonomischen Faktoren beeinflusst werden."
-    }
-  },
-  "co_1": {
-    "English": {
-      "meaning": "Change in CO2 emission refers to the percentage increase or decrease in the amount of carbon dioxide (CO2) released into the atmosphere over a specific period. It measures the change in the level of greenhouse gas emissions, which contribute to climate change and global warming.",
-      "calculation": "The change in CO2 emission is calculated by comparing the CO2 emissions of two periods and expressing the difference as a percentage. The formula is ((Current Emission - Previous Emission) / Previous Emission) * 100%.",
-      "example": "For example, if a country emitted 100 million tons of CO2 last year and it decreased to 90 million tons this year, the change in CO2 emission would be ((90 million - 100 million) / 100 million) * 100% = -10%.",
-      "impact": "A decrease in CO2 emissions is generally seen as positive, indicating progress in reducing greenhouse gas emissions, improving air quality, and mitigating the long-term impacts of climate change. However, a decrease in CO2 emissions may also result from economic downturn or changes in industrial activity, which can have short-term negative implications. Conversely, an increase in CO2 emissions is seen as negative, contributing more to climate change and its negative impacts.",
-      "reasons": "Changes in CO2 emission can be influenced by factors such as energy consumption patterns, industrial activities, transportation systems, renewable energy adoption, and environmental policies."
-    },
-    "Deutsch": {
-      "meaning": "Die Veränderung der CO2-Emission bezieht sich auf den prozentualen Anstieg oder Rückgang der Menge an Kohlendioxid (CO2), das über einen bestimmten Zeitraum in die Atmosphäre freigesetzt wird. Sie misst die Veränderung des Niveaus der Treibhausgasemissionen, die zum Klimawandel und zur globalen Erwärmung beitragen.",
-      "calculation": "Die Veränderung der CO2-Emission wird berechnet, indem die CO2-Emissionen von zwei Perioden verglichen und die Differenz als Prozentsatz ausgedrückt wird. Die Formel lautet ((Aktuelle Emission - Vorherige Emission) / Vorherige Emission) * 100%.",
-      "example": "Zum Beispiel, wenn ein Land im letzten Jahr 100 Millionen Tonnen CO2 emittiert hat und es in diesem Jahr auf 90 Millionen Tonnen gesunken ist, wäre die Veränderung der CO2-Emission ((90 Millionen - 100 Millionen) / 100 Millionen) * 100% = -10%.",
-      "impact": "Eine Verringerung der CO2-Emissionen wird im Allgemeinen als positiv angesehen und deutet auf Fortschritte bei der Reduzierung von Treibhausgasemissionen hin. Dies verbessert die Luftqualität und mindert langfristige Auswirkungen des Klimawandels. Allerdings kann eine Verringerung der CO2-Emissionen auch auf wirtschaftliche Abschwünge oder Veränderungen in industriellen Aktivitäten zurückzuführen sein, was kurzfristig negative Auswirkungen haben kann. Umgekehrt wird ein Anstieg der CO2-Emissionen als negativ betrachtet und trägt zu verstärktem Klimawandel und seinen negativen Folgen bei.",
-      "reasons": "Veränderungen der CO2-Emissionen können von Faktoren wie Energieverbrauchsmustern, industriellen Aktivitäten, Transportsystemen, der Nutzung erneuerbarer Energien und Umweltpolitiken beeinflusst werden."
-    }
-  },
-  "co_10": {
-    "English": {
-      "meaning": "Change in CO2 emission refers to the percentage increase or decrease in the amount of carbon dioxide (CO2) released into the atmosphere over a specific period. It measures the change in the level of greenhouse gas emissions, which contribute to climate change and global warming.",
-      "calculation": "The change in CO2 emission is calculated by comparing the CO2 emissions of two periods and expressing the difference as a percentage. The formula is ((Current Emission - Previous Emission) / Previous Emission) * 100%.",
-      "example": "For example, if a country emitted 100 million tons of CO2 last year and it decreased to 90 million tons this year, the change in CO2 emission would be ((90 million - 100 million) / 100 million) * 100% = -10%.",
-      "impact": "A decrease in CO2 emissions is generally seen as positive, indicating progress in reducing greenhouse gas emissions, improving air quality, and mitigating the long-term impacts of climate change. However, a decrease in CO2 emissions may also result from economic downturn or changes in industrial activity, which can have short-term negative implications. Conversely, an increase in CO2 emissions is seen as negative, contributing more to climate change and its negative impacts.",
-      "reasons": "Changes in CO2 emission can be influenced by factors such as energy consumption patterns, industrial activities, transportation systems, renewable energy adoption, and environmental policies."
-    },
-    "Deutsch": {
-      "meaning": "Die Veränderung der CO2-Emission bezieht sich auf den prozentualen Anstieg oder Rückgang der Menge an Kohlendioxid (CO2), das über einen bestimmten Zeitraum in die Atmosphäre freigesetzt wird. Sie misst die Veränderung des Niveaus der Treibhausgasemissionen, die zum Klimawandel und zur globalen Erwärmung beitragen.",
-      "calculation": "Die Veränderung der CO2-Emission wird berechnet, indem die CO2-Emissionen von zwei Perioden verglichen und die Differenz als Prozentsatz ausgedrückt wird. Die Formel lautet ((Aktuelle Emission - Vorherige Emission) / Vorherige Emission) * 100%.",
-      "example": "Zum Beispiel, wenn ein Land im letzten Jahr 100 Millionen Tonnen CO2 emittiert hat und es in diesem Jahr auf 90 Millionen Tonnen gesunken ist, wäre die Veränderung der CO2-Emission ((90 Millionen - 100 Millionen) / 100 Millionen) * 100% = -10%.",
-      "impact": "Eine Verringerung der CO2-Emissionen wird im Allgemeinen als positiv angesehen und deutet auf Fortschritte bei der Reduzierung von Treibhausgasemissionen hin. Dies verbessert die Luftqualität und mindert langfristige Auswirkungen des Klimawandels. Allerdings kann eine Verringerung der CO2-Emissionen auch auf wirtschaftliche Abschwünge oder Veränderungen in industriellen Aktivitäten zurückzuführen sein, was kurzfristig negative Auswirkungen haben kann. Umgekehrt wird ein Anstieg der CO2-Emissionen als negativ betrachtet und trägt zu verstärktem Klimawandel und seinen negativen Folgen bei.",
-      "reasons": "Veränderungen der CO2-Emissionen können von Faktoren wie Energieverbrauchsmustern, industriellen Aktivitäten, Transportsystemen, der Nutzung erneuerbarer Energien und Umweltpolitiken beeinflusst werden."
-    }
-  }
+   "inflation": {
+      "English": {
+         "meaning": "The Inflation Rate measures the rate at which the prices of goods and services are increasing over time. It shows how much more expensive things are getting.",
+         "calculation": "Calculate by comparing the average prices of a basket of common goods and services this year to the prices of the same basket in the previous year, and express it as a percentage.",
+         "example": "For example, if the price of the basket of goods and services was $100 last year and it is $110 this year, the inflation rate would be (110 - 100) / 100 * 100% = 10%.",
+         "impact": "An increase in the inflation rate means prices are rising, so your money can buy less than before. A decrease in the inflation rate means prices are rising more slowly, so your money can buy a little more.",
+         "reasons": "Changes in the inflation rate can happen because of things like higher production costs, increased demand, changes in taxes, or changes in the value of money."
+      },
+      "Deutsch": {
+         "meaning": "Die Inflationsrate misst die Geschwindigkeit, mit der die Preise von Gütern und Dienstleistungen im Laufe der Zeit steigen. Sie zeigt, wie viel teurer Dinge werden.",
+         "calculation": "Berechnen Sie, indem Sie die durchschnittlichen Preise eines Warenkorbs mit häufig gekauften Gütern und Dienstleistungen dieses Jahres mit den Preisen des gleichen Warenkorbs im Vorjahr vergleichen und als Prozentsatz ausdrücken.",
+         "example": "Zum Beispiel, wenn der Preis des Warenkorbs im letzten Jahr 100 Euro betrug und er in diesem Jahr 110 Euro beträgt, wäre die Inflationsrate (110 - 100) / 100 * 100% = 10%.",
+         "impact": "Eine Erhöhung der Inflationsrate bedeutet, dass die Preise steigen, und Ihr Geld kann weniger kaufen als zuvor. Eine Abnahme der Inflationsrate bedeutet, dass die Preise langsamer steigen, und Ihr Geld kann etwas mehr kaufen.",
+         "reasons": "Änderungen der Inflationsrate können auf höhere Produktionskosten, erhöhte Nachfrage, Änderungen in Steuern oder Veränderungen im Wert des Geldes zurückzuführen sein."
+      }
+   },
+   "unemployment_total": {
+      "English": {
+         "meaning": "The Unemployment Rate measures the percentage of people who are actively looking for a job but do not have one. It shows how many people are unable to find work.",
+         "calculation": "Calculate by dividing the number of unemployed individuals by the total number of people in the labor force and multiply by 100 to express as a percentage.",
+         "example": "For example, if there are 10 million people in the labor force and 1 million of them are unemployed, the unemployment rate would be (1,000,000 / 10,000,000) * 100% = 10%.",
+         "impact": "An increase in the unemployment rate means more people are struggling to find jobs, leading to financial hardships and reduced spending. A decrease in the unemployment rate indicates more job opportunities and improved economic conditions.",
+         "reasons": "Changes in the unemployment rate can happen due to factors such as economic slowdowns, technological changes, shifts in industries, and government policies."
+      },
+      "Deutsch": {
+         "meaning": "Die Arbeitslosenquote misst den Prozentsatz der Personen, die aktiv nach einer Arbeit suchen, aber keine haben. Sie zeigt, wie viele Menschen keine Arbeit finden können.",
+         "calculation": "Berechnen Sie, indem Sie die Anzahl der arbeitslosen Personen durch die Gesamtzahl der Personen in der Erwerbsbevölkerung teilen und mit 100 multiplizieren, um es als Prozentsatz auszudrücken.",
+         "example": "Zum Beispiel, wenn es 10 Millionen Menschen in der Erwerbsbevölkerung gibt und 1 Million von ihnen arbeitslos sind, wäre die Arbeitslosenquote (1.000.000 / 10.000.000) * 100% = 10%.",
+         "impact": "Eine Erhöhung der Arbeitslosenquote bedeutet, dass mehr Menschen Schwierigkeiten haben, Arbeit zu finden, was zu finanziellen Problemen und geringeren Ausgaben führt. Eine Abnahme der Arbeitslosenquote zeigt mehr Beschäftigungsmöglichkeiten und verbesserte wirtschaftliche Bedingungen an.",
+         "reasons": "Änderungen der Arbeitslosenquote können auf Faktoren wie wirtschaftliche Verlangsamungen, technologische Veränderungen, Verschiebungen in Branchen und Regierungspolitik zurückzuführen sein."
+      }
+   },
+   "unemployment_man": {
+      "English": {
+         "meaning": "The Male Unemployment Rate measures the percentage of men who are actively looking for a job but do not have one. It indicates the number of jobless men in the economy.",
+         "calculation": "Calculate by dividing the number of unemployed men by the total number of men in the labor force and multiply by 100 to express as a percentage.",
+         "example": "For example, if there are 5 million men in the labor force and 500,000 of them are unemployed, the male unemployment rate would be (500,000 / 5,000,000) * 100% = 10%.",
+         "impact": "An increase in the male unemployment rate can lead to financial instability, decreased personal income, and increased competition for jobs, causing stress and reduced well-being among unemployed males. Conversely, a decrease in the male unemployment rate can result in improved job security, higher personal income, and enhanced well-being for employed males, positively impacting their families and society.",
+         "reasons": "Changes in the male unemployment rate can occur due to factors such as economic fluctuations, shifts in industries, changes in job demand, and government policies."
+      },
+      "Deutsch": {
+         "meaning": "Die Arbeitslosenquote der Männer misst den Prozentsatz der Männer, die aktiv nach einer Arbeit suchen, aber keine haben. Sie gibt die Anzahl der arbeitslosen Männer in der Wirtschaft an.",
+         "calculation": "Berechnen Sie, indem Sie die Anzahl der arbeitslosen Männer durch die Gesamtzahl der Männer in der Erwerbsbevölkerung teilen und mit 100 multiplizieren, um es als Prozentsatz auszudrücken.",
+         "example": "Zum Beispiel, wenn es 5 Millionen Männer in der Erwerbsbevölkerung gibt und 500.000 von ihnen arbeitslos sind, wäre die Arbeitslosenquote der Männer (500.000 / 5.000.000) * 100% = 10%.",
+         "impact": "Eine Erhöhung der Arbeitslosenquote der Männer kann zu finanzieller Instabilität, geringerem persönlichen Einkommen und erhöhtem Wettbewerb um Arbeitsplätze führen, was bei arbeitslosen Männern Stress und eine reduzierte Lebensqualität verursachen kann. Umgekehrt kann eine Abnahme der Arbeitslosenquote der Männer zu verbesserter Arbeitsplatzsicherheit, höherem persönlichen Einkommen und gesteigerter Lebensqualität bei beschäftigten Männern führen, was sich positiv auf ihre Familien und die Gesellschaft auswirkt.",
+         "reasons": "Änderungen der Arbeitslosenquote der Männer können auf Faktoren wie wirtschaftliche Schwankungen, Verschiebungen in Branchen, Veränderungen der Arbeitsnachfrage und Regierungspolitik zurückzuführen sein."
+      }
+   },
+   "unemployment_women": {
+      "English": {
+         "meaning": "The Female Unemployment Rate measures the percentage of women who are actively looking for a job but do not have one. It indicates the number of jobless women in the economy.",
+         "calculation": "Calculate by dividing the number of unemployed women by the total number of women in the labor force and multiply by 100 to express as a percentage.",
+         "example": "For example, if there are 4 million women in the labor force and 400,000 of them are unemployed, the female unemployment rate would be (400,000 / 4,000,000) * 100% = 10%.",
+         "impact": "An increase in the female unemployment rate can have a disproportionate impact on women, leading to financial struggles, reduced income, and limited career opportunities. It can contribute to gender inequalities, hinder economic empowerment, and affect overall societal well-being. Conversely, a decrease in the female unemployment rate signifies improved job prospects for women, promoting financial stability, gender equality, and inclusive growth.",
+         "reasons": "Changes in the female unemployment rate can occur due to factors such as economic fluctuations, shifts in industries, changes in job demand, and government policies."
+      },
+      "Deutsch": {
+         "meaning": "Die Arbeitslosenquote der Frauen misst den Prozentsatz der Frauen, die aktiv nach einer Arbeit suchen, aber keine haben. Sie gibt die Anzahl der arbeitslosen Frauen in der Wirtschaft an.",
+         "calculation": "Berechnen Sie, indem Sie die Anzahl der arbeitslosen Frauen durch die Gesamtzahl der Frauen in der Erwerbsbevölkerung teilen und mit 100 multiplizieren, um es als Prozentsatz auszudrücken.",
+         "example": "Zum Beispiel, wenn es 4 Millionen Frauen in der Erwerbsbevölkerung gibt und 400.000 von ihnen arbeitslos sind, wäre die Arbeitslosenquote der Frauen (400.000 / 4.000.000) * 100% = 10%.",
+         "impact": "Eine Erhöhung der Arbeitslosenquote der Frauen kann eine unverhältnismäßige Auswirkung auf Frauen haben und zu finanziellen Schwierigkeiten, geringerem Einkommen und begrenzten Karrieremöglichkeiten führen. Sie kann zu geschlechtsspezifischen Ungleichheiten beitragen, die wirtschaftliche Ermächtigung behindern und sich auf das allgemeine Wohlbefinden der Gesellschaft auswirken. Umgekehrt deutet eine Abnahme der Arbeitslosenquote der Frauen auf verbesserte Beschäftigungsaussichten für Frauen hin und fördert finanzielle Stabilität, Geschlechtergleichstellung und inklusives Wachstum.",
+         "reasons": "Änderungen der Arbeitslosenquote der Frauen können auf Faktoren wie wirtschaftliche Schwankungen, Verschiebungen in Branchen, Veränderungen der Arbeitsnachfrage und Regierungspolitik zurückzuführen sein."
+      }
+   },
+   "bruttoinland": {
+      "English": {
+         "meaning": "Gross Domestic Product (GDP) is the total value of all goods and services produced within a country's borders in a specific time period. It represents the size and growth of the economy.",
+         "calculation": "Calculate by summing up the value of consumption, investment, government spending, and net exports (exports minus imports).",
+         "example": "For example, if the value of consumption is $500 billion, investment is $200 billion, government spending is $300 billion, and net exports are $50 billion, the GDP would be $500 billion + $200 billion + $300 billion + $50 billion = $1,050 billion.",
+         "impact": "An increase in GDP indicates economic growth, which can lead to higher employment levels, increased wages, improved living standards, and expanded business opportunities. However, GDP alone does not reflect the distribution of wealth and may not capture important aspects such as income inequality and environmental sustainability.",
+         "reasons": "Changes in GDP can be influenced by factors such as consumer spending, business investments, government policies, global trade, and technological advancements."
+      },
+      "Deutsch": {
+         "meaning": "Das Bruttoinlandsprodukt (BIP) ist der Gesamtwert aller Waren und Dienstleistungen, die innerhalb der Grenzen eines Landes in einem bestimmten Zeitraum produziert werden. Es repräsentiert die Größe und das Wachstum der Wirtschaft.",
+         "calculation": "Berechnen Sie, indem Sie den Wert von Konsum, Investitionen, staatlichen Ausgaben und Nettoexporten (Exporte minus Importe) summieren.",
+         "example": "Zum Beispiel, wenn der Wert des Konsums $500 Milliarden beträgt, die Investitionen $200 Milliarden, die staatlichen Ausgaben $300 Milliarden und die Nettoexporte $50 Milliarden betragen, beträgt das BIP $500 Milliarden + $200 Milliarden + $300 Milliarden + $50 Milliarden = $1.050 Milliarden.",
+         "impact": "Ein Anstieg des BIP deutet auf wirtschaftliches Wachstum hin, was zu höheren Beschäftigungsniveaus, steigenden Löhnen, verbesserten Lebensstandards und erweiterten Geschäftsmöglichkeiten führen kann. Das BIP allein spiegelt jedoch nicht die Verteilung des Wohlstands wider und erfasst möglicherweise wichtige Aspekte wie Einkommensungleichheit und Umweltschutz nicht ausreichend.",
+         "reasons": "Änderungen des BIP können durch Faktoren wie Konsumausgaben, Unternehmensinvestitionen, staatliche Politiken, globalen Handel und technologische Fortschritte beeinflusst werden."
+      }
+   },
+   "gdp_per": {
+      "English": {
+         "meaning": "Gross Domestic Product (GDP) per capita is a measure that divides the total GDP of a country by its population. It provides an average estimation of the economic output per person in the country.",
+         "calculation": "Calculate by dividing the GDP of a country by its population size.",
+         "example": "For example, if a country's GDP is $1 trillion and its population is 50 million, the GDP per capita would be $1 trillion / 50 million = $20,000.",
+         "impact": "GDP per capita is an important indicator of the standard of living and economic well-being of the population. A higher GDP per capita generally indicates a higher level of prosperity, access to goods and services, and quality of life. However, it may not capture income distribution and disparities in wealth among individuals.",
+         "reasons": "Changes in GDP per capita can be influenced by factors such as economic growth, population changes, income distribution, and government policies."
+      },
+      "Deutsch": {
+         "meaning": "Das Bruttoinlandsprodukt (BIP) pro Kopf ist ein Maßstab, der das GesamtbIP eines Landes durch seine Bevölkerung teilt. Es gibt eine durchschnittliche Schätzung der wirtschaftlichen Leistung pro Person im Land.",
+         "calculation": "Berechnen Sie, indem Sie das BIP eines Landes durch die Bevölkerungsgröße teilen.",
+         "example": "Zum Beispiel, wenn das BIP eines Landes $1 Billion beträgt und seine Bevölkerung 50 Millionen beträgt, würde das BIP pro Kopf $1 Billion / 50 Millionen = $20.000 betragen.",
+         "impact": "Das BIP pro Kopf ist ein wichtiger Indikator für den Lebensstandard und das wirtschaftliche Wohlergehen der Bevölkerung. Ein höheres BIP pro Kopf deutet in der Regel auf einen höheren Wohlstand, Zugang zu Gütern und Dienstleistungen sowie eine bessere Lebensqualität hin. Es erfasst jedoch möglicherweise nicht die Einkommensverteilung und Ungleichheiten im Vermögen zwischen Individuen.",
+         "reasons": "Änderungen des BIP pro Kopf können durch Faktoren wie wirtschaftliches Wachstum, Bevölkerungsveränderungen, Einkommensverteilung und Regierungspolitiken beeinflusst werden."
+      }
+   },
+   "gdp_growth": {
+      "English": {
+         "meaning": "Gross Domestic Product (GDP) growth measures the rate at which the total value of goods and services produced within a country's borders is changing over time. It indicates the economic expansion or contraction of a nation.",
+         "calculation": "Calculate by comparing the GDP of two periods (usually annual or quarterly) and expressing the change as a percentage.",
+         "example": "For example, if the GDP of a country was $1 trillion in the previous year and it increased to $1.2 trillion in the current year, the GDP growth rate would be (($1.2 trillion - $1 trillion) / $1 trillion) * 100% = 20%.",
+         "impact": "GDP growth is a key indicator of economic health and prosperity. Positive GDP growth indicates an expanding economy, which often leads to job creation, increased incomes, improved living standards, and business opportunities. Conversely, negative GDP growth or economic contraction can result in job losses, reduced incomes, and economic challenges.",
+         "reasons": "GDP growth can be influenced by various factors such as consumer spending, business investments, government policies, global economic conditions, technological advancements, and political stability."
+      },
+      "Deutsch": {
+         "meaning": "Das Wachstum des Bruttoinlandsprodukts (BIP) misst die Rate, mit der sich der Gesamtwert der Waren und Dienstleistungen, die innerhalb der Grenzen eines Landes produziert werden, im Laufe der Zeit verändert. Es gibt die wirtschaftliche Expansion oder Kontraktion einer Nation an.",
+         "calculation": "Berechnen Sie, indem Sie das BIP von zwei Perioden (in der Regel jährlich oder vierteljährlich) vergleichen und die Veränderung als Prozentsatz ausdrücken.",
+         "example": "Zum Beispiel, wenn das BIP eines Landes im letzten Jahr $1 Billion betrug und im aktuellen Jahr auf $1,2 Billionen gestiegen ist, wäre die Wachstumsrate des BIP (($1,2 Billionen - $1 Billion) / $1 Billion) * 100% = 20%.",
+         "impact": "Das BIP-Wachstum ist ein wichtiger Indikator für die wirtschaftliche Gesundheit und den Wohlstand. Ein positives BIP-Wachstum zeigt eine expandierende Wirtschaft an, was häufig zu Arbeitsplatzschaffung, höheren Einkommen, verbesserten Lebensstandards und Geschäftsmöglichkeiten führt. Umgekehrt kann ein negatives BIP-Wachstum oder eine wirtschaftliche Schrumpfung zu Arbeitsplatzverlusten, geringeren Einkommen und wirtschaftlichen Herausforderungen führen.",
+         "reasons": "Das BIP-Wachstum kann von verschiedenen Faktoren wie Konsumausgaben, Unternehmensinvestitionen, staatlichen Politiken, globalen wirtschaftlichen Bedingungen, technologischen Fortschritten und politischer Stabilität beeinflusst werden."
+      }
+   },
+   "population_total": {
+      "English": {
+         "meaning": "Population refers to the total number of people living in a specific geographic area, such as a country or a region. It represents the size and composition of the human inhabitants in that area.",
+         "calculation": "Population is typically measured through a census, which is a systematic collection of demographic data, including information on age, gender, and other relevant characteristics.",
+         "example": "For example, if a country has a population of 50 million, it means there are 50 million individuals residing in that country, including both citizens and non-citizens.",
+         "impact": "Population size has important implications for various aspects of society, including resource allocation, infrastructure planning, healthcare, education, and social services. Changes in population can influence factors such as labor supply, consumer demand, and cultural diversity.",
+         "reasons": "Population can change over time due to factors such as births, deaths, migration, and government policies."
+      },
+      "Deutsch": {
+         "meaning": "Bevölkerung bezieht sich auf die Gesamtzahl der Menschen, die in einem bestimmten geografischen Gebiet, wie einem Land oder einer Region, leben. Es repräsentiert die Größe und Zusammensetzung der menschlichen Bewohner in diesem Bereich.",
+         "calculation": "Die Bevölkerung wird in der Regel durch eine Volkszählung gemessen, bei der systematisch demografische Daten erhoben werden, einschließlich Informationen über Alter, Geschlecht und andere relevante Merkmale.",
+         "example": "Zum Beispiel, wenn ein Land eine Bevölkerung von 50 Millionen hat, bedeutet dies, dass 50 Millionen Menschen in diesem Land leben, einschließlich sowohl Staatsbürger als auch Nicht-Staatsbürger.",
+         "impact": "Die Größe der Bevölkerung hat wichtige Auswirkungen auf verschiedene Aspekte der Gesellschaft, einschließlich der Ressourcenallokation, der Infrastrukturentwicklung, der Gesundheitsversorgung, der Bildung und der sozialen Dienste. Veränderungen in der Bevölkerung können Faktoren wie Arbeitskräfteangebot, Nachfrage der Verbraucher und kulturelle Vielfalt beeinflussen.",
+         "reasons": "Die Bevölkerung kann sich im Laufe der Zeit aufgrund von Faktoren wie Geburten, Todesfällen, Migration und Regierungspolitiken verändern."
+      }
+   },
+   "pop_growth": {
+      "English": {
+         "meaning": "Population growth refers to the rate at which the population of a specific geographic area, such as a country or a region, is changing over time. It measures the increase or decrease in the number of individuals residing in that area.",
+         "calculation": "Population growth is calculated by comparing the population of two periods and expressing the change as a percentage. The formula is ((Current Population - Previous Population) / Previous Population) * 100%.",
+         "example": "For example, if a country had a population of 100 million last year and it increased to 110 million this year, the population growth rate would be ((110 million - 100 million) / 100 million) * 100% = 10%.",
+         "impact": "Population growth has significant implications for various aspects of society, including resource availability, urbanization, infrastructure development, environmental sustainability, and social services. High population growth can strain resources and infrastructure, while low population growth can lead to aging populations and workforce challenges.",
+         "reasons": "Population growth can be influenced by factors such as birth rates, death rates, migration, government policies, and socio-economic factors."
+      },
+      "Deutsch": {
+         "meaning": "Bevölkerungswachstum bezieht sich auf die Rate, mit der sich die Bevölkerung eines bestimmten geografischen Gebiets, wie eines Landes oder einer Region, im Laufe der Zeit verändert. Es misst den Zuwachs oder Rückgang der Anzahl der Menschen, die in diesem Bereich leben.",
+         "calculation": "Das Bevölkerungswachstum wird berechnet, indem die Bevölkerung von zwei Perioden verglichen und die Veränderung als Prozentsatz ausgedrückt wird. Die Formel lautet ((Aktuelle Bevölkerung - Vorherige Bevölkerung) / Vorherige Bevölkerung) * 100%.",
+         "example": "Zum Beispiel, wenn ein Land im letzten Jahr eine Bevölkerung von 100 Millionen hatte und sie in diesem Jahr auf 110 Millionen angestiegen ist, wäre die Wachstumsrate der Bevölkerung ((110 Millionen - 100 Millionen) / 100 Millionen) * 100% = 10%.",
+         "impact": "Das Bevölkerungswachstum hat erhebliche Auswirkungen auf verschiedene Aspekte der Gesellschaft, einschließlich der Verfügbarkeit von Ressourcen, Urbanisierung, Infrastrukturentwicklung, Umweltschutz und sozialer Dienste. Ein hohes Bevölkerungswachstum kann Ressourcen und Infrastruktur belasten, während ein geringes Bevölkerungswachstum zu einer alternden Bevölkerung und Herausforderungen auf dem Arbeitsmarkt führen kann.",
+         "reasons": "Das Bevölkerungswachstum kann von Faktoren wie Geburtenrate, Sterberate, Migration, staatlichen Politiken und sozioökonomischen Faktoren beeinflusst werden."
+      }
+   },
+   "co_1": {
+      "English": {
+         "meaning": "Change in CO2 emission refers to the percentage increase or decrease in the amount of carbon dioxide (CO2) released into the atmosphere over a specific period. It measures the change in the level of greenhouse gas emissions, which contribute to climate change and global warming.",
+         "calculation": "The change in CO2 emission is calculated by comparing the CO2 emissions of two periods and expressing the difference as a percentage. The formula is ((Current Emission - Previous Emission) / Previous Emission) * 100%.",
+         "example": "For example, if a country emitted 100 million tons of CO2 last year and it decreased to 90 million tons this year, the change in CO2 emission would be ((90 million - 100 million) / 100 million) * 100% = -10%.",
+         "impact": "A decrease in CO2 emissions is generally seen as positive, indicating progress in reducing greenhouse gas emissions, improving air quality, and mitigating the long-term impacts of climate change. However, a decrease in CO2 emissions may also result from economic downturn or changes in industrial activity, which can have short-term negative implications. Conversely, an increase in CO2 emissions is seen as negative, contributing more to climate change and its negative impacts.",
+         "reasons": "Changes in CO2 emission can be influenced by factors such as energy consumption patterns, industrial activities, transportation systems, renewable energy adoption, and environmental policies."
+      },
+      "Deutsch": {
+         "meaning": "Die Veränderung der CO2-Emission bezieht sich auf den prozentualen Anstieg oder Rückgang der Menge an Kohlendioxid (CO2), das über einen bestimmten Zeitraum in die Atmosphäre freigesetzt wird. Sie misst die Veränderung des Niveaus der Treibhausgasemissionen, die zum Klimawandel und zur globalen Erwärmung beitragen.",
+         "calculation": "Die Veränderung der CO2-Emission wird berechnet, indem die CO2-Emissionen von zwei Perioden verglichen und die Differenz als Prozentsatz ausgedrückt wird. Die Formel lautet ((Aktuelle Emission - Vorherige Emission) / Vorherige Emission) * 100%.",
+         "example": "Zum Beispiel, wenn ein Land im letzten Jahr 100 Millionen Tonnen CO2 emittiert hat und es in diesem Jahr auf 90 Millionen Tonnen gesunken ist, wäre die Veränderung der CO2-Emission ((90 Millionen - 100 Millionen) / 100 Millionen) * 100% = -10%.",
+         "impact": "Eine Verringerung der CO2-Emissionen wird im Allgemeinen als positiv angesehen und deutet auf Fortschritte bei der Reduzierung von Treibhausgasemissionen hin. Dies verbessert die Luftqualität und mindert langfristige Auswirkungen des Klimawandels. Allerdings kann eine Verringerung der CO2-Emissionen auch auf wirtschaftliche Abschwünge oder Veränderungen in industriellen Aktivitäten zurückzuführen sein, was kurzfristig negative Auswirkungen haben kann. Umgekehrt wird ein Anstieg der CO2-Emissionen als negativ betrachtet und trägt zu verstärktem Klimawandel und seinen negativen Folgen bei.",
+         "reasons": "Veränderungen der CO2-Emissionen können von Faktoren wie Energieverbrauchsmustern, industriellen Aktivitäten, Transportsystemen, der Nutzung erneuerbarer Energien und Umweltpolitiken beeinflusst werden."
+      }
+   },
+   "co_10": {
+      "English": {
+         "meaning": "Change in CO2 emission refers to the percentage increase or decrease in the amount of carbon dioxide (CO2) released into the atmosphere over a specific period. It measures the change in the level of greenhouse gas emissions, which contribute to climate change and global warming.",
+         "calculation": "The change in CO2 emission is calculated by comparing the CO2 emissions of two periods and expressing the difference as a percentage. The formula is ((Current Emission - Previous Emission) / Previous Emission) * 100%.",
+         "example": "For example, if a country emitted 100 million tons of CO2 last year and it decreased to 90 million tons this year, the change in CO2 emission would be ((90 million - 100 million) / 100 million) * 100% = -10%.",
+         "impact": "A decrease in CO2 emissions is generally seen as positive, indicating progress in reducing greenhouse gas emissions, improving air quality, and mitigating the long-term impacts of climate change. However, a decrease in CO2 emissions may also result from economic downturn or changes in industrial activity, which can have short-term negative implications. Conversely, an increase in CO2 emissions is seen as negative, contributing more to climate change and its negative impacts.",
+         "reasons": "Changes in CO2 emission can be influenced by factors such as energy consumption patterns, industrial activities, transportation systems, renewable energy adoption, and environmental policies."
+      },
+      "Deutsch": {
+         "meaning": "Die Veränderung der CO2-Emission bezieht sich auf den prozentualen Anstieg oder Rückgang der Menge an Kohlendioxid (CO2), das über einen bestimmten Zeitraum in die Atmosphäre freigesetzt wird. Sie misst die Veränderung des Niveaus der Treibhausgasemissionen, die zum Klimawandel und zur globalen Erwärmung beitragen.",
+         "calculation": "Die Veränderung der CO2-Emission wird berechnet, indem die CO2-Emissionen von zwei Perioden verglichen und die Differenz als Prozentsatz ausgedrückt wird. Die Formel lautet ((Aktuelle Emission - Vorherige Emission) / Vorherige Emission) * 100%.",
+         "example": "Zum Beispiel, wenn ein Land im letzten Jahr 100 Millionen Tonnen CO2 emittiert hat und es in diesem Jahr auf 90 Millionen Tonnen gesunken ist, wäre die Veränderung der CO2-Emission ((90 Millionen - 100 Millionen) / 100 Millionen) * 100% = -10%.",
+         "impact": "Eine Verringerung der CO2-Emissionen wird im Allgemeinen als positiv angesehen und deutet auf Fortschritte bei der Reduzierung von Treibhausgasemissionen hin. Dies verbessert die Luftqualität und mindert langfristige Auswirkungen des Klimawandels. Allerdings kann eine Verringerung der CO2-Emissionen auch auf wirtschaftliche Abschwünge oder Veränderungen in industriellen Aktivitäten zurückzuführen sein, was kurzfristig negative Auswirkungen haben kann. Umgekehrt wird ein Anstieg der CO2-Emissionen als negativ betrachtet und trägt zu verstärktem Klimawandel und seinen negativen Folgen bei.",
+         "reasons": "Veränderungen der CO2-Emissionen können von Faktoren wie Energieverbrauchsmustern, industriellen Aktivitäten, Transportsystemen, der Nutzung erneuerbarer Energien und Umweltpolitiken beeinflusst werden."
+      }
+   },
+   "hd": {
+      "English": {
+         "meaning": "The Human Development Index (HDI) is a measure of human well-being and development in a country. It takes into account factors such as life expectancy, education, and income to provide a broader understanding of the overall quality of life for individuals in a society.",
+         "calculation": "The HDI is calculated based on three dimensions: life expectancy at birth, mean years of education, and gross national income per capita. Each dimension is given a value between 0 and 1, and the final HDI is the geometric mean of these values.",
+         "example": "For example, a country with a high HDI indicates a longer life expectancy, higher educational attainment, and greater income levels for its population, reflecting a higher overall quality of life.",
+         "impact": "An increase in the HDI suggests improvements in human well-being and development, including better access to healthcare, education, and economic opportunities. It signifies progress in achieving higher living standards and reducing disparities among individuals in a society.",
+         "reasons": "Factors that can influence changes in the HDI include investments in education and healthcare, income inequality, social and political stability, and government policies focused on human development."
+      },
+      "Deutsch": {
+         "meaning": "Der Human Development Index (HDI) ist ein Maß für das Wohlergehen und die Entwicklung der Menschen in einem Land. Er berücksichtigt Faktoren wie die Lebenserwartung, Bildung und Einkommen, um ein umfassenderes Verständnis von Lebensqualität für Einzelpersonen in einer Gesellschaft zu bieten.",
+         "calculation": "Der HDI wird anhand von drei Dimensionen berechnet: Lebenserwartung bei der Geburt, durchschnittliche Schuljahre und Bruttonationaleinkommen pro Kopf. Jede Dimension wird einen Wert zwischen 0 und 1 zugewiesen, und der endgültige HDI ist das geometrische Mittel dieser Werte.",
+         "example": "Ein Land mit einem hohen HDI weist beispielsweise eine längere Lebenserwartung, höheren Bildungsstand und höhere Einkommensniveaus für seine Bevölkerung auf, was eine insgesamt höhere Lebensqualität widerspiegelt.",
+         "impact": "Ein Anstieg des HDI deutet auf Verbesserungen des Wohlergehens und der Entwicklung der Menschen hin, einschließlich eines besseren Zugangs zur Gesundheitsversorgung, Bildung und wirtschaftlichen Möglichkeiten. Er signalisiert Fortschritte bei der Erreichung höherer Lebensstandards und der Verringerung von Unterschieden zwischen den Menschen in einer Gesellschaft.",
+         "reasons": "Faktoren, die Veränderungen des HDI beeinflussen können, sind Investitionen in Bildung und Gesundheitswesen, Einkommensungleichheit, soziale und politische Stabilität sowie Regierungspolitik, die auf die menschliche Entwicklung abzielt."
+      }
+   },
+   "gd": {
+      "English": {
+         "meaning": "The Gender Development Index (GDI) is a measure that assesses gender equality and women's empowerment in a country. It takes into account factors such as education, health, and economic participation to provide an understanding of gender disparities and the well-being of women compared to men.",
+         "calculation": "The GDI is calculated by dividing the Human Development Index (HDI) of women by the HDI of men and multiplying it by 100. A value of 100 indicates perfect gender equality, while values below 100 indicate disparities favoring men.",
+         "example": "For example, a higher GDI value suggests that women have relatively higher levels of education, better access to healthcare, and greater economic participation compared to men, indicating progress in gender equality and women's empowerment.",
+         "impact": "An increase in the GDI signifies improvements in gender equality and the well-being of women, including increased access to education, healthcare, and economic opportunities. It reflects progress in addressing gender disparities and promoting women's empowerment.",
+         "reasons": "Factors that can influence changes in the GDI include investments in women's education and healthcare, gender-based discrimination, cultural norms, and government policies focused on gender equality and women's empowerment."
+      },
+      "Deutsch": {
+         "meaning": "Der Gender Development Index (GDI) ist ein Maß, das die Geschlechtergerechtigkeit und die Stärkung von Frauen in einem Land bewertet. Er berücksichtigt Faktoren wie Bildung, Gesundheit und wirtschaftliche Teilhabe, um ein Verständnis für Geschlechterunterschiede und das Wohlergehen von Frauen im Vergleich zu Männern zu bieten.",
+         "calculation": "Der GDI wird berechnet, indem der Human Development Index (HDI) von Frauen durch den HDI von Männern geteilt und mit 100 multipliziert wird. Ein Wert von 100 deutet auf eine vollständige Geschlechtergerechtigkeit hin, während Werte unter 100 auf zugunsten der Männer bestehende Unterschiede hinweisen.",
+         "example": "Ein höherer GDI-Wert deutet beispielsweise darauf hin, dass Frauen im Vergleich zu Männern relativ höhere Bildungsniveaus, besseren Zugang zur Gesundheitsversorgung und eine größere wirtschaftliche Teilhabe haben, was auf Fortschritte in der Geschlechtergerechtigkeit und der Stärkung von Frauen hinweist.",
+         "impact": "Ein Anstieg des GDI signalisiert Verbesserungen in Bezug auf Geschlechtergerechtigkeit und das Wohlergehen von Frauen, einschließlich eines verbesserten Zugangs zu Bildung, Gesundheitsversorgung und wirtschaftlichen Möglichkeiten. Es spiegelt Fortschritte bei der Überwindung von Geschlechterunterschieden und der Förderung der Stärkung von Frauen wider.",
+         "reasons": "Faktoren, die Veränderungen des GDI beeinflussen können, sind Investitionen in die Bildung und Gesundheitsversorgung von Frauen, geschlechtsbezogene Diskriminierung, kulturelle Normen und Regierungspolitik, die auf Geschlechtergerechtigkeit und die Stärkung von Frauen abzielen."
+      }
+   },
+   "sc": {
+      "English": {
+         "meaning": "Mean years of schooling is an indicator that measures the average number of years of education completed by individuals in a country. It provides an understanding of the educational attainment and literacy levels of the population.",
+         "calculation": "Mean years of schooling is calculated by summing up the years of education completed by individuals in a specific age group and dividing it by the total number of individuals in that age group.",
+         "example": "For example, a mean years of schooling of 8 years indicates that, on average, individuals in the country have completed 8 years of formal education.",
+         "impact": "Higher mean years of schooling generally indicate higher levels of educational attainment, which can lead to improved employment opportunities, higher income levels, and better overall socio-economic development.",
+         "reasons": "Factors that can influence changes in mean years of schooling include investments in education, government policies promoting access to education, cultural attitudes towards education, and socio-economic factors affecting educational opportunities."
+      },
+      "Deutsch": {
+         "meaning": "Die durchschnittliche Schuljahre ist ein Indikator, der die durchschnittliche Anzahl der Bildungsjahre misst, die von Einzelpersonen in einem Land absolviert wurden. Er bietet Einblicke in den Bildungsstand und die Literalität der Bevölkerung.",
+         "calculation": "Die durchschnittliche Schuljahre werden berechnet, indem die Bildungsjahre aller Personen in einer bestimmten Altersgruppe summiert und durch die Gesamtzahl der Personen in dieser Altersgruppe dividiert werden.",
+         "example": "Ein Beispiel für durchschnittliche Schuljahre von 8 Jahren bedeutet, dass Einzelpersonen im Durchschnitt 8 Jahre formale Bildung abgeschlossen haben.",
+         "impact": "Höhere durchschnittliche Schuljahre deuten in der Regel auf höhere Bildungsabschlüsse hin, was zu verbesserten Beschäftigungsmöglichkeiten, höheren Einkommensniveaus und einer insgesamt besseren sozioökonomischen Entwicklung führen kann.",
+         "reasons": "Faktoren, die Veränderungen in den durchschnittlichen Schuljahren beeinflussen können, sind Investitionen in Bildung, Regierungspolitik zur Förderung des Zugangs zur Bildung, kulturelle Einstellungen zur Bildung und sozioökonomische Faktoren, die Bildungschancen beeinflussen."
+      }
+   }
 }
