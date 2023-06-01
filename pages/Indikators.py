@@ -132,98 +132,98 @@ Created with ❤️
 
 rate_state = rating[rating.state == state].score.values[0]
 st.markdown(f'### {state} {rate_state}')
-try:
-    col1, col2, col3, col4 = st.columns(4)
 
-    col1.metric("In Deutschland", int(temp_de[temp_de.state == state].ranking.values[0]),'')
-  
-    col2.metric("In Europa & Zentralasien",  int(temp_eu[temp_eu.state == state].ranking.values[0]) , '')
-    col3.metric("In der Welt",  int(temp_co[temp_co.state == state].ranking.values[0]) , '')
-    col4.metric("In Ländern mit hohem Einkommen", int(temp_in[temp_in.state == state].ranking.values[0]), '')
-    
-    
-    # Row B
-    #bar_df = de[de.state == state].rename(mapper = {indicator:key}, axis=1)
-    c1, c2 = st.columns([3, 1])
-    with c1:
-        st.markdown(f'### {key}')
-        plost.bar_chart(
-        data=de[de.state == state].rename(mapper = {indicator:key}, axis=1),
-        bar = 'year',
-        value = key,
-         height=400,
-         use_container_width=True 
+col1, col2, col3, col4 = st.columns(4)
 
-       )
-        dc = {'Bedeutung':'meaning', 'Berechnung':'calculation', 'Beispiel':'example', 'Auswirkung':'impact', 'Gründe':'reasons'}
-        st_exp_de = st.expander('Kurze Erklärung')
-        with st_exp_de:             
-            c = st.selectbox(f'Kurze Erklärung für {key}',  dc.keys())
-            st.write(exp[indicator]['Deutsch'][dc[c]]) 
+col1.metric("In Deutschland", int(temp_de[temp_de.state == state].ranking.values[0]),'')
+
+col2.metric("In Europa & Zentralasien",  int(temp_eu[temp_eu.state == state].ranking.values[0]) , '')
+col3.metric("In der Welt",  int(temp_co[temp_co.state == state].ranking.values[0]) , '')
+col4.metric("In Ländern mit hohem Einkommen", int(temp_in[temp_in.state == state].ranking.values[0]), '')
 
 
+# Row B
+#bar_df = de[de.state == state].rename(mapper = {indicator:key}, axis=1)
+c1, c2 = st.columns([3, 1])
+with c1:
+    st.markdown(f'### {key}')
+    plost.bar_chart(
+    data=de[de.state == state].rename(mapper = {indicator:key}, axis=1),
+    bar = 'year',
+    value = key,
+     height=400,
+     use_container_width=True 
 
-
-    c2_x = c2.expander('Werte')
-    temp = de[(de.state == state)&(de.year > '2012')][['state','year',indicator]].dropna().rename(mapper = show_list_1, axis = 1).reset_index(drop = True)
-    temp.columns = ['Bundesländer', 'Datum',key]
-    temp.index +=1
-    with c2_x:
-
-        c2_x.table(temp.style.format({key:"{:.3}"}))
+   )
+    dc = {'Bedeutung':'meaning', 'Berechnung':'calculation', 'Beispiel':'example', 'Auswirkung':'impact', 'Gründe':'reasons'}
+    st_exp_de = st.expander('Kurze Erklärung')
+    with st_exp_de:             
+        c = st.selectbox(f'Kurze Erklärung für {key}',  dc.keys())
+        st.write(exp[indicator]['Deutsch'][dc[c]]) 
 
 
 
 
-    col1, col2 = st.columns((4, 8))
-    temp_co.drop('ranking', 1, inplace =True)
+c2_x = c2.expander('Werte')
+temp = de[(de.state == state)&(de.year > '2012')][['state','year',indicator]].dropna().rename(mapper = show_list_1, axis = 1).reset_index(drop = True)
+temp.columns = ['Bundesländer', 'Datum',key]
+temp.index +=1
+with c2_x:
+
+    c2_x.table(temp.style.format({key:"{:.3}"}))
+
+
+
+
+col1, col2 = st.columns((4, 8))
+temp_co.drop('ranking', 1, inplace =True)
+
+temp = temp_co.copy()
+
+
+
+if indicator in ['bruttoinland','population_total', 'gdp_per', 'pop_growth', 'gdp_growth', 'hd', 'gd', 'sc']:
+
+    temp = temp[['state', 'year', 'region','incomeLevel', indicator]].sort_values(indicator,ascending=False)
+
+else:
+    temp = temp[['state', 'year', 'region','incomeLevel', indicator]].sort_values(indicator)
+
+
+col1_x = col1.expander('Ranking in Deutschland')
+
+
+with col1_x:
+    col1_x.table(data=temp_de[['state','year',indicator]].rename(mapper = show_list_1, axis = 1).style.format({key:"{:.3}"}))
+
+
+col2_x = col2.expander('Ranking in ausgewählten Ländern')
+
+with col2_x:
+        c = st.multiselect('Länder', temp.state, default = [state, 'Deutschland', 'Österreich','Frankreich', 'Vereinigtes Königreich', 'Vereinigte Staaten', 'China', 'Japan', 'Italien', 'Spanien' ])
+      #  num = temp[temp.state==state].index[0]
+
+        temp = pd.concat([temp[temp.state.isin(c)],
+                               temp[temp.state==state]])
+
+        temp.drop_duplicates(inplace=True)
+        if indicator in ['bruttoinland','population_total', 'gdp_per', 'pop_growth', 'gdp_growth','hd', 'gd', 'sc']:
+
+            temp = temp[['state', 'year', 'region','incomeLevel', indicator]].sort_values(indicator,ascending=False)
+
+        else:
+            temp = temp[['state', 'year', 'region','incomeLevel', indicator]].sort_values(indicator)
+
+        temp.reset_index(drop=True, inplace=True)
+
+        temp.index +=1
+        temp.columns = ['Bundesländer', 'Datum','Region', 'Einkommen Level',key]
+
+        col2_x.table(temp)
+
+# except IndexError:
    
-    temp = temp_co.copy()
-    
-
-
-    if indicator in ['bruttoinland','population_total', 'gdp_per', 'pop_growth', 'gdp_growth', 'hd', 'gd', 'sc']:
-
-        temp = temp[['state', 'year', 'region','incomeLevel', indicator]].sort_values(indicator,ascending=False)
-
-    else:
-        temp = temp[['state', 'year', 'region','incomeLevel', indicator]].sort_values(indicator)
-
-
-    col1_x = col1.expander('Ranking in Deutschland')
-
-
-    with col1_x:
-        col1_x.table(data=temp_de[['state','year',indicator]].rename(mapper = show_list_1, axis = 1).style.format({key:"{:.3}"}))
-        
-
-    col2_x = col2.expander('Ranking in ausgewählten Ländern')
-    
-    with col2_x:
-            c = st.multiselect('Länder', temp.state, default = [state, 'Deutschland', 'Österreich','Frankreich', 'Vereinigtes Königreich', 'Vereinigte Staaten', 'China', 'Japan', 'Italien', 'Spanien' ])
-          #  num = temp[temp.state==state].index[0]
-
-            temp = pd.concat([temp[temp.state.isin(c)],
-                                   temp[temp.state==state]])
-
-            temp.drop_duplicates(inplace=True)
-            if indicator in ['bruttoinland','population_total', 'gdp_per', 'pop_growth', 'gdp_growth','hd', 'gd', 'sc']:
-
-                temp = temp[['state', 'year', 'region','incomeLevel', indicator]].sort_values(indicator,ascending=False)
-
-            else:
-                temp = temp[['state', 'year', 'region','incomeLevel', indicator]].sort_values(indicator)
-
-            temp.reset_index(drop=True, inplace=True)
-
-            temp.index +=1
-            temp.columns = ['Bundesländer', 'Datum','Region', 'Einkommen Level',key]
-
-            col2_x.table(temp)
-            
-except IndexError:
-   
-    st.write('Es liegen nicht genügend Daten vor, bitte wählen Sie einen anderen Indikator oder ein anderes Bundesland aus')
-except:
-    st.write('Etwas ist schief gelaufen, bitte wählen Sie einen anderen Indikator oder ein anderes Bundesland')
+#     st.write('Es liegen nicht genügend Daten vor, bitte wählen Sie einen anderen Indikator oder ein anderes Bundesland aus')
+# except:
+#     st.write('Etwas ist schief gelaufen, bitte wählen Sie einen anderen Indikator oder ein anderes Bundesland')
     
