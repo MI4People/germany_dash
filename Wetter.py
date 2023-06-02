@@ -41,7 +41,7 @@ key = 'Weather'
 
 st.sidebar.markdown('''
 ---
-Created with ❤️ 
+Made with ❤️ 
 ''')
 
 df = pd.read_csv('de.csv', engine='python',  encoding = "ISO-8859-1", index_col=0)
