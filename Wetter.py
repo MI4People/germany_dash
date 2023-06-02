@@ -34,7 +34,7 @@ with open('exp00.json', 'r', encoding='utf-8') as f:
     exp = json.load(f)
 
     
-st.sidebar.header('Dashboard Germany')
+st.sidebar.header('Dashboard Deutschland')
 #st.subheader('Indicator')
 key = 'Weather'
 
