@@ -188,7 +188,7 @@ if key.lower() == 'weather':
 
 
     col1, col2 = st.columns([3, 1])
-    col1_x = col1.expander('Trend über Jahre')
+    col1_x = col1.expander('Temperature über Jahre')
     df_g = data_m[data_m.Year != end.strftime('%Y')].groupby('Year').mean()[val_key].reset_index()
 
 
