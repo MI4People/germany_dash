@@ -128,10 +128,10 @@ if key.lower() == 'weather':
     with c1:
         st.markdown(f'### {"Temperature".title()} ')
         plost.bar_chart(
-        data=data,
+        data=data.rename(columns= {'time':'Datum', 'tavg':'Durchschnittliche Temperatur'}),
         title = f'Durchschnittliche Temperatur für {map_months[end.strftime("%B")]} {end.strftime("%d")} über Jahre',
-        bar = 'time',
-        value = val_key,
+        bar = 'Datum',
+        value = 'Durchschnittliche Temperatur',
          height=400,
          use_container_width=True 
 
@@ -164,7 +164,7 @@ if key.lower() == 'weather':
     fig.add_trace(go.Scatter(name=f'Trend im {map_months[end.strftime("%B")]} nach Jahre', x=df_new.index, y=df_new['trend'], mode='lines', marker_color='red'))
 
 
-    fig.update_layout(xaxis_title = 'Year', yaxis_title = val_key,legend=dict(
+    fig.update_layout(xaxis_title = 'Datum', yaxis_title = 'Durchschnittliche Temperatur',legend=dict(
         orientation="h",
         yanchor="bottom",
         y=1.02,
@@ -211,7 +211,7 @@ if key.lower() == 'weather':
     fig.add_trace(go.Scatter(name='Trend über Jahre', x=df_new.index, y=df_new['trend'], mode='lines', marker_color='red'))
 
     ### Temparture for years
-    fig.update_layout(xaxis_title = 'Year', yaxis_title = val_key,legend=dict(
+    fig.update_layout(xaxis_title = 'Datum', yaxis_title = 'Durchschnittliche Temperatur',legend=dict(
         orientation="h",
         yanchor="bottom",
         y=1.02,
@@ -263,7 +263,7 @@ if key.lower() == 'weather':
     col1, col2 = st.columns([3, 1])
     col1_x = col1.expander(f'Niederschlag für {map_months[end.strftime("%B")]} ')
     # plotly figure layout
-    fig.update_layout(xaxis_title = 'Year', yaxis_title = val_key,legend=dict(
+    fig.update_layout(xaxis_title = 'Datum', yaxis_title = 'Durchschnittliche Niederschlag',legend=dict(
         orientation="h",
         yanchor="bottom",
         y=1.02,
@@ -308,7 +308,7 @@ if key.lower() == 'weather':
     fig.add_trace(go.Scatter(name='Trend über Jahre', x=df_new.index, y=df_new['trend'], mode='lines', marker_color='red'))
 
     # plotly figure layout
-    fig.update_layout(xaxis_title = 'Year', yaxis_title = val_key,legend=dict(
+    fig.update_layout(xaxis_title = 'Datum', yaxis_title = 'Durchschnittliche Niederschlag',legend=dict(
         orientation="h",
         yanchor="bottom",
         y=1.02,

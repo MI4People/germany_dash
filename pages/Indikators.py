@@ -38,7 +38,7 @@ liste = liste = {
 with open('style.css') as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
     
-st.sidebar.header('Dashboard Germany')
+st.sidebar.header('Dashboard Deutschland')
 
 
 st.subheader('Indikator')
@@ -126,7 +126,7 @@ else:
 
 st.sidebar.markdown('''
 ---
-Created with ❤️ 
+Made with ❤️ 
 ''')
 
 

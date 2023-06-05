@@ -33,13 +33,13 @@ with open('exp00.json', 'r', encoding='utf-8') as f:
 
     
     
-st.sidebar.header('Dashboard Germany')
+st.sidebar.header('Dashboard Deutschland')
 st.subheader('monatliche Inflation')
 key = 'Inflation'
 
 st.sidebar.markdown('''
 ---
-Created with ❤️ 
+Made with ❤️  
 ''')
 
 df = pd.read_csv("data_month.csv", index_col=0)
