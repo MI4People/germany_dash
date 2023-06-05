@@ -308,7 +308,7 @@ if key.lower() == 'weather':
     fig.add_trace(go.Scatter(name='Trend über Jahre', x=df_new.index, y=df_new['trend'], mode='lines', marker_color='red'))
 
     # plotly figure layout
-    fig.update_layout(xaxis_title = 'Datum', yaxis_title = 'Durchschnittliche Niederschlag',,legend=dict(
+    fig.update_layout(xaxis_title = 'Datum', yaxis_title = 'Durchschnittliche Niederschlag',legend=dict(
         orientation="h",
         yanchor="bottom",
         y=1.02,
