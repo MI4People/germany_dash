@@ -189,12 +189,12 @@ if key.lower() == 'weather':
 
     col1, col2 = st.columns([3, 1])
     col1_x = col1.expander('Temperature über Jahre')
-    df_g = data_m[data_m.Year != end.strftime('%Y')].groupby('Year').mean()[val_key].reset_index()
+    df_year = data_m[data_m.Year != end.strftime('%Y')].groupby('Year').mean()[val_key].reset_index()
 
 
 
-    df_log=pd.DataFrame({'X':df_g.Year,
-                         'Y': df_g[val_key]})
+    df_log=pd.DataFrame({'X':df_year.Year,
+                         'Y': df_year[val_key]})
     df_log.set_index('X', inplace = True)
 
     reg = LinearRegression().fit(np.vstack(df_log.index), df_log['Y'])
@@ -308,7 +308,7 @@ if key.lower() == 'weather':
     fig.add_trace(go.Scatter(name='Trend über Jahre', x=df_new.index, y=df_new['trend'], mode='lines', marker_color='red'))
 
     # plotly figure layout
-    fig.update_layout(xaxis_title = 'Datum', yaxis_title = 'Durchschnittliche Niederschlag',legend=dict(
+    fig.update_layout(xaxis_title = 'Datum', yaxis_title = 'Durchschnittliche Niederschlag',,legend=dict(
         orientation="h",
         yanchor="bottom",
         y=1.02,
