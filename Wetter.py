@@ -191,6 +191,7 @@ if key.lower() == 'weather':
     col1, col2 = st.columns([3, 1])
     col1_x = col1.expander('Temperature über Jahre')
     df_year = data_m[data_m.Year != end.strftime('%Y')].groupby('Year').mean()[val_key].reset_index()
+    
 
 
 
@@ -200,15 +201,16 @@ if key.lower() == 'weather':
 
     reg = LinearRegression().fit(np.vstack(df_log.index), df_log['Y'])
     df_log['bestfit'] = reg.predict(np.vstack(df_log.index))
-    df_new=pd.DataFrame({'X':df_g.Year,
-                         'Y':df_g[val_key],
+    df_new=pd.DataFrame({'X':df_year.Year,
+                         'Y':df_year[val_key],
                          'trend':df_log['bestfit'].reset_index(drop=True)})
+    
 
     df_new.set_index('X', inplace=True)
 
 
     fig=go.Figure()
-    fig.add_trace(go.Bar( name = 'Durchschnittliche Temperature' ,x=df_new.index, y=df_g[val_key]))
+    fig.add_trace(go.Bar( name = 'Durchschnittliche Temperature' ,x=df_new.index, y=df_year[val_key]))
     fig.add_trace(go.Scatter(name='Trend über Jahre', x=df_new.index, y=df_new['trend'], mode='lines', marker_color='red'))
 
     ### Temparture for years
