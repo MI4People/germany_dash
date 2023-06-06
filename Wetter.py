@@ -5,6 +5,7 @@ from sklearn.linear_model import LinearRegression
 import plotly.graph_objects as go
 import numpy as np
 from meteostat import Point, Daily, Monthly
+import meteostat
 import plost
 import json
 
@@ -14,7 +15,7 @@ map_months = {"January": "Januar", "February": "Februar", "March": "März", "Apr
 
 
 
-st.set_page_config(layout='wide', initial_sidebar_state='expanded',page_title="dashgermany",
+st.set_page_config(layout='wide', initial_sidebar_state='expanded',page_title="dashdeutschland",
     page_icon="🇩🇪")
 st.write(
     """
