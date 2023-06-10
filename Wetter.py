@@ -318,12 +318,12 @@ if key.lower() == 'weather':
                          'Y':df_g[val_key],
                          'trend':df_log['bestfit'].reset_index(drop=True)})
 
-    df_new.set_index('X', inplace=True)
+   # df_new.set_index('X', inplace=True)
 
     # plotly figure setup
     fig=go.Figure()
-    fig.add_trace(go.Bar( name = 'Durchschnittliche Niederschlag' ,x=df_new.index, y=df_new.Y))
-    fig.add_trace(go.Scatter(name='Trend über Jahre', x=df_new.index, y=df_new['trend'], mode='lines', marker_color='red'))
+    fig.add_trace(go.Bar( name = 'Durchschnittliche Niederschlag' ,x=df_new.X, y=df_new.Y))
+    fig.add_trace(go.Scatter(name='Trend über Jahre', x=df_new.X, y=df_new['trend'], mode='lines', marker_color='red'))
 
     # plotly figure layout
     fig.update_layout(xaxis_title = 'Datum', yaxis_title = 'Durchschnittliche Niederschlag',legend=dict(
