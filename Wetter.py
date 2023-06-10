@@ -268,7 +268,7 @@ if key.lower() == 'weather':
                          'trend':df_log['bestfit'].reset_index(drop=True)})
 
     df_new_rain  = df_new.copy()
-    st.write(df_new_rain)
+    
     fig=go.Figure()
     fig.add_trace(go.Bar( name = 'Durchschnittliche Niederschlag' ,x=df_new_rain.X.astype('str'), y=df_new_rain.Y))
     fig.add_trace(go.Scatter(name=f'Trend im {map_months[end.strftime("%B")]} nach Jahre', x=df_new_rain.X.astype('str'), y=df_new_rain['trend'], mode='lines', marker_color='red'))
