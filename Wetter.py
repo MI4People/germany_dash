@@ -269,7 +269,8 @@ if key.lower() == 'weather':
 
     df_new.set_index('X', inplace=True)
 
-
+    st.write(df_new)
+    st.write(df_log)
     fig=go.Figure()
     fig.add_trace(go.Bar( name = 'Durchschnittliche Niederschlag' ,x=df_new.index, y=df_log.Y))
     fig.add_trace(go.Scatter(name=f'Trend im {map_months[end.strftime("%B")]} nach Jahre', x=df_new.index, y=df_new['trend'], mode='lines', marker_color='red'))
