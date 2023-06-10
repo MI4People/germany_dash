@@ -75,6 +75,7 @@ if key.lower() == 'weather':
     data['df_time'] = data.time.apply(lambda x: x.strftime('%m-%d'))
     data['x_time'] = data.time.apply(lambda x: x.strftime('%Y/%m/%d'))
     data = data[data.df_time ==end.strftime('%m-%d')]
+    data = data.dropna(subset = ['tavg'])
     data.reset_index(inplace =True)
    # st.write(data)
     data_m = Monthly(location, start, end)
@@ -84,26 +85,29 @@ if key.lower() == 'weather':
     data_m['x_time'] = data_m.time.apply(lambda x: x.strftime('%Y/%m'))
     data_m['Year'] = data_m.time.apply(lambda x: x.strftime('%Y'))
 
-    df_g = data_m[data_m.df_time ==end.strftime('%m')].reset_index(drop=True)
-
-
+    df_g = data_m[data_m.df_time ==end.strftime('%m')]
+  
+    df_g = df_g.dropna(subset = ['tavg']).reset_index(drop=True)
+    
     # log regression
 
     df_log=pd.DataFrame({'X':df_g.Year,
                          'Y': df_g[val_key]})
     df_log.set_index('X', inplace = True)
-
-
+    
+    #df_log = df_log.dropna()
+    
     reg = LinearRegression().fit(np.vstack(df_log.index), df_log['Y'])
 
     df_log['bestfit'] = reg.predict(np.vstack(df_log.index))
-
+    
     df_new=pd.DataFrame({'X':df_g.Year,
                          'Y':df_g[val_key],
                          'trend':df_log['bestfit'].reset_index(drop=True)})
 
-
+   
     df_new.set_index('X', inplace=True)
+   
 
     col1, col2, col3, col4 = st.columns(4)
     val = round(data[val_key].max() - data[val_key].values[-1],2)
@@ -126,10 +130,13 @@ if key.lower() == 'weather':
 
     ### Temparture for days
     c1, c2 = st.columns([3, 1])
+    
     with c1:
+        if '1988' not in [ i[:4] for i in data.x_time.tolist()]:
+            data = data[data.x_time.str[:4]>='1990']
         st.markdown(f'### {"Temperature".title()} ')
         plost.bar_chart(
-        data=data.rename(columns= {'time':'Datum', 'tavg':'Durchschnittliche Temperatur'}),
+        data=data.dropna(subset = ['tavg']).reset_index(drop=True).rename(columns= {'time':'Datum', 'tavg':'Durchschnittliche Temperatur'}),
         title = f'Durchschnittliche Temperatur für {map_months[end.strftime("%B")]} {end.strftime("%d")} über Jahre',
         bar = 'Datum',
         value = 'Durchschnittliche Temperatur',
@@ -137,6 +144,7 @@ if key.lower() == 'weather':
          use_container_width=True 
 
         )
+        
 
         st_exp_de = st.expander('Kurze Erklärung')
 
@@ -190,7 +198,9 @@ if key.lower() == 'weather':
 
     col1, col2 = st.columns([3, 1])
     col1_x = col1.expander('Temperature über Jahre')
-    df_year = data_m[data_m.Year != end.strftime('%Y')].groupby('Year').mean()[val_key].reset_index()
+    df_year = data_m[data_m.Year != end.strftime('%Y')]
+    df_year = df_year.dropna(subset=['tavg']).reset_index(drop = True)
+    df_year = df_year.groupby('Year').mean()[val_key].reset_index()
     
 
 
@@ -243,7 +253,7 @@ if key.lower() == 'weather':
 
     df_g = data_m[data_m.df_time ==end.strftime('%m')].reset_index(drop=True)
     df_g = df_g[df_g.Year != end.strftime('%Y')]
-
+    df_g = df_g.dropna(subset = ['prcp']).reset_index(drop=True)
 
     df_log=pd.DataFrame({'X':df_g.Year,
                          'Y': df_g[val_key]})
@@ -289,7 +299,9 @@ if key.lower() == 'weather':
     ### Rain for years
     col1, col2 = st.columns([3, 1])
     col1_x = col1.expander('Niederschlag über Jahren')
-    df_g = data_m[data_m.Year != end.strftime('%Y')].groupby('Year').mean()[val_key].reset_index()
+    df_g = data_m[data_m.Year != end.strftime('%Y')]
+    df_g = df_g.dropna(subset = ['prcp']).reset_index(drop=True)
+    df_g = df_g.groupby('Year').mean()[val_key].reset_index()
 
     df_log=pd.DataFrame({'X':df_g.Year,
                          'Y': df_g[val_key]})
