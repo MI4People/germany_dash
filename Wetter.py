@@ -267,12 +267,11 @@ if key.lower() == 'weather':
                          'Y':df_g[val_key],
                          'trend':df_log['bestfit'].reset_index(drop=True)})
 
+    df_new_rain  = df_new.copy()
 
-    st.write(df_new)
-    st.write(df_log)
     fig=go.Figure()
-    fig.add_trace(go.Bar( name = 'Durchschnittliche Niederschlag' ,x=df_new.X.astype('str'), y=df_new.Y))
-    fig.add_trace(go.Scatter(name=f'Trend im {map_months[end.strftime("%B")]} nach Jahre', x=df_new.X.astype('str'), y=df_new['trend'], mode='lines', marker_color='red'))
+    fig.add_trace(go.Bar( name = 'Durchschnittliche Niederschlag' ,x=df_new_rain.X.astype('str'), y=df_new_rain.Y))
+    fig.add_trace(go.Scatter(name=f'Trend im {map_months[end.strftime("%B")]} nach Jahre', x=df_new_rain.X.astype('str'), y=df_new_rain['trend'], mode='lines', marker_color='red'))
     col1, col2 = st.columns([3, 1])
     col1_x = col1.expander(f'Niederschlag für {map_months[end.strftime("%B")]} ')
     # plotly figure layout
