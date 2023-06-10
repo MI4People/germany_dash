@@ -169,7 +169,7 @@ if key.lower() == 'weather':
 
     ### Temparture for months
     fig=go.Figure()
-    fig.add_trace(go.Bar( name = 'Durchschnittliche Temperatur',x=df_new.X, y=df_g[val_key],))
+    fig.add_trace(go.Bar( name = 'Durchschnittliche Temperatur',x=df_new.X.astype('str'), y=df_g[val_key],))
     fig.add_trace(go.Scatter(name=f'Trend im {map_months[end.strftime("%B")]} nach Jahre', x=df_new.X, y=df_new['trend'], mode='lines', marker_color='red'))
 
 
