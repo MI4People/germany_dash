@@ -106,7 +106,7 @@ if key.lower() == 'weather':
                          'trend':df_log['bestfit'].reset_index(drop=True)})
 
    
-    df_new.set_index('X', inplace=True)
+    #df_new.set_index('X', inplace=True)
    
 
     col1, col2, col3, col4 = st.columns(4)
@@ -169,8 +169,8 @@ if key.lower() == 'weather':
 
     ### Temparture for months
     fig=go.Figure()
-    fig.add_trace(go.Bar( name = 'Durchschnittliche Temperatur',x=df_new.index, y=df_g[val_key],))
-    fig.add_trace(go.Scatter(name=f'Trend im {map_months[end.strftime("%B")]} nach Jahre', x=df_new.index, y=df_new['trend'], mode='lines', marker_color='red'))
+    fig.add_trace(go.Bar( name = 'Durchschnittliche Temperatur',x=df_new.X, y=df_g[val_key],))
+    fig.add_trace(go.Scatter(name=f'Trend im {map_months[end.strftime("%B")]} nach Jahre', x=df_new.X, y=df_new['trend'], mode='lines', marker_color='red'))
 
 
     fig.update_layout(xaxis_title = 'Datum', yaxis_title = 'Durchschnittliche Temperatur',legend=dict(
@@ -216,12 +216,12 @@ if key.lower() == 'weather':
                          'trend':df_log['bestfit'].reset_index(drop=True)})
     
 
-    df_new.set_index('X', inplace=True)
+ 
 
 
     fig=go.Figure()
-    fig.add_trace(go.Bar( name = 'Durchschnittliche Temperature' ,x=df_new.index, y=df_year[val_key]))
-    fig.add_trace(go.Scatter(name='Trend über Jahre', x=df_new.index, y=df_new['trend'], mode='lines', marker_color='red'))
+    fig.add_trace(go.Bar( name = 'Durchschnittliche Temperature' ,x=df_new.X, y=df_year[val_key]))
+    fig.add_trace(go.Scatter(name='Trend über Jahre', x=df_new.X, y=df_new['trend'], mode='lines', marker_color='red'))
 
     ### Temparture for years
     fig.update_layout(xaxis_title = 'Datum', yaxis_title = 'Durchschnittliche Temperatur',legend=dict(
@@ -267,13 +267,12 @@ if key.lower() == 'weather':
                          'Y':df_g[val_key],
                          'trend':df_log['bestfit'].reset_index(drop=True)})
 
-    df_new.set_index('X', inplace=True)
 
     st.write(df_new)
     st.write(df_log)
     fig=go.Figure()
-    fig.add_trace(go.Bar( name = 'Durchschnittliche Niederschlag' ,x=df_new.index, y=df_new.Y))
-    fig.add_trace(go.Scatter(name=f'Trend im {map_months[end.strftime("%B")]} nach Jahre', x=df_new.index, y=df_new['trend'], mode='lines', marker_color='red'))
+    fig.add_trace(go.Bar( name = 'Durchschnittliche Niederschlag' ,x=df_new.X, y=df_new.Y))
+    fig.add_trace(go.Scatter(name=f'Trend im {map_months[end.strftime("%B")]} nach Jahre', x=df_new.X, y=df_new['trend'], mode='lines', marker_color='red'))
     col1, col2 = st.columns([3, 1])
     col1_x = col1.expander(f'Niederschlag für {map_months[end.strftime("%B")]} ')
     # plotly figure layout
@@ -318,7 +317,7 @@ if key.lower() == 'weather':
                          'Y':df_g[val_key],
                          'trend':df_log['bestfit'].reset_index(drop=True)})
 
-   # df_new.set_index('X', inplace=True)
+  
 
     # plotly figure setup
     fig=go.Figure()
