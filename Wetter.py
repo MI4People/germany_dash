@@ -283,7 +283,9 @@ if key.lower() == 'weather':
         xanchor="right",
         x=1
 
-    ))
+    ), xaxis = dict(
+      tickmode = 'linear')
+                     )
     with col1_x:
         st.plotly_chart(fig,  
          use_container_width=True )
