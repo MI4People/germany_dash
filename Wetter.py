@@ -200,13 +200,13 @@ if key.lower() == 'weather':
     col1_x = col1.expander('Temperature über Jahre')
     df_year = data_m[data_m.Year != end.strftime('%Y')]
     df_year = df_year.dropna(subset=['tavg']).reset_index(drop = True)
-    df_year = df_year.groupby('Year').mean()[val_key].reset_index()
+    df_year_gr = df_year.groupby('Year').mean()[val_key].reset_index()
     
 
 
 
-    df_log=pd.DataFrame({'X':df_year.Year,
-                         'Y': df_year[val_key]})
+    df_log=pd.DataFrame({'X':df_year_gr.Year,
+                         'Y': df_year_gr[val_key]})
     df_log.set_index('X', inplace = True)
 
     reg = LinearRegression().fit(np.vstack(df_log.index), df_log['Y'])
