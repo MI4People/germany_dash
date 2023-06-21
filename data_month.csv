@@ -339,7 +339,7 @@
 337,2023,Februar,Baden-Württemberg,114.7
 338,2023,März,Baden-Württemberg,115.7
 339,2023,April,Baden-Württemberg,116.3
-340,2023,Mai,Baden-Württemberg,
+340,2023,Mai,Baden-Württemberg,116.4
 341,2023,Juni,Baden-Württemberg,
 342,2023,Juli,Baden-Württemberg,
 343,2023,August,Baden-Württemberg,
@@ -687,7 +687,7 @@
 685,2023,Februar,Bayern,115.5
 686,2023,März,Bayern,116.3
 687,2023,April,Bayern,116.8
-688,2023,Mai,Bayern,
+688,2023,Mai,Bayern,116.7
 689,2023,Juni,Bayern,
 690,2023,Juli,Bayern,
 691,2023,August,Bayern,
@@ -1035,7 +1035,7 @@
 1033,2023,Februar,Berlin,115.4
 1034,2023,März,Berlin,116.4
 1035,2023,April,Berlin,117.2
-1036,2023,Mai,Berlin,
+1036,2023,Mai,Berlin,116.9
 1037,2023,Juni,Berlin,
 1038,2023,Juli,Berlin,
 1039,2023,August,Berlin,
@@ -1383,7 +1383,7 @@
 1381,2023,Februar,Brandenburg,115.7
 1382,2023,März,Brandenburg,116.9
 1383,2023,April,Brandenburg,117.4
-1384,2023,Mai,Brandenburg,
+1384,2023,Mai,Brandenburg,117.5
 1385,2023,Juni,Brandenburg,
 1386,2023,Juli,Brandenburg,
 1387,2023,August,Brandenburg,
@@ -1731,7 +1731,7 @@
 1729,2023,Februar,Bremen,116.5
 1730,2023,März,Bremen,117.3
 1731,2023,April,Bremen,117.7
-1732,2023,Mai,Bremen,
+1732,2023,Mai,Bremen,117.2
 1733,2023,Juni,Bremen,
 1734,2023,Juli,Bremen,
 1735,2023,August,Bremen,
@@ -2079,7 +2079,7 @@
 2077,2023,Februar,Hamburg,114.0
 2078,2023,März,Hamburg,114.9
 2079,2023,April,Hamburg,115.3
-2080,2023,Mai,Hamburg,
+2080,2023,Mai,Hamburg,114.9
 2081,2023,Juni,Hamburg,
 2082,2023,Juli,Hamburg,
 2083,2023,August,Hamburg,
@@ -2427,7 +2427,7 @@
 2425,2023,Februar,Hessen,114.8
 2426,2023,März,Hessen,115.7
 2427,2023,April,Hessen,116.1
-2428,2023,Mai,Hessen,
+2428,2023,Mai,Hessen,116.1
 2429,2023,Juni,Hessen,
 2430,2023,Juli,Hessen,
 2431,2023,August,Hessen,
@@ -2775,7 +2775,7 @@
 2773,2023,Februar,Mecklenburg-Vorpommern,116.4
 2774,2023,März,Mecklenburg-Vorpommern,117.5
 2775,2023,April,Mecklenburg-Vorpommern,117.9
-2776,2023,Mai,Mecklenburg-Vorpommern,
+2776,2023,Mai,Mecklenburg-Vorpommern,117.7
 2777,2023,Juni,Mecklenburg-Vorpommern,
 2778,2023,Juli,Mecklenburg-Vorpommern,
 2779,2023,August,Mecklenburg-Vorpommern,
@@ -3123,7 +3123,7 @@
 3121,2023,Februar,Niedersachsen,115.0
 3122,2023,März,Niedersachsen,116.0
 3123,2023,April,Niedersachsen,116.5
-3124,2023,Mai,Niedersachsen,
+3124,2023,Mai,Niedersachsen,116.4
 3125,2023,Juni,Niedersachsen,
 3126,2023,Juli,Niedersachsen,
 3127,2023,August,Niedersachsen,
@@ -3471,7 +3471,7 @@
 3469,2023,Februar,Nordrhein-Westfalen,115.3
 3470,2023,März,Nordrhein-Westfalen,116.0
 3471,2023,April,Nordrhein-Westfalen,116.5
-3472,2023,Mai,Nordrhein-Westfalen,
+3472,2023,Mai,Nordrhein-Westfalen,116.3
 3473,2023,Juni,Nordrhein-Westfalen,
 3474,2023,Juli,Nordrhein-Westfalen,
 3475,2023,August,Nordrhein-Westfalen,
@@ -3819,7 +3819,7 @@
 3817,2023,Februar,Rheinland-Pfalz,114.7
 3818,2023,März,Rheinland-Pfalz,115.6
 3819,2023,April,Rheinland-Pfalz,116.1
-3820,2023,Mai,Rheinland-Pfalz,
+3820,2023,Mai,Rheinland-Pfalz,116.1
 3821,2023,Juni,Rheinland-Pfalz,
 3822,2023,Juli,Rheinland-Pfalz,
 3823,2023,August,Rheinland-Pfalz,
@@ -4167,7 +4167,7 @@
 4165,2023,Februar,Saarland,114.2
 4166,2023,März,Saarland,114.9
 4167,2023,April,Saarland,115.2
-4168,2023,Mai,Saarland,
+4168,2023,Mai,Saarland,115.3
 4169,2023,Juni,Saarland,
 4170,2023,Juli,Saarland,
 4171,2023,August,Saarland,
@@ -4515,7 +4515,7 @@
 4513,2023,Februar,Sachsen,115.9
 4514,2023,März,Sachsen,117.0
 4515,2023,April,Sachsen,117.4
-4516,2023,Mai,Sachsen,
+4516,2023,Mai,Sachsen,117.1
 4517,2023,Juni,Sachsen,
 4518,2023,Juli,Sachsen,
 4519,2023,August,Sachsen,
@@ -4863,7 +4863,7 @@
 4861,2023,Februar,Sachsen-Anhalt,115.8
 4862,2023,März,Sachsen-Anhalt,116.8
 4863,2023,April,Sachsen-Anhalt,117.1
-4864,2023,Mai,Sachsen-Anhalt,
+4864,2023,Mai,Sachsen-Anhalt,117.3
 4865,2023,Juni,Sachsen-Anhalt,
 4866,2023,Juli,Sachsen-Anhalt,
 4867,2023,August,Sachsen-Anhalt,
@@ -5211,7 +5211,7 @@
 5209,2023,Februar,Schleswig-Holstein,114.4
 5210,2023,März,Schleswig-Holstein,115.4
 5211,2023,April,Schleswig-Holstein,115.7
-5212,2023,Mai,Schleswig-Holstein,
+5212,2023,Mai,Schleswig-Holstein,115.8
 5213,2023,Juni,Schleswig-Holstein,
 5214,2023,Juli,Schleswig-Holstein,
 5215,2023,August,Schleswig-Holstein,
@@ -5559,7 +5559,7 @@
 5557,2023,Februar,Thüringen,116.2
 5558,2023,März,Thüringen,117.2
 5559,2023,April,Thüringen,117.8
-5560,2023,Mai,Thüringen,
+5560,2023,Mai,Thüringen,117.5
 5561,2023,Juni,Thüringen,
 5562,2023,Juli,Thüringen,
 5563,2023,August,Thüringen,
