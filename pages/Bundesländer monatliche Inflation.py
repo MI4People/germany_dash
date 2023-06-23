@@ -45,7 +45,7 @@ Made with ❤️
 df = pd.read_csv("data_month.csv", index_col=0)
 
 
-
+df = df.dropna()
 
 state = st.selectbox('Wählen Sie ein Bundesland', set(df.state))
 
@@ -104,6 +104,32 @@ data_me = df[(df.state == state)&(df.time <= end.strftime('%Y/%m'))].iloc[-24:,:
 val = round(data_me.tail(12).inflation.mean() - data_me.head(12).inflation.mean(),2)
 delta_current ='Die Inflation zwischen {}-{} beträgt {} {} im Vergleich zu {}-{}'.format(data_me.tail(12).time.max(), data_me.tail(12).time.min(), val, "mehr" if val >= 0 else "weniger",data_me.head(12).time.max(), data_me.head(12).time.min())
 col4.metric("Inf in den letzten 12 Monaten",  round(data_me.tail(12).inflation.mean(),2),f'{data_me.tail(12).year.max()}- {data_me.tail(12).year.min()}' ,"inverse" if val >= 0 else "normal", delta_current )
+
+
+
+# Filter the data
+df_s = df[(df.year < 2023) &(df.year>=2019) & (df.state == state)]
+filtered_df = df_s.tail(36)
+
+fig = go.Figure()
+
+for year, group_df in filtered_df.groupby('year'):
+    fig.add_trace(go.Bar(
+        x=group_df['month'],
+        y=group_df['inflation'],
+        name=year
+    ))
+
+# Set layout and labels
+fig.update_layout(
+    title=f"Inflation in {state} by Month",
+    xaxis_title="Month",
+    yaxis_title="Inflation"
+)
+
+
+
+
 c1, c2 = st.columns([3, 1])
 with c1:
     st.markdown(f'### {key.title()} für {state} ')
@@ -117,11 +143,18 @@ with c1:
 
        )
 
+    st_exp_gr = st.expander('Inflation in den letzten 12 Monaten ')
 
+    with st_exp_gr:             
+        st.plotly_chart(fig, 
+         use_container_width=True )
+            
     st_exp_de = st.expander('Kurze Erklärung')
 
     with st_exp_de:             
-            st.write(exp[key]['Deutsch']['meaning']) 
+            st.write(exp[key]['Deutsch']['meaning'])
+            
+    
 
 c2_x = c2.expander('Werte')
 temp = df[(df.state == state)].dropna()[['state', 'time', 'inflation']].sort_values(by='time', ascending=False).reset_index(drop = True).head(13)
