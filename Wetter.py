@@ -198,29 +198,29 @@ if key.lower() == 'weather':
 
     col1, col2 = st.columns([3, 1])
     col1_x = col1.expander('Temperature über Jahre')
-    df_year = data_m[data_m.Year != end.strftime('%Y')]
-    df_year = df_year.dropna(subset=['tavg']).reset_index(drop = True)
-    df_year_gr = df_year.groupby('Year').mean()[val_key].reset_index()
-    
+    df_g = data_m[data_m.Year != end.strftime('%Y')]
+    df_g = df_g.dropna(subset = ['tavg']).reset_index(drop=True)
+    df_g = df_g.groupby('Year').mean()[val_key].reset_index()
 
+    df_log=pd.DataFrame({'X':df_g.Year,
+                         'Y': df_g[val_key]})
 
-
-    df_log=pd.DataFrame({'X':df_year_gr.Year,
-                         'Y': df_year_gr[val_key]})
     df_log.set_index('X', inplace = True)
 
+   # st.write(sklearn.__version__)
     reg = LinearRegression().fit(np.vstack(df_log.index), df_log['Y'])
     df_log['bestfit'] = reg.predict(np.vstack(df_log.index))
-    df_new=pd.DataFrame({'X':df_year.Year,
-                         'Y':df_year[val_key],
+    df_new=pd.DataFrame({'X':df_g.Year,
+                         'Y':df_g[val_key],
                          'trend':df_log['bestfit'].reset_index(drop=True)})
+                        
     
 
  
 
 
     fig=go.Figure()
-    fig.add_trace(go.Bar( name = 'Durchschnittliche Temperature' ,x=df_new.X, y=df_year[val_key]))
+    fig.add_trace(go.Bar( name = 'Durchschnittliche Temperature' ,x=df_new.X, y=df_new.Y))
     fig.add_trace(go.Scatter(name='Trend über Jahre', x=df_new.X, y=df_new['trend'], mode='lines', marker_color='red'))
 
     ### Temparture for years
