@@ -12,7 +12,7 @@ import json
 
 
 
-st.set_page_config(layout='wide', initial_sidebar_state='expanded',page_title="dashgermany",
+st.set_page_config(layout='wide', initial_sidebar_state='expanded',page_title="dashdeutschland",
     page_icon="🇩🇪")
 st.write(
     """
@@ -108,8 +108,8 @@ col4.metric("Inf in den letzten 12 Monaten",  round(data_me.tail(12).inflation.m
 
 
 # Filter the data
-df_s = df[(df.year < 2023) &(df.year>=2019) & (df.state == state)]
-filtered_df = df_s.tail(36)
+df_s = df[(df.year < 2023) &(df.year> 2019) & (df.state == state)]
+filtered_df = df_s
 
 fig = go.Figure()
 
@@ -143,7 +143,7 @@ with c1:
 
        )
 
-    st_exp_gr = st.expander('Inflation in den letzten 12 Monaten ')
+    st_exp_gr = st.expander('monatliche Inflation in den letzten 3 Jahren ')
 
     with st_exp_gr:             
         st.plotly_chart(fig, 
