@@ -122,7 +122,7 @@ for year, group_df in filtered_df.groupby('year'):
 
 # Set layout and labels
 fig.update_layout(
-    title=f"Inflation in {state} by Month",
+    title=f"Inflation in {state}",
     xaxis_title="Month",
     yaxis_title="Inflation"
 )
