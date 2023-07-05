@@ -57,6 +57,7 @@ df_c = df[df.city == c].reset_index(drop=True)
 
 
 
+
 start = datetime(1980, 1, 1)
 end = datetime.today()
 end = datetime(end.year, end.month, end.day)
