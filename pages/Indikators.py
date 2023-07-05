@@ -3,7 +3,7 @@ import pandas as pd
 import plost
 import json
 
-st.set_page_config(layout='wide', initial_sidebar_state='expanded',page_title="dashgermany",
+st.set_page_config(layout='wide', initial_sidebar_state='expanded',page_title="dashdeutschland",
     page_icon="🇩🇪")
 
 de = pd.read_csv('bun_year_dsh.csv', index_col=0)
@@ -21,9 +21,9 @@ liste = liste = {
     'Arbeitslosenquote gesamt %': 'unemployment_total',
     'Arbeitslosenquote Männer %': 'unemployment_man',
     'Arbeitslosenquote Frauen %': 'unemployment_women',
-    'Human Development Index':'hd', 
-    'Gender Development Index':'gd', 
-    'Mean Years of Schooling':'sc',
+    'Index der menschlichen Entwicklung':'hd', 
+    'Index der geschlechtsspezifischen Entwicklung':'gd', 
+    'Durchschnittliche Schuljahre':'sc',
     'BIP pro Kopf': 'gdp_per',
     'BIP-Wachstum': 'gdp_growth',
     'Bevölkerungswachstum': 'pop_growth',
