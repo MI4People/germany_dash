@@ -111,13 +111,6 @@ if key.lower() == 'weather':
    
 
     col1, col2, col3, col4 = st.columns(4)
-    val = round(data[val_key].max() - data[val_key].values[-1],2)
-    delta_current ='Die durchschnittliche maximale {} wurde in {} gemessen und betrug im Vergleich zu heute {} °C {}'.format(key, data[data[val_key] == data[val_key].max()]['time'].dt.year.values[0],val, "mehr" if val >= 0 else "weniger")
-    col2.metric("Durchschn. Temp. Max", f'{data[val_key].max()} °C', str(data[data[val_key] == data[val_key].max()]['time'].dt.year.values[0]), 'inverse', delta_current)
-
-    val = round(data[val_key].min() - data[val_key].values[-1],2)
-    delta_current ='Die durchschnittliche minimale {} wurde in {} gemessen und betrug im Vergleich zu heute {} °C {}'.format(key, data[data[val_key] == data[val_key].min()]['time'].dt.year.values[0],val, "mehr" if val >= 0 else "weniger")
-    col3.metric("Durchschn. Temp. Min", f'{data[val_key].min()} °C', str(data[data[val_key] == data[val_key].min()]['time'].dt.year.values[0]),'normal', delta_current)
     
     n = datetime.now()
     n = datetime(n.year, n.month, n.day, n.hour)
@@ -133,8 +126,17 @@ if key.lower() == 'weather':
     hourly_one_year = hourly_one_year.fetch()
     one_year  = hourly_one_year['temp'].values[0]
     val = round(now - one_year,2)
-    delta_current ='Die aktuelle Temperatur beträgt {} °C {} im Vergleich zum letzten Jahr'.format(val, "mehr" if val >= 0 else "weniger")
+    delta_current ='Die aktuelle Temperatur beträgt {} °C {} im Vergleich um diese Zeit im letzten Jahr'.format(val, "mehr" if val >= 0 else "weniger")
     col1.metric("Temp Aktuel",  f'{now} °C', data.time.max().strftime('%Y'), "inverse" if val >= 0 else "normal", delta_current)
+    
+    val = round(data[val_key].max() - data[val_key].values[-1],2)
+    delta_current ='Die durchschnittliche maximale {} wurde in {} gemessen und betrug im Vergleich zu heute {} °C {}'.format(key, data[data[val_key] == data[val_key].max()]['time'].dt.year.values[0],val, "mehr" if val >= 0 else "weniger")
+    col2.metric("Durchschn. Temp. Max", f'{data[val_key].max()} °C', str(data[data[val_key] == data[val_key].max()]['time'].dt.year.values[0]), 'inverse', delta_current)
+
+    val = round(data[val_key].min() - data[val_key].values[-1],2)
+    delta_current ='Die durchschnittliche minimale {} wurde in {} gemessen und betrug im Vergleich zu heute {} °C {}'.format(key, data[data[val_key] == data[val_key].min()]['time'].dt.year.values[0],val, "mehr" if val >= 0 else "weniger")
+    col3.metric("Durchschn. Temp. Min", f'{data[val_key].min()} °C', str(data[data[val_key] == data[val_key].min()]['time'].dt.year.values[0]),'normal', delta_current)
+    
 
     data_me = data.iloc[-20:,:]
     val = round(df_new.trend.values[-1] - df_new.trend.values[-2],2)
