@@ -141,7 +141,7 @@ if key.lower() == 'weather':
     data_me = data.iloc[-20:,:]
     val = round(df_new.trend.values[-1] - df_new.trend.values[-2],2)
     val_all = round(df_new.trend.values[-1] - df_new.trend.values[0],2)
-    delta_current ='Die durchschnittliche Temperatursteigerungsrate für {} pro Jahr beträgt {} {} °C basierend auf den Werten {} und beträgt {} °C {} in {} im Vergleich zu {}'.format(end.strftime("%B"), "+" if val >= 0 else "-", val, f"{data_m['Year'].min()}-{int(data_m['Year'].max()) -1}", "+" if val_all >= 0 else "-" ,val_all,"mehr" if val >= 0 else "weniger" , int(data_m['Year'].max()) -1, data_m['Year'].min() )
+    delta_current ='Die durchschnittliche Temperatursteigerungsrate für {} pro Jahr beträgt {}{} °C basierend auf den Werten {} und beträgt {}{} °C  in {} im Vergleich zu {}'.format(map_months[end.strftime("%B")], "+" if val >= 0 else "-", val, f"{data_m['Year'].min()}-{int(data_m['Year'].max()) -1}", "+" if val_all >= 0 else "-" ,val_all,"mehr" if val >= 0 else "weniger" , int(data_m['Year'].max()) -1, data_m['Year'].min() )
     col4.metric(" Trend über Jahre",  f'{val_all} °C',f"{data_m['Year'].min()}-{int(data_m['Year'].max())-1}" ,"inverse" if val >= 0 else "normal", delta_current )
 
     ### Temparture for days
