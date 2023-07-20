@@ -216,7 +216,7 @@ with col2_x:
         temp.reset_index(inplace=True)
 
         temp.index +=1
-        temp.columns = ['Ranking','Bundesländer', 'Datum','Region', 'Einkommen Level',key]
+        temp.columns = ['Ranking','Länder', 'Datum','Region', 'Einkommen Level',key]
 
         col2_x.table(temp)
 
