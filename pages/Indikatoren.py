@@ -213,10 +213,10 @@ with col2_x:
         else:
             temp = temp[['state', 'year', 'region','incomeLevel', indicator]].sort_values(indicator)
 
-        temp.reset_index(drop=True, inplace=True)
+        temp.reset_index(inplace=True)
 
         temp.index +=1
-        temp.columns = ['Bundesländer', 'Datum','Region', 'Einkommen Level',key]
+        temp.columns = ['Ranking','Bundesländer', 'Datum','Region', 'Einkommen Level',key]
 
         col2_x.table(temp)
 
