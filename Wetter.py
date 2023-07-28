@@ -126,22 +126,24 @@ if key.lower() == 'weather':
     hourly_one_year = hourly_one_year.fetch()
     one_year  = hourly_one_year['temp'].values[0]
     val = round(now - one_year,2)
-    delta_current ='Die aktuelle Temperatur beträgt {} °C {} im Vergleich um diese Zeit im letzten Jahr'.format(val, "mehr" if val >= 0 else "weniger")
+ 
+    delta_current ='Die aktuelle Temperatur beträgt {} °C {} im Vergleich um zur selben Zeit an heutigem Datum im letzten Jahr'.format(val, "mehr" if val >= 0 else "weniger")
     col1.metric("Temp Aktuel",  f'{now} °C', data.time.max().strftime('%Y'), "inverse" if val >= 0 else "normal", delta_current)
     
     val = round(data[val_key].max() - data[val_key].values[-1],2)
-    delta_current ='Die durchschnittliche maximale {} wurde in {} gemessen und betrug im Vergleich zu heute {} °C {}'.format(key, data[data[val_key] == data[val_key].max()]['time'].dt.year.values[0],val, "mehr" if val >= 0 else "weniger")
+    delta_current ='Die durchschnittliche maximale Temperatur wurde in {} gemessen und betrug im Vergleich zu heute {} °C {}'.format(data[data[val_key] == data[val_key].max()]['time'].dt.year.values[0],val, "mehr" if val >= 0 else "weniger")
     col2.metric("Durchschn. Temp. Max", f'{data[val_key].max()} °C', str(data[data[val_key] == data[val_key].max()]['time'].dt.year.values[0]), 'inverse', delta_current)
 
     val = round(data[val_key].min() - data[val_key].values[-1],2)
-    delta_current ='Die durchschnittliche minimale {} wurde in {} gemessen und betrug im Vergleich zu heute {} °C {}'.format(key, data[data[val_key] == data[val_key].min()]['time'].dt.year.values[0],val, "mehr" if val >= 0 else "weniger")
+    delta_current ='Die durchschnittliche minimale Temperatur wurde in {} gemessen und betrug im Vergleich zu heute {} °C {}'.format(data[data[val_key] == data[val_key].min()]['time'].dt.year.values[0],val, "mehr" if val >= 0 else "weniger")
     col3.metric("Durchschn. Temp. Min", f'{data[val_key].min()} °C', str(data[data[val_key] == data[val_key].min()]['time'].dt.year.values[0]),'normal', delta_current)
     
 
     data_me = data.iloc[-20:,:]
     val = round(df_new.trend.values[-1] - df_new.trend.values[-2],2)
     val_all = round(df_new.trend.values[-1] - df_new.trend.values[0],2)
-    delta_current ='Die durchschnittliche Temperatursteigerungsrate für {} pro Jahr beträgt {}{} °C basierend auf den Werten {} und beträgt {}{} °C  in {} im Vergleich zu {}'.format(map_months[end.strftime("%B")], "+" if val >= 0 else "-", val, f"{data_m['Year'].min()}-{int(data_m['Year'].max()) -1}", "+" if val_all >= 0 else "-" ,val_all,"mehr" if val >= 0 else "weniger" , int(data_m['Year'].max()) -1, data_m['Year'].min() )
+    
+    delta_current ='Die durchschnittliche Temperatursteigerungsrate für {} pro Jahr beträgt {}{} °C basierend auf den Werten {}. Seit {} hat sich die durchschnittliche Temperatur im {} {}{} °C  in geändert'.format(map_months[end.strftime("%B")], "+" if val >= 0 else "-", val, f"von {data_m['Year'].min()} bis {int(data_m['Year'].max()) -1}", data_m['Year'].min(), map_months[end.strftime("%B")],"+" if val_all >= 0 else "-" ,val_all)
     col4.metric(" Trend über Jahre",  f'{val_all} °C',f"{data_m['Year'].min()}-{int(data_m['Year'].max())-1}" ,"inverse" if val >= 0 else "normal", delta_current )
 
     ### Temparture for days
@@ -150,7 +152,7 @@ if key.lower() == 'weather':
     with c1:
         if '1988' not in [ i[:4] for i in data.x_time.tolist()]:
             data = data[data.x_time.str[:4]>='1990']
-        st.markdown(f'### {"Temperature".title()} ')
+        st.markdown(f'### {"Temperatur".title()} ')
         plost.bar_chart(
         data=data.dropna(subset = ['tavg']).reset_index(drop=True).rename(columns= {'time':'Datum', 'tavg':'Durchschnittliche Temperatur'}),
         title = f'Durchschnittliche Temperatur für {map_months[end.strftime("%B")]} {end.strftime("%d")} über Jahre',
@@ -198,7 +200,7 @@ if key.lower() == 'weather':
 
     ))
 
-    col1_x = col1.expander(f'Temperature für {map_months[end.strftime("%B")]} ')
+    col1_x = col1.expander(f'Temperatur für {map_months[end.strftime("%B")]} ')
     with col1_x:
 
         st.plotly_chart(fig, 
@@ -213,7 +215,7 @@ if key.lower() == 'weather':
 
 
     col1, col2 = st.columns([3, 1])
-    col1_x = col1.expander('Temperature über Jahre')
+    col1_x = col1.expander('Temperatur über Jahre')
     df_g = data_m[data_m.Year != end.strftime('%Y')]
     df_g = df_g.dropna(subset = ['tavg']).reset_index(drop=True)
     df_g = df_g.groupby('Year').mean()[val_key].reset_index()
@@ -236,7 +238,7 @@ if key.lower() == 'weather':
 
 
     fig=go.Figure()
-    fig.add_trace(go.Bar( name = 'Durchschnittliche Temperature' ,x=df_new.X, y=df_new.Y))
+    fig.add_trace(go.Bar( name = 'Durchschnittliche Temperatur' ,x=df_new.X, y=df_new.Y))
     fig.add_trace(go.Scatter(name='Trend über Jahre', x=df_new.X, y=df_new['trend'], mode='lines', marker_color='red'))
 
     ### Temparture for years
