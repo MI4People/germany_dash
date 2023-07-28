@@ -34,7 +34,7 @@ with open('exp00.json', 'r', encoding='utf-8') as f:
     
     
 st.sidebar.header('Dashboard Deutschland')
-st.subheader('monatliche Inflation')
+st.subheader('Monatliche Inflation')
 key = 'Inflation'
 
 st.sidebar.markdown('''
@@ -77,34 +77,36 @@ df['inflation'] = (df['inflation'] - df.sort_values(by=['state','time'], ascendi
 df['inflation'] = df.inflation.apply(lambda x: round(x, 2))
 
 end = datetime(int(df.year.max()), int(df[df.year == df.year.max()].time.str[-2:].max()), 1)
+ 
 
 df_cur = df[df.time == end.strftime('%Y/%m')]
 
 df_se = df[(df.time.str[-2:] == end.strftime('%m')) & (df.state == state)]
 
 col1, col2, col3, col4 = st.columns(4)
-val = round(df_cur.inflation.max() - df_cur[df_cur.state== state].inflation.values[0],2)
 
-delta_current ='Die maximale Inflation wurde in {} gemessen und betrug {} {} im Vergleich zu {}'.format(df_cur[df_cur.inflation == df_cur.inflation.max()]['state'].values[0],val, "mehr" if val >= 0 else "weniger", state)
-col3.metric("Inf Max", df_cur.inflation.max(), df_cur[df_cur.inflation == df_cur.inflation.max()]['state'].values[0], 'inverse', delta_current)
-
-val = round(df_cur.inflation.min() - df_cur[df_cur.state == state].inflation.values[0],2)
-
-delta_current ='Die minimale Inflation wurde in {} gemessen und betrug {} {} im Vergleich zu {}'.format(df_cur[df_cur.inflation == df_cur.inflation.min()]['state'].values[0],val, "mehr" if val >= 0 else "weniger", state)
-col4.metric("Inf Min", df_cur.inflation.min(), df_cur[df_cur.inflation == df_cur.inflation.min()]['state'].values[0],  "normal",delta_current)
 
 val = round(df_se[df_se.state == state].inflation.values[-1] - df_se[df_se.state == state].inflation.values[-2],2)
 
-delta_current ='Die aktuelle Inflation beträgt {} {} im Vergleich zum Vorjahr'.format(val,"mehr" if val >= 0 else "weniger" )
+delta_current ='Die aktuelle Inflation beträgt {} Prozentpunkte {} im Vergleich zum Vorjahr'.format(val,"mehr" if val >= 0 else "weniger" )
 col1.metric("Inf Aktuel", df_se[df_se.state == state].inflation.values[-1],df_se[df_se.state == state].time_s.values[-1] , "inverse" if val >= 0 else "normal",delta_current)
 
 
 data_me = df[(df.state == state)&(df.time <= end.strftime('%Y/%m'))].iloc[-24:,:]
-# st.write(data_me)
+
 val = round(data_me.tail(12).inflation.mean() - data_me.head(12).inflation.mean(),2)
-delta_current ='Die Inflation zwischen {}-{} beträgt {} {} im Vergleich zu {}-{}'.format(data_me.tail(12).time.max(), data_me.tail(12).time.min(), val, "mehr" if val >= 0 else "weniger",data_me.head(12).time.max(), data_me.head(12).time.min())
+delta_current ='Die Inflation zwischen {}-{} beträgt {} Prozentpunkte {} im Vergleich zu {}-{}'.format(data_me.tail(12).time.max(), data_me.tail(12).time.min(), val, "mehr" if val >= 0 else "weniger",data_me.head(12).time.max(), data_me.head(12).time.min())
 col2.metric("Inf in den letzten 12 Monaten",  round(data_me.tail(12).inflation.mean(),2),f'{data_me.tail(12).year.max()}- {data_me.tail(12).year.min()}' ,"inverse" if val >= 0 else "normal", delta_current )
 
+val = round(df_cur.inflation.max() - df_cur[df_cur.state== state].inflation.values[0],2)
+
+delta_current ='Die maximale aktuelle Inflation wurde in {} gemessen und betrug {} Prozentpunkte {} im Vergleich zu {}'.format(df_cur[df_cur.inflation == df_cur.inflation.max()]['state'].values[0],val, "mehr" if val >= 0 else "weniger", state)
+col3.metric("Inf Max", df_cur.inflation.max(), df_cur[df_cur.inflation == df_cur.inflation.max()]['state'].values[0], 'inverse', delta_current)
+
+val = round(df_cur.inflation.min() - df_cur[df_cur.state == state].inflation.values[0],2)
+
+delta_current ='Die minimale aktuelle Inflation wurde in {} gemessen und betrug {} Prozentpunkte {} im Vergleich zu {}'.format(df_cur[df_cur.inflation == df_cur.inflation.min()]['state'].values[0],val, "mehr" if val >= 0 else "weniger", state)
+col4.metric("Inf Min", df_cur.inflation.min(), df_cur[df_cur.inflation == df_cur.inflation.min()]['state'].values[0],  "normal",delta_current)
 
 
 # Filter the data
