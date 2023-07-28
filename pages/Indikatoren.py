@@ -9,7 +9,6 @@ st.set_page_config(layout='wide', initial_sidebar_state='expanded',page_title="d
 de = pd.read_csv('bun_year_dsh.csv', index_col=0)
 de.year = de.year.astype(str)
 co = pd.read_csv('total_dsh.csv', index_col=0)
-rating = pd.read_csv('rating.csv', index_col=0)
 
 with open('exp.json', 'r', encoding='utf-8') as f:
     exp = json.load(f)
@@ -49,7 +48,7 @@ show_list = {'state':'State', 'year':'Year', 'region':'Region', 'incomeLevel':'I
 show_list_1 = {'state':'Bundesländer', 'year':'Datum', indicator:key }
 
 
-st.subheader('State')
+st.subheader('Bundesland')
 state = st.selectbox('Wählen Sie das Bundesland aus', sorted(set(de.state)))
 
 s_l = list(set(de.state))
@@ -129,16 +128,16 @@ Made with ❤️
 ''')
 
 
-rate_state = rating[rating.state == state].score.values[0]
-st.markdown(f'### {state} {rate_state}')
+
+st.markdown(f'### {state}')
 
 col1, col2, col3, col4 = st.columns(4)
 
-col1.metric("In Deutschland", int(temp_de[temp_de.state == state].ranking.values[0]),'')
-
-col2.metric("In Europa & Zentralasien",  int(temp_eu[temp_eu.state == state].ranking.values[0]) , '')
-col3.metric("In der Welt",  int(temp_co[temp_co.state == state].ranking.values[0]) , '')
-col4.metric("In Ländern mit hohem Einkommen", int(temp_in[temp_in.state == state].ranking.values[0]), '')
+question_mark = f'Bei der {key} liegt {state} auf Platz'
+col1.metric("In Deutschland", int(temp_de[temp_de.state == state].ranking.values[0]),'','normal',  f'{question_mark} {int(temp_de[temp_de.state == state].ranking.values[0])} der Bundesländer')
+col2.metric("In Europa & Zentralasien",  int(temp_eu[temp_eu.state == state].ranking.values[0]) , '','normal', f'{question_mark} {int(temp_de[temp_de.state == state].ranking.values[0])} der europäischen und zentralasiatischen Länder')
+col3.metric("In der Welt",  int(temp_co[temp_co.state == state].ranking.values[0]) , '','normal',f'{question_mark} {int(temp_de[temp_de.state == state].ranking.values[0])} der Länder')
+col4.metric("In Ländern mit hohem Einkommen", int(temp_in[temp_in.state == state].ranking.values[0]), '','normal',f'{question_mark} {int(temp_de[temp_de.state == state].ranking.values[0])} der Länder mit hohem Einkommen')
 
 
 # Row B
