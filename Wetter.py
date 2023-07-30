@@ -219,6 +219,7 @@ if key.lower() == 'weather':
     df_g = data_m[data_m.Year != end.strftime('%Y')]
     
     df_g = df_g.dropna(subset = ['tavg']).reset_index(drop=True)
+    st.write(df_g.groupby('Year').mean()[val_key].reset_index())
     df_g = df_g.groupby('Year').mean()[val_key].reset_index()
 
     df_log=pd.DataFrame({'X':df_g.Year,
