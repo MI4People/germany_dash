@@ -217,6 +217,7 @@ if key.lower() == 'weather':
     col1, col2 = st.columns([3, 1])
     col1_x = col1.expander('Temperatur über Jahre')
     df_g = data_m[data_m.Year != end.strftime('%Y')]
+    
     df_g = df_g.dropna(subset = ['tavg']).reset_index(drop=True)
     df_g = df_g.groupby('Year').mean()[val_key].reset_index()
 
