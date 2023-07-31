@@ -135,9 +135,9 @@ col1, col2, col3, col4 = st.columns(4)
 
 question_mark = f'Bei der {key} liegt {state} auf Platz'
 col1.metric("In Deutschland", int(temp_de[temp_de.state == state].ranking.values[0]),'','normal',  f'{question_mark} {int(temp_de[temp_de.state == state].ranking.values[0])} der Bundesländer')
-col2.metric("In Europa & Zentralasien",  int(temp_eu[temp_eu.state == state].ranking.values[0]) , '','normal', f'{question_mark} {int(temp_de[temp_de.state == state].ranking.values[0])} der europäischen und zentralasiatischen Länder')
-col3.metric("In der Welt",  int(temp_co[temp_co.state == state].ranking.values[0]) , '','normal',f'{question_mark} {int(temp_de[temp_de.state == state].ranking.values[0])} der Länder')
-col4.metric("In Ländern mit hohem Einkommen", int(temp_in[temp_in.state == state].ranking.values[0]), '','normal',f'{question_mark} {int(temp_de[temp_de.state == state].ranking.values[0])} der Länder mit hohem Einkommen')
+col2.metric("In Europa & Zentralasien",  int(temp_eu[temp_eu.state == state].ranking.values[0]) , '','normal', f'{question_mark} {int(temp_eu[temp_eu.state == state].ranking.values[0])} der europäischen und zentralasiatischen Länder')
+col3.metric("In der Welt",  int(temp_co[temp_co.state == state].ranking.values[0]) , '','normal',f'{question_mark} {int(temp_co[temp_co.state == state].ranking.values[0])} der Länder')
+col4.metric("In Ländern mit hohem Einkommen", int(temp_in[temp_in.state == state].ranking.values[0]), '','normal',f'{question_mark} {int(temp_in[temp_in.state == state].ranking.values[0])} der Länder mit hohem Einkommen')
 
 
 # Row B
