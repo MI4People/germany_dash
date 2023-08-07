@@ -219,7 +219,8 @@ if key.lower() == 'weather':
     df_g = data_m[data_m.Year != end.strftime('%Y')]
     
     df_g = df_g.dropna(subset = ['tavg']).reset_index(drop=True)
-    df_g = df_g.groupby('Year').mean()[val_key].reset_index()
+   
+    df_g = df_g[[val_key,'Year']].groupby('Year').mean()[val_key].reset_index()
 
     df_log=pd.DataFrame({'X':df_g.Year,
                          'Y': df_g[val_key]})
@@ -257,7 +258,7 @@ if key.lower() == 'weather':
 
 
     col2_x = col2.expander('Werte')
-    temp = data_m[data_m.Year != end.strftime('%Y')].groupby('Year').mean()[val_key].tail(12).reset_index().sort_values('Year',ascending=False ).reset_index(drop=True)
+    temp = data_m[data_m.Year != end.strftime('%Y')][[val_key,'Year']].groupby('Year').mean()[val_key].tail(12).reset_index().sort_values('Year',ascending=False ).reset_index(drop=True)
     temp.index +=1
     temp.columns = ['Datum', 'Durch. Temp.']
     with col2_x:
@@ -321,7 +322,7 @@ if key.lower() == 'weather':
     col1_x = col1.expander('Niederschlag über Jahren')
     df_g = data_m[data_m.Year != end.strftime('%Y')]
     df_g = df_g.dropna(subset = ['prcp']).reset_index(drop=True)
-    df_g = df_g.groupby('Year').mean()[val_key].reset_index()
+    df_g = df_g[[val_key,'Year']].groupby('Year').mean()[val_key].reset_index()
 
     df_log=pd.DataFrame({'X':df_g.Year,
                          'Y': df_g[val_key]})
@@ -358,7 +359,7 @@ if key.lower() == 'weather':
 
 
     col2_x = col2.expander('Werte')
-    temp = data_m[data_m.Year != end.strftime('%Y')].groupby('Year').mean()[val_key].tail(12).reset_index().sort_values('Year',ascending=False ).reset_index(drop=True)
+    temp = data_m[data_m.Year != end.strftime('%Y')][[val_key,'Year']].groupby('Year').mean()[val_key].tail(12).reset_index().sort_values('Year',ascending=False ).reset_index(drop=True)
     temp.index +=1
     temp.columns = ['Datum', 'Durch. Nider.']
     with col2_x:
