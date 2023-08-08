@@ -74,7 +74,7 @@ if key.lower() == 'weather':
     data = data.fetch()
     data.reset_index(inplace =True)
     data['df_time'] = data.time.apply(lambda x: x.strftime('%m-%d'))
-    data['x_time'] = data.time.apply(lambda x: x.strftime(''))
+    data['x_time'] = data.time.apply(lambda x: x.strftime('%Y/%m/%d'))
     data['de_time'] = data.time.apply(lambda x: x.strftime("%d/%m/%Y"))
     data = data[data.df_time ==end.strftime('%m-%d')]
     data = data.dropna(subset = ['tavg'])
