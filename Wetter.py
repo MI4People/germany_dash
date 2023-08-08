@@ -172,7 +172,7 @@ if key.lower() == 'weather':
 
 
     c2_x = c2.expander('Werte')
-    temp = data[['x_time', val_key]].tail(12).sort_values('x_time',ascending=False ).reset_index(drop = True)
+    temp = data.tail(12).sort_values('x_time',ascending=False )[['time', val_key]].reset_index(drop = True)
     temp.index +=1
    #temp[val_key] = temp[val_key].astype(float)
     temp.columns = ['Datum','Durch. Temp.']
