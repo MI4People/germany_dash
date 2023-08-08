@@ -8,6 +8,7 @@ from meteostat import Point, Daily, Monthly, Hourly
 import meteostat
 import plost
 import json
+import locale
 
 
 map_months = {"January": "Januar", "February": "Februar", "March": "März", "April": "April", "May": "Mai", "June": "Juni", "July": "Juli", "August": "August", "September": "September", "October": "Oktober", "November": "November", "December": "Dezember"
@@ -39,7 +40,7 @@ st.sidebar.header('Dashboard Deutschland')
 #st.subheader('Indicator')
 key = 'Weather'
 
-
+st.write(locale.__version__)
 st.sidebar.markdown('''
 ---
 Made with ❤️ 
