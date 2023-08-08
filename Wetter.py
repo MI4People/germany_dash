@@ -74,10 +74,8 @@ if key.lower() == 'weather':
     data = data.fetch()
     data.reset_index(inplace =True)
     data['df_time'] = data.time.apply(lambda x: x.strftime('%m-%d'))
-    data['x_time'] = data.time.apply(lambda x: x.strftime('%Y/%m/%d'))
-    locale.setlocale(locale.LC_TIME, 'de_DE')
-    data['de_time'] = data.time.apply(lambda x: x.strftime("%d %b, %Y"))
-    locale.setlocale(locale.LC_TIME, 'en_US')
+    data['x_time'] = data.time.apply(lambda x: x.strftime(''))
+    data['de_time'] = data.time.apply(lambda x: x.strftime("%d/%m/%Y"))
     data = data[data.df_time ==end.strftime('%m-%d')]
     data = data.dropna(subset = ['tavg'])
     data.reset_index(inplace =True)
@@ -175,7 +173,7 @@ if key.lower() == 'weather':
 
 
     c2_x = c2.expander('Werte')
-    temp = data.tail(12).sort_values('x_time',ascending=False )[['time', val_key]].reset_index(drop = True)
+    temp = data.tail(12).sort_values('x_time',ascending=False )[['de_time', val_key]].reset_index(drop = True)
     temp.index +=1
    #temp[val_key] = temp[val_key].astype(float)
     temp.columns = ['Datum','Durch. Temp.']
