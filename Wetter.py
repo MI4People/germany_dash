@@ -85,6 +85,7 @@ if key.lower() == 'weather':
     data_m.reset_index(inplace =True)
     data_m['df_time'] = data_m.time.apply(lambda x: x.strftime('%m'))
     data_m['x_time'] = data_m.time.apply(lambda x: x.strftime('%Y/%m'))
+    data_m['de_time'] = data_m.time.apply(lambda x: x.strftime('%m/%Y'))
     data_m['Year'] = data_m.time.apply(lambda x: x.strftime('%Y'))
 
     df_g = data_m[data_m.df_time ==end.strftime('%m')]
@@ -208,7 +209,7 @@ if key.lower() == 'weather':
          use_container_width=True )
 
     col2_x = col2.expander('Werte')
-    temp = data_m[data_m.df_time ==end.strftime('%m')][['x_time', val_key]].tail(12).sort_values('x_time',ascending=False ).reset_index(drop = True)
+    temp = data_m[data_m.df_time ==end.strftime('%m')].tail(12).sort_values('x_time',ascending=False )[['de_time', val_key]].reset_index(drop = True)
     temp.columns = ['Datum', 'Durch. Temp.']
     temp.index +=1 
     with col2_x:
@@ -312,7 +313,7 @@ if key.lower() == 'weather':
 
 
     col2_x = col2.expander('Werte')
-    temp = df_g.tail(12).reset_index(drop=True).sort_values('Year',ascending=False )[['x_time',val_key]].reset_index(drop=True)
+    temp = df_g.tail(12).reset_index(drop=True).sort_values('Year',ascending=False )[['de_time',val_key]].reset_index(drop=True)
     temp.index +=1
     temp.columns = ['Datum', 'Durch. Nider.']
     with col2_x:
