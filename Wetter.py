@@ -40,7 +40,6 @@ st.sidebar.header('Dashboard Deutschland')
 #st.subheader('Indicator')
 key = 'Weather'
 
-st.write(locale.__version__)
 st.sidebar.markdown('''
 ---
 Made with ❤️ 
