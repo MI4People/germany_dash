@@ -75,9 +75,9 @@ if key.lower() == 'weather':
     data.reset_index(inplace =True)
     data['df_time'] = data.time.apply(lambda x: x.strftime('%m-%d'))
     data['x_time'] = data.time.apply(lambda x: x.strftime('%Y/%m/%d'))
-    locale.setlocale(locale.LC_TIME, 'de_DE.UTF-8')
+    locale.setlocale(locale.LC_TIME, 'de_DE')
     data['de_time'] = data.time.apply(lambda x: x.strftime("%d %b, %Y"))
-    locale.setlocale(locale.LC_TIME, 'en_US.UTF-8')
+    locale.setlocale(locale.LC_TIME, 'en_US')
     data = data[data.df_time ==end.strftime('%m-%d')]
     data = data.dropna(subset = ['tavg'])
     data.reset_index(inplace =True)
