@@ -24,10 +24,14 @@ st.write(
     [data-testid="stMetricDelta"] svg {
         display: none;
     }
+     .stApp {
+    base-color: light;
+    }
     </style>
     """,
     unsafe_allow_html=True,
 )
+
 
 with open('style.css') as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
@@ -130,7 +134,7 @@ if key.lower() == 'weather':
     val = round(now - one_year,2)
  
     delta_current ='Die aktuelle Temperatur beträgt {} °C {} im Vergleich um zur selben Zeit an heutigem Datum im letzten Jahr'.format(val, "mehr" if val >= 0 else "weniger")
-    col1.metric("Temp Aktuel",  f'{now} °C', data.time.max().strftime('%Y'), "inverse" if val >= 0 else "normal", delta_current)
+    col1.metric("Temp Aktuell",  f'{now} °C', data.time.max().strftime('%Y'), "inverse" if val >= 0 else "normal", delta_current)
     
     val = round(data[val_key].max() - data[val_key].values[-1],2)
     delta_current ='Die durchschnittliche maximale Temperatur wurde in {} gemessen und betrug im Vergleich zu heute {} °C {}'.format(data[data[val_key] == data[val_key].max()]['time'].dt.year.values[0],val, "mehr" if val >= 0 else "weniger")
