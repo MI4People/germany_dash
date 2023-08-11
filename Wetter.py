@@ -133,7 +133,7 @@ if key.lower() == 'weather':
     one_year  = hourly_one_year['temp'].values[0]
     val = round(now - one_year,2)
  
-    delta_current ='Die aktuelle Temperatur beträgt {} °C {} im Vergleich um zur selben Zeit an heutigem Datum im letzten Jahr'.format(val, "mehr" if val >= 0 else "weniger")
+    delta_current ='Die aktuelle Temperatur beträgt {} °C {} im Vergleich zum letzten Jahr, zur selben Zeit an heutigem Datum'.format(val, "mehr" if val >= 0 else "weniger")
     col1.metric("Temp Aktuell",  f'{now} °C', data.time.max().strftime('%Y'), "inverse" if val >= 0 else "normal", delta_current)
     
     val = round(data[val_key].max() - data[val_key].values[-1],2)
