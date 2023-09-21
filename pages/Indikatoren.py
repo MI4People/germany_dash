@@ -3,7 +3,7 @@ import pandas as pd
 import plost
 import json
 
-st.set_page_config(layout='wide', initial_sidebar_state='expanded',page_title="dashdeutschland",
+st.set_page_config(layout='wide', initial_sidebar_state='expanded',page_title="dofe.mi4people",
     page_icon="🇩🇪")
 
 de = pd.read_csv('bun_year_dsh.csv', index_col=0)
@@ -36,7 +36,7 @@ liste = liste = {
 with open('style.css') as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
     
-st.sidebar.header('Dashboard Deutschland')
+st.sidebar.header('MI4People')
 
 
 st.subheader('Indikator')

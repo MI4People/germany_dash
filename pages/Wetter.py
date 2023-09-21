@@ -17,7 +17,7 @@ map_months = {"January": "Januar", "February": "Februar", "March": "März", "Apr
 
 
 #set the page config
-st.set_page_config(layout='wide', initial_sidebar_state='expanded',page_title="dashdeutschland",
+st.set_page_config(layout='wide', initial_sidebar_state='expanded',page_title="dofe.mi4people",
     page_icon="🇩🇪")
 
 #set page style
@@ -46,7 +46,7 @@ with open('exp00.json', 'r', encoding='utf-8') as f:
     exp = json.load(f)
 
     
-st.sidebar.header('Dashboard Deutschland')
+st.sidebar.header('MI4People')
 #st.subheader('Indicator')
 
 
@@ -295,7 +295,7 @@ try:
     val_key = value_dic[key]
 
     #rain for months
-
+    #prep data for regression
     df_g = data_m[data_m.df_time ==end.strftime('%m')].reset_index(drop=True)
     df_g = df_g[df_g.Year != end.strftime('%Y')]
     df_g = df_g.dropna(subset = ['prcp']).reset_index(drop=True)
@@ -305,7 +305,7 @@ try:
 
     df_log.set_index('X', inplace = True)
 
-  
+    #trend line for bar plot
     reg = LinearRegression().fit(np.vstack(df_log.index), df_log['Y'])
     df_log['bestfit'] = reg.predict(np.vstack(df_log.index))
     df_new=pd.DataFrame({'X':df_g.Year,
@@ -313,13 +313,13 @@ try:
                          'trend':df_log['bestfit'].reset_index(drop=True)})
 
     df_new_rain  = df_new.copy()
-    
+    #bar plot for years with trend line
     fig=go.Figure()
     fig.add_trace(go.Bar( name = 'Durchschnittliche Niederschlag' ,x=df_new_rain.X.astype('str'), y=df_new_rain.Y))
     fig.add_trace(go.Scatter(name=f'Trend im {map_months[end.strftime("%B")]} nach Jahre', x=df_new_rain.X.astype('str'), y=df_new_rain['trend'], mode='lines', marker_color='red'))
     col1, col2 = st.columns([3, 1])
     col1_x = col1.expander(f'Niederschlag für {map_months[end.strftime("%B")]} ')
-    # plotly figure layout
+   
     fig.update_layout(xaxis_title = 'Datum', yaxis_title = 'Durchschnittliche Niederschlag',legend=dict(
         orientation="h",
         yanchor="bottom",
@@ -345,6 +345,7 @@ try:
     #rain for years
     col1, col2 = st.columns([3, 1])
     col1_x = col1.expander('Niederschlag über Jahren')
+    #prep data for regression
     df_g = data_m[data_m.Year != end.strftime('%Y')]
     df_g = df_g.dropna(subset = ['prcp']).reset_index(drop=True)
     df_g = df_g[[val_key,'Year']].groupby('Year').sum()[val_key].reset_index()
@@ -354,7 +355,7 @@ try:
 
     df_log.set_index('X', inplace = True)
 
-  
+    #trend line for bar plot
     reg = LinearRegression().fit(np.vstack(df_log.index), df_log['Y'])
     df_log['bestfit'] = reg.predict(np.vstack(df_log.index))
     df_new=pd.DataFrame({'X':df_g.Year,
@@ -362,7 +363,7 @@ try:
                          'trend':df_log['bestfit'].reset_index(drop=True)})
 
   
-
+    #bar plot for years with trend line
     fig=go.Figure()
     fig.add_trace(go.Bar( name = 'Durchschnittliche Niederschlag' ,x=df_new.X, y=df_new.Y))
     fig.add_trace(go.Scatter(name='Trend über Jahre', x=df_new.X, y=df_new['trend'], mode='lines', marker_color='red'))

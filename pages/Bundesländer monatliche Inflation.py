@@ -12,7 +12,7 @@ import json
 
 
 
-st.set_page_config(layout='wide', initial_sidebar_state='expanded',page_title="dashdeutschland",
+st.set_page_config(layout='wide', initial_sidebar_state='expanded',page_title="dofe.mi4people",
     page_icon="🇩🇪")
 st.write(
     """
@@ -33,7 +33,7 @@ with open('exp00.json', 'r', encoding='utf-8') as f:
 
     
     
-st.sidebar.header('Dashboard Deutschland')
+st.sidebar.header('MI4People')
 st.subheader('Monatliche Inflation')
 key = 'Inflation'
 
