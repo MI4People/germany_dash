@@ -16,17 +16,10 @@ with open('exp.json', 'r', encoding='utf-8') as f:
 
 
 liste = liste = {
-    'Inflation': 'inflation',
-    'Arbeitslosenquote gesamt %': 'unemployment_total',
-    'Arbeitslosenquote Männer %': 'unemployment_man',
-    'Arbeitslosenquote Frauen %': 'unemployment_women',
-    'Index der menschlichen Entwicklung':'hd', 
+    'Index der menschlichen Entwicklung':'hd',
     'Index der geschlechtsspezifischen Entwicklung':'gd', 
     'Durchschnittliche Schuljahre':'sc',
-    'BIP pro Kopf': 'gdp_per',
     'Bevölkerungswachstum': 'pop_growth',
-    'Änderung des CO2 (im Vergleich zum Vorjahr)': 'co_1',
-    'Änderung des CO2 (im Vergleich zu vor 10 Jahren)': 'co_10',
     'Bruttoinlandsprodukt': 'bruttoinland',
     'Bevölkerung': 'population_total'
 }
@@ -218,6 +211,8 @@ with col2_x:
         temp.columns = ['Ranking','Länder', 'Datum','Region', 'Einkommen Level',key]
 
         col2_x.table(temp)
+        
+st.write("*Datenquelle: World Bank, Destatis")
 
 # except IndexError:
    

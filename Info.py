@@ -31,3 +31,17 @@ st.sidebar.markdown('''
 Made with ❤️ 
 
 ''')
+
+
+
+st.header("""
+DOfE
+""")
+
+st.subheader("""
+Daten für Alle
+""")
+
+st.write("""
+In der heutigen vernetzten Welt ist Daten zu einem integralen Bestandteil unseres Lebens geworden und durchdringt jeden Aspekt. Wirtschaftliche Indikatoren haben dabei eine herausragende Rolle in unseren täglichen Routinen eingenommen. Gespräche über Inflation, wirtschaftliche Stabilität und globale Wirtschaftstrends sind alltäglich geworden. Ein häufig auftretendes Problem ist jedoch, dass die Indikatoren, denen wir in unserem Alltag begegnen, oft zu allgemein gehalten sind. Wir hören vielleicht von globalen Phänomenen wie steigenden Temperaturen oder sich ändernden Wettermustern, aber oft fehlt uns ein klares Verständnis dafür, was in unserer unmittelbaren Umgebung geschieht. Diese Website untersucht die Bedeutung der Präsentation von wirtschaftlichen und wetterbezogenen Indikatoren auf lokaler Ebene, am Beispiel deutscher Bundesländer, und bietet Erklärungen, um Bürgerinnen und Bürgern wertvolle Einblicke zu vermitteln.
+""")
