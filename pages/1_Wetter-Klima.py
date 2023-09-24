@@ -10,6 +10,11 @@ import plost
 import json
 import locale
 
+import streamlit.components.v1 as components
+
+
+
+
 
 #map months in german 
 map_months = {"January": "Januar", "February": "Februar", "March": "März", "April": "April", "May": "Mai", "June": "Juni", "July": "Juli", "August": "August", "September": "September", "October": "Oktober", "November": "November", "December": "Dezember"
@@ -36,6 +41,9 @@ st.write(
 )
 
 
+
+
+
 #set the each item at the page
 with open('style.css') as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
@@ -45,6 +53,13 @@ with open('style.css') as f:
 with open('exp00.json', 'r', encoding='utf-8') as f:
     exp = json.load(f)
 
+button_style = """
+<style>
+.stButton > button {
+color:red;
+}
+"""
+st.markdown(button_style, unsafe_allow_html=True)
     
 st.sidebar.header('MI4People')
 #st.subheader('Indicator')
@@ -57,8 +72,11 @@ Made with ❤️
 
 col1_button, col2_button = st.columns(2)
 
-but1 = col1_button.button("Wetter")
+    
+but1 = col1_button.button(f"Wetter")
+
 but2 = col2_button.button("Klima")
+
 but2 = True
 
 
