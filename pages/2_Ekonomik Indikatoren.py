@@ -31,7 +31,13 @@ with open('style.css') as f:
 with open('exp00.json', 'r', encoding='utf-8') as f:
     exp = json.load(f)
 
-    
+button_style = """
+<style>
+.stButton > button {
+color:red;
+}
+"""
+st.markdown(button_style, unsafe_allow_html=True)   
     
 st.sidebar.header('MI4People')
 key = 'Inflation'
