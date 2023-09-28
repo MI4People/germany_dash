@@ -184,11 +184,11 @@
          "reasons": "Factors that can influence changes in the HDI include investments in education and healthcare, income inequality, social and political stability, and government policies focused on human development."
       },
       "Deutsch": {
-         "meaning": "Der Human Development Index (HDI) ist ein Maß für das Wohlergehen und die Entwicklung der Menschen in einem Land. Er berücksichtigt Faktoren wie die Lebenserwartung, Bildung und Einkommen, um ein umfassenderes Verständnis von Lebensqualität für Einzelpersonen in einer Gesellschaft zu bieten.",
-         "calculation": "Der HDI wird anhand von drei Dimensionen berechnet: Lebenserwartung bei der Geburt, durchschnittliche Schuljahre und Bruttonationaleinkommen pro Kopf. Jede Dimension wird einen Wert zwischen 0 und 1 zugewiesen, und der endgültige HDI ist das geometrische Mittel dieser Werte.",
-         "example": "Ein Land mit einem hohen HDI weist beispielsweise eine längere Lebenserwartung, höheren Bildungsstand und höhere Einkommensniveaus für seine Bevölkerung auf, was eine insgesamt höhere Lebensqualität widerspiegelt.",
-         "impact": "Ein Anstieg des HDI deutet auf Verbesserungen des Wohlergehens und der Entwicklung der Menschen hin, einschließlich eines besseren Zugangs zur Gesundheitsversorgung, Bildung und wirtschaftlichen Möglichkeiten. Er signalisiert Fortschritte bei der Erreichung höherer Lebensstandards und der Verringerung von Unterschieden zwischen den Menschen in einer Gesellschaft.",
-         "reasons": "Faktoren, die Veränderungen des HDI beeinflussen können, sind Investitionen in Bildung und Gesundheitswesen, Einkommensungleichheit, soziale und politische Stabilität sowie Regierungspolitik, die auf die menschliche Entwicklung abzielt."
+         "meaning": "Der Human Development Index (HDI) ist ein Maßstab für das Wohlergehen und die Entwicklung der Menschen in einem Land. Er berücksichtigt Faktoren wie Lebenserwartung, Bildung und Einkommen, um ein umfassenderes Verständnis von Lebensqualität für die Individuen in einer Gesellschaft zu bieten.",
+         "calculation": "Der HDI wird anhand von drei Hauptdimensionen ermittelt: Lebenserwartung bei der Geburt, durchschnittliche Schulbildung und Bruttonationaleinkommen pro Kopf. Jede dieser Dimensionen erhält einen Wert zwischen 0 und 1 zugewiesen, und der endgültige HDI ergibt sich als das geometrische Mittel dieser Werte.",
+         "example": "Ein Land mit einem hohen HDI weist beispielsweise eine längere Lebenserwartung, ein höheres Bildungsniveau und höhere Einkommensniveaus für seine Bevölkerung auf, was insgesamt eine bessere Lebensqualität widerspiegelt.",
+         "impact": "Ein Anstieg des HDI deutet auf Verbesserungen im Wohlergehen und in der Entwicklung der Menschen hin, einschließlich eines verbesserten Zugangs zur Gesundheitsversorgung, Bildung und wirtschaftlichen Chancen. Er signalisiert Fortschritte bei der Erreichung höherer Lebensstandards und bei der Verringerung von Unterschieden zwischen den Menschen in einer Gesellschaft.",
+         "reasons": "Verschiedene Faktoren können Veränderungen im HDI beeinflussen, darunter Investitionen in Bildung und Gesundheitswesen, Einkommensungleichheit, soziale und politische Stabilität sowie staatliche Politiken, die auf die Förderung der menschlichen Entwicklung abzielen."
       }
    },
    "gd": {
