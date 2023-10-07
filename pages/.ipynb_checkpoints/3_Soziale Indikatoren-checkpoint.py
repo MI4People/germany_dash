@@ -32,7 +32,7 @@ with open('style.css') as f:
 st.sidebar.header('MI4People')
 
 
-st.subheader('Soziaöe Indikatoren auf jahrlicher Basis')
+st.subheader('Soziale Indikatoren auf jahrlicher Basis')
 key = st.selectbox('Wählen Sie den Indikator aus', liste.keys( )) 
 indicator = liste[key]
 
