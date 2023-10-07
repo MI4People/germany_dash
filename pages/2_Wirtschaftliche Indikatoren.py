@@ -57,7 +57,7 @@ if but1:
     but2 = False
     df = pd.read_csv("data_month.csv", index_col=0)
 
-
+    st.subheader('Wirtschaftliche Indikatoren auf monatlich Basis')
     df = df.dropna()
 
     state = st.selectbox('Wählen Sie ein Bundesland', set(df.state))
@@ -212,6 +212,7 @@ if but1:
         flag = True
     st.write("*Datenquelle: Destatis")
 if but2:
+    st.subheader('Wirtschaftliche Indikatoren auf jahrlicher Basis')
     de = pd.read_csv('bun_year_dsh.csv', index_col=0)
     de.year = de.year.astype(str)
     co = pd.read_csv('total_dsh.csv', index_col=0)
