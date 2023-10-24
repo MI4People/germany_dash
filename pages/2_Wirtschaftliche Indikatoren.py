@@ -31,14 +31,6 @@ css =  """
         color: white !important; /* Text color when button is clicked */
     }
     
-
-    .st-emotion-cache-12w0qpk {
-        background-color: #FFFFFF;
-        padding: 3% 3% 3% 3%;
-        border-radius: 5px;
-        border-left: 0.5rem solid #9AD8E1 !important;
-        box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15) !important;
-    }
     </style>
     """
 st.markdown(css, unsafe_allow_html=True)
