@@ -25,41 +25,40 @@ map_months = {"January": "Januar", "February": "Februar", "March": "März", "Apr
 st.set_page_config(layout='wide', initial_sidebar_state='expanded',page_title="dofe.mi4people",
     page_icon="🇩🇪")
 
-#set page style
-st.write(
-    """
+css =  """
     <style>
     [data-testid="stMetricDelta"] svg {
         display: none;
     }
-     .stApp {
-    base-color: light;
+    
+
+    
+    .stButton>button {
+        background-color: rgb(240, 242, 246) !important; /* Background color when button is clicked */
+        color: black !important; /* Text color when button is clicked */
+    }
+    .stButton>button:focus {
+        background-color: red !important; /* Background color when button is clicked */
+        color: white !important; /* Text color when button is clicked */
+    }
+    
+
+    .st-emotion-cache-12w0qpk {
+        background-color: #FFFFFF;
+        padding: 3% 3% 3% 3%;
+        border-radius: 5px;
+        border-left: 0.5rem solid #9AD8E1 !important;
+        box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15) !important;
     }
     </style>
-    """,
-    unsafe_allow_html=True,
-)
-
-
-
-
-
-#set the each item at the page
-with open('style.css') as f:
-    st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
-    
+    """
+st.markdown(css, unsafe_allow_html=True)
     
 #read the data for explanation    
 with open('exp00.json', 'r', encoding='utf-8') as f:
     exp = json.load(f)
 
-button_style = """
-<style>
-.stButton > button {
-color:red;
-}
-"""
-st.markdown(button_style, unsafe_allow_html=True)
+
     
 st.sidebar.header('MI4People')
 #st.subheader('Indicator')
