@@ -23,12 +23,14 @@ css =  """
 
     
     .stButton>button {
-        background-color: rgb(240, 242, 246) !important; /* Background color when button is clicked */
-        color: black !important; /* Text color when button is clicked */
+        background-color: rgb(240, 242, 246) !important; 
+        color: black !important; 
+        width: 100%
     }
     .stButton>button:focus {
-        background-color: red !important; /* Background color when button is clicked */
-        color: white !important; /* Text color when button is clicked */
+        background-color: red !important;
+        color: white !important; 
+        width: 100%;
     }
     
     </style>
@@ -46,14 +48,23 @@ st.sidebar.markdown('''
 Made with ❤️  
 ''')
 
+# Initialize the session state
+if 'button1_selected' not in st.session_state:
+    st.session_state.button1_selected = False
+
+if 'button2_selected' not in st.session_state:
+    st.session_state.button2_selected = True
+
 col1_button, col2_button = st.columns(2)
 
-but1 = col1_button.button("Monatlich")
-but2 = col2_button.button("Jahrlich")
-but2 = True
-
-if but1: 
-    but2 = False
+if col1_button.button("Monatlich"):
+    st.session_state.button1_selected = True
+    st.session_state.button2_selected = False
+if col2_button.button("Jahrlich"):
+    st.session_state.button1_selected = False
+    st.session_state.button2_selected = True
+if st.session_state.button1_selected: 
+    
     df = pd.read_csv("data_month.csv", index_col=0)
 
     st.subheader('Wirtschaftliche Indikatoren auf monatlich Basis')
@@ -210,7 +221,7 @@ if but1:
         col2_x.table(temp)
         flag = True
     st.write("*Datenquelle: Destatis")
-if but2:
+if st.session_state.button2_selected:
     st.subheader('Wirtschaftliche Indikatoren auf jahrlicher Basis')
     de = pd.read_csv('bun_year_dsh.csv', index_col=0)
     de.year = de.year.astype(str)

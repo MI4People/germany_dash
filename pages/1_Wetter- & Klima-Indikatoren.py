@@ -34,12 +34,14 @@ css =  """
 
     
     .stButton>button {
-        background-color: rgb(240, 242, 246) !important; /* Background color when button is clicked */
-        color: black !important; /* Text color when button is clicked */
+        background-color: rgb(240, 242, 246) !important;
+        color: black !important; 
+        width: 100%;
     }
     .stButton>button:focus {
-        background-color: red !important; /* Background color when button is clicked */
-        color: white !important; /* Text color when button is clicked */
+        background-color: red !important; 
+        color: white !important; 
+        width: 100%;
     }
     
 
@@ -63,20 +65,25 @@ st.sidebar.markdown('''
 Made with ❤️ 
 ''')
 
+# Initialize the session state
+if 'button1_selected' not in st.session_state:
+    st.session_state.button1_selected = False
+
+if 'button2_selected' not in st.session_state:
+    st.session_state.button2_selected = True
+
 col1_button, col2_button = st.columns(2)
 
+if col1_button.button("Monatlich"):
+    st.session_state.button1_selected = True
+    st.session_state.button2_selected = False
+if col2_button.button("Jahrlich"):
+    st.session_state.button1_selected = False
+    st.session_state.button2_selected = True
+
     
-but1 = col1_button.button(f"Wetter")
-
-but2 = col2_button.button("Klima")
-
-but2 = True
-
-
-    
-if but1:
-    but2 = False
-   # st.session_state["button1"] = not st.session_state["button1"]
+if st.session_state.button1_selected:
+   
     st.subheader('Temperatur')
     #data for cities
     df = pd.read_csv('de.csv', engine='python',  encoding = "ISO-8859-1", index_col=0)
@@ -416,7 +423,7 @@ if but1:
          print('There is an unsolved propbem, please go to other pages')
     st.write("*Datenqualle: Meteostat")
 
-if but2:
+if st.session_state.button2_selected:
     #st.session_state["button2"] = not st.session_state["button2"]
 
     de = pd.read_csv('bun_year_dsh.csv', index_col=0)
