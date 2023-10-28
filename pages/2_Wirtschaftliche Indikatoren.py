@@ -64,7 +64,7 @@ if col2_button.button("Jahrlich"):
     st.session_state.button1_selected = False
     st.session_state.button2_selected = True
 if st.session_state.button1_selected: 
-    
+st.write('hey')    
     df = pd.read_csv("data_month.csv", index_col=0)
 
     st.subheader('Wirtschaftliche Indikatoren auf monatlich Basis')
