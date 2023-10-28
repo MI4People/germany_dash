@@ -74,10 +74,10 @@ if 'button2_selected' not in st.session_state:
 
 col1_button, col2_button = st.columns(2)
 
-if col1_button.button("Monatlich"):
+if col1_button.button("Temperatur"):
     st.session_state.button1_selected = True
     st.session_state.button2_selected = False
-if col2_button.button("Jahrlich"):
+if col2_button.button("Klima"):
     st.session_state.button1_selected = False
     st.session_state.button2_selected = True
 
