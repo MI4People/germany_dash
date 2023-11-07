@@ -594,7 +594,7 @@ if st.session_state.button2_selected:
 
 
     with col1_x:
-        col1_x.table(data=temp_de[['state','year',indicator]].rename(mapper = show_list_1, axis = 1).style.format({key:"{:.3}"}))
+        col1_x.table(data=temp_de[['state','year',indicator]].rename(mapper = show_list_1, axis = 1))
 
 
     col2_x = col2.expander('Ranking in ausgewählten Ländern')
