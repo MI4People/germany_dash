@@ -204,7 +204,7 @@ col1_x = col1.expander('Ranking in Deutschland')
 
 
 with col1_x:
-    col1_x.table(data=temp_de[['state','year',indicator]].rename(mapper = show_list_1, axis = 1) )
+    col1_x.table(data=temp_de[['state','year',indicator]].rename(mapper = show_list_1, axis = 1).style.format({key:"{:.3}"}) )
 
 
 col2_x = col2.expander('Ranking in ausgewählten Ländern')
