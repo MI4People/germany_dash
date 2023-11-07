@@ -230,7 +230,7 @@ if st.session_state.button1_selected:
         temp.columns = ['Datum','Durch. Temp.']
         with c2_x:
 
-            c2_x.table(temp.style.format({"Durch. Temp.":"{:.3}"}))
+            c2_x.table(temp)
 
         col1, col2 = st.columns([3, 1])
 
@@ -264,7 +264,7 @@ if st.session_state.button1_selected:
         temp.columns = ['Datum', 'Durch. Temp.']
         temp.index +=1 
         with col2_x:
-            col2_x.table(temp.style.format({"Durch. Temp.":"{:.3}"}))
+            col2_x.table(temp)
 
 
         #temp over years
@@ -318,7 +318,7 @@ if st.session_state.button1_selected:
         temp.index +=1
         temp.columns = ['Datum', 'Durch. Temp.']
         with col2_x:
-            col2_x.table(temp.style.format({"Durch. Temp.":"{:.3}"}))
+            col2_x.table(temp)
 
 
         #Rain
@@ -371,7 +371,7 @@ if st.session_state.button1_selected:
         temp.index +=1
         temp.columns = ['Datum', 'Durch. Nider.']
         with col2_x:
-            col2_x.table(temp.style.format({"Durch. Nider.":"{:.5}"}))
+            col2_x.table(temp)
 
         #rain for years
         col1, col2 = st.columns([3, 1])
@@ -418,9 +418,9 @@ if st.session_state.button1_selected:
         temp.index +=1
         temp.columns = ['Datum', 'Durch. Nider.']
         with col2_x:
-            col2_x.table(temp.style.format({"Durch. Nider.":"{:.5}"}))
+            col2_x.table(temp)
     except:
-         print('There is an unsolved propbem, please go to other pages')
+         st.write('There is an unsolved propbem, please go to other pages')
     st.write("*Datenqualle: Meteostat")
 
 if st.session_state.button2_selected:
@@ -567,7 +567,7 @@ if st.session_state.button2_selected:
     temp = de[(de.state == state)&(de.year > '2012')][['state','year',indicator]].dropna().rename(mapper = show_list_1, axis = 1).reset_index(drop = True)
     temp.columns = ['Bundesländer', 'Datum',key]
     temp.index +=1
-    temp_c2_x = temp.style.format({key:"{:.3}"})
+    temp_c2_x = temp 
     with c2_x:
 
         c2_x.table(temp)
