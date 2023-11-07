@@ -419,8 +419,8 @@ if st.session_state.button1_selected:
         temp.columns = ['Datum', 'Durch. Nider.']
         with col2_x:
             col2_x.table(temp)
-    except e:
-        st.write(e)
+    except Exception as error::
+        st.write(error)
         st.write('There is an unsolved propbem, please go to other pages')
     st.write("*Datenqualle: Meteostat")
     
