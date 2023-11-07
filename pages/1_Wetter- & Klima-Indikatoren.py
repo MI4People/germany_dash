@@ -419,9 +419,11 @@ if st.session_state.button1_selected:
         temp.columns = ['Datum', 'Durch. Nider.']
         with col2_x:
             col2_x.table(temp)
-    except:
-         st.write('There is an unsolved propbem, please go to other pages')
+    except e:
+        st.write(e)
+        st.write('There is an unsolved propbem, please go to other pages')
     st.write("*Datenqualle: Meteostat")
+    
 
 if st.session_state.button2_selected:
     #st.session_state["button2"] = not st.session_state["button2"]
