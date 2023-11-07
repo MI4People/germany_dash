@@ -189,7 +189,7 @@ if st.session_state.button1_selected:
     temp.columns = ['Bundesländer', 'Datum','Inflation']
     with c2_x:
 
-        c2_x.table(temp.style.format({key:"{:.3}"}))
+        c2_x.table(temp )
 
 
 
@@ -369,7 +369,7 @@ if st.session_state.button2_selected:
     temp.index +=1
     with c2_x:
 
-        c2_x.table(temp.style.format({key:"{:.3}"}))
+        c2_x.table(temp )
 
 
 
@@ -393,7 +393,7 @@ if st.session_state.button2_selected:
 
 
     with col1_x:
-        col1_x.table(data=temp_de[['state','year',indicator]].rename(mapper = show_list_1, axis = 1).style.format({key:"{:.3}"}))
+        col1_x.table(data=temp_de[['state','year',indicator]].rename(mapper = show_list_1, axis = 1) )
 
 
     col2_x = col2.expander('Ranking in ausgewählten Ländern')
