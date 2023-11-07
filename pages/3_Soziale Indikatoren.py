@@ -229,7 +229,7 @@ with col2_x:
         temp.index +=1
         temp.columns = ['Ranking','Länder', 'Datum','Region', 'Einkommen Level',key]
 
-        col2_x.table(temp)
+        col2_x.table(temp..style.format({key:"{:.3}"}))
         
 st.write("*Datenquelle: World Bank, Destatis")
 
