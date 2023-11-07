@@ -570,7 +570,7 @@ if st.session_state.button2_selected:
     temp_c2_x = temp.style.format({key:"{:.3}"})
     with c2_x:
 
-        c2_x.table(temp_c2_x)
+        c2_x.table(temp)
 
 
 
