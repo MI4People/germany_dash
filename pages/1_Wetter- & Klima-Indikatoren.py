@@ -74,7 +74,7 @@ if 'button2_selected' not in st.session_state:
 
 col1_button, col2_button = st.columns(2)
 
-if col1_button.button("Temperatur"):
+if col1_button.button("Temperatur "):
     st.session_state.button1_selected = True
     st.session_state.button2_selected = False
 if col2_button.button("Klima"):
@@ -567,9 +567,10 @@ if st.session_state.button2_selected:
     temp = de[(de.state == state)&(de.year > '2012')][['state','year',indicator]].dropna().rename(mapper = show_list_1, axis = 1).reset_index(drop = True)
     temp.columns = ['Bundesländer', 'Datum',key]
     temp.index +=1
+    temp_c2_x = temp.style.format({key:"{:.3}"})
     with c2_x:
 
-        c2_x.table(temp.style.format({key:"{:.3}"}))
+        c2_x.table(temp_c2_x)
 
 
 
