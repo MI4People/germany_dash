@@ -21,15 +21,10 @@ css =  """
     }
     
 
-    
-    .stButton>button {
-        background-color: rgb(240, 242, 246) !important; 
-        color: black !important; 
-        width: 100%
-    }
-    .stButton>button:focus {
-        background-color: red !important;
-        color: white !important; 
+
+     .button, [type="button"]  {
+        font-size: 14px;
+        margin: 0;
         width: 100%;
     }
     
@@ -48,24 +43,10 @@ st.sidebar.markdown('''
 Made with ❤️  
 ''')
 
-# Initialize the session state
-if 'button1_selected' not in st.session_state:
-    st.session_state.button1_selected = False
+tab1, tab2 = st.tabs(["Monatlich", "Jährlich"])
 
-if 'button2_selected' not in st.session_state:
-    st.session_state.button2_selected = True
 
-col1_button, col2_button = st.columns(2)
-
-if col1_button.button("Monatlich"):
-    st.session_state.button1_selected = True
-    st.session_state.button2_selected = False
-if col2_button.button("Jahrlich"):
-    st.session_state.button1_selected = False
-    st.session_state.button2_selected = True
-    
-
-if st.session_state.button1_selected: 
+with tab1: 
     
     df = pd.read_csv("data_month.csv", index_col=0)
 
@@ -223,7 +204,7 @@ if st.session_state.button1_selected:
         col2_x.table(temp)
         flag = True
     st.write("*Datenquelle: Destatis")
-if st.session_state.button2_selected:
+with tab2: 
     st.subheader('Wirtschaftliche Indikatoren auf jahrlicher Basis')
     de = pd.read_csv('bun_year_dsh.csv', index_col=0)
     de.year = de.year.astype(str)
@@ -341,8 +322,8 @@ if st.session_state.button2_selected:
     col4.metric("In Ländern mit hohem Einkommen", int(temp_in[temp_in.state == state].ranking.values[0]), '','normal',f'{question_mark} {int(temp_in[temp_in.state == state].ranking.values[0])} der Länder mit hohem Einkommen')
 
 
-    # Row B
-    #bar_df = de[de.state == state].rename(mapper = {indicator:key}, axis=1)
+
+   
     c1, c2 = st.columns([3, 1])
     with c1:
         st.markdown(f'### {key}')
@@ -383,10 +364,10 @@ if st.session_state.button2_selected:
 
     if indicator in ['bruttoinland','population_total', 'gdp_per', 'pop_growth', 'gdp_growth', 'hd', 'gd', 'sc']:
 
-        temp = temp[['state', 'year', 'region','incomeLevel', indicator]].sort_values(indicator,ascending=False)
+        temp = temp[['ranking','state', 'year', 'region','incomeLevel', indicator]].sort_values(indicator,ascending=False)
 
     else:
-        temp = temp[['state', 'year', 'region','incomeLevel', indicator]].sort_values(indicator)
+        temp = temp[['ranking','state', 'year', 'region','incomeLevel', indicator]].sort_values(indicator)
 
 
     col1_x = col1.expander('Ranking in Deutschland')
@@ -408,13 +389,13 @@ if st.session_state.button2_selected:
             temp.drop_duplicates(inplace=True)
             if indicator in ['bruttoinland','population_total', 'gdp_per', 'pop_growth', 'gdp_growth','hd', 'gd', 'sc']:
 
-                temp = temp[['state', 'year', 'region','incomeLevel', indicator]].sort_values(indicator,ascending=False)
+                temp = temp[['ranking','state', 'year', 'region','incomeLevel', indicator]].sort_values(indicator,ascending=False)
 
             else:
-                temp = temp[['state', 'year', 'region','incomeLevel', indicator]].sort_values(indicator)
+                temp = temp[['ranking','state', 'year', 'region','incomeLevel', indicator]].sort_values(indicator)
 
-            temp.reset_index(inplace=True)
-
+            temp['ranking'] = temp['ranking'].astype(int)
+            temp = temp.reset_index(drop= True)
             temp.index +=1
             temp.columns = ['Ranking','Länder', 'Datum','Region', 'Einkommen Level',key]
 

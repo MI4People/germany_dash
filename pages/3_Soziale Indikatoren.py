@@ -194,10 +194,10 @@ temp = temp_co.copy()
 
 if indicator in ['bruttoinland','population_total', 'gdp_per', 'pop_growth', 'gdp_growth', 'hd', 'gd', 'sc']:
 
-    temp = temp[['state', 'year', 'region','incomeLevel', indicator]].sort_values(indicator,ascending=False)
+    temp = temp[['ranking','state', 'year', 'region','incomeLevel', indicator]].sort_values(indicator,ascending=False)
 
 else:
-    temp = temp[['state', 'year', 'region','incomeLevel', indicator]].sort_values(indicator)
+    temp = temp[['ranking','state', 'year', 'region','incomeLevel', indicator]].sort_values(indicator)
 
 
 col1_x = col1.expander('Ranking in Deutschland')
@@ -219,16 +219,19 @@ with col2_x:
         temp.drop_duplicates(inplace=True)
         if indicator in ['bruttoinland','population_total', 'gdp_per', 'pop_growth', 'gdp_growth','hd', 'gd', 'sc']:
 
-            temp = temp[['state', 'year', 'region','incomeLevel', indicator]].sort_values(indicator,ascending=False)
+            temp = temp[['ranking','state', 'year', 'region','incomeLevel', indicator]].sort_values(indicator,ascending=False)
 
         else:
-            temp = temp[['state', 'year', 'region','incomeLevel', indicator]].sort_values(indicator)
+            temp = temp[['ranking','state', 'year', 'region','incomeLevel', indicator]].sort_values(indicator)
 
-        temp.reset_index(inplace=True)
+      
 
+        temp = temp.reset_index(drop= True)
         temp.index +=1
         temp.columns = ['Ranking','Länder', 'Datum','Region', 'Einkommen Level',key]
-
+        
+        temp['Ranking'] = temp['Ranking'].astype(int)
+        
         col2_x.table(temp)
         
 st.write("*Datenquelle: World Bank, Destatis")
