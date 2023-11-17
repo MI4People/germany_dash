@@ -7,6 +7,7 @@ st.set_page_config(layout='wide', initial_sidebar_state='expanded',page_title="d
     
     
     
+    
 st.sidebar.header('MI4People')
 #st.subheader('Indicator')
 
