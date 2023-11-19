@@ -34,11 +34,12 @@ css =  """
 
     
     .button, [type="button"]  {
-        font-size: 20px;
+        font-size: 120px;
         margin: 0;
         width: 100%;
     }
-
+    
+    
     </style>
     """
 st.markdown(css, unsafe_allow_html=True)
@@ -46,7 +47,6 @@ st.markdown(css, unsafe_allow_html=True)
 #read the data for explanation    
 with open('exp00.json', 'r', encoding='utf-8') as f:
     exp = json.load(f)
-
 
     
 st.sidebar.header('MI4People')
