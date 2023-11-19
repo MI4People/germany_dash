@@ -20,7 +20,11 @@ css =  """
         display: none;
     }
     
-
+    .stTabs [data-baseweb="tab"] {
+     font-size: calc(1.3rem + .6vw);
+        margin: 0;
+        width: 100%;
+    }
 
      .button, [type="button"]  {
         font-size: calc(1.3rem + .6vw);
