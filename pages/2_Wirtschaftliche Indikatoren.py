@@ -23,7 +23,7 @@ css =  """
 
 
      .button, [type="button"]  {
-        font-size: calc(1.3rem + .6vw);;
+        font-size: calc(1.3rem + .6vw);
         margin: 0;
         width: 100%;
     }
