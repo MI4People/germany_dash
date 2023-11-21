@@ -281,7 +281,9 @@ with tab2:
     end = datetime(end.year, end.month, end.day)
 
 
-    try: 
+    try:
+        with open('exp00.json', 'r', encoding='utf-8') as f:
+            exp = json.load(f)
         key = 'Temperature'
         value_dic = {'Temperature':'tavg', 'Rain':'prcp'}
         val_key = value_dic[key]
@@ -393,12 +395,12 @@ with tab2:
              use_container_width=True 
 
             )
-
+           
             #small explanation 
             st_exp_de = st.expander('Kurze Erklärung')
-
-            with st_exp_de:             
-                    st.write(exp[key]['Deutsch']['meaning']) 
+         
+            with st_exp_de:
+                st.write(exp[key]['Deutsch']['meaning']) 
 
 
         #values from the bar plot
@@ -599,7 +601,7 @@ with tab2:
         with col2_x:
             col2_x.table(temp)
     except Exception as error:
-       # st.write(error)
+        st.write(error)
         st.write('There is an unsolved propbem, please go to other pages')
     st.write("*Datenqualle: Meteostat")
     
