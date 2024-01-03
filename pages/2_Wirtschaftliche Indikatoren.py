@@ -120,7 +120,7 @@ with tab1:
 
 
     # Filter the data
-    df_s = df[(df.year < 2023) &(df.year> 2019) & (df.state == state)]
+    df_s = df[(df.year < datetime.today().year) & (df.year> datetime.today().year - 4) & (df.state == state)]
     filtered_df = df_s
 
     fig = go.Figure()
