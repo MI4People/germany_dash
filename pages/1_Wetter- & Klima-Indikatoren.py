@@ -321,8 +321,11 @@ with tab2:
         hourly_now = hourly_now.fetch()
 
         #get the hourly data for one year before
-        hourly_one_year = Hourly(location, n_1,n_1)
-        hourly_one_year = hourly_one_year.fetch()
+        try:
+            hourly_one_year = Hourly(location, n_1,n_1)
+            hourly_one_year = hourly_one_year.fetch()
+        except:
+            hourly_one_year = hourly_now
 
 
         #prep data for regression
